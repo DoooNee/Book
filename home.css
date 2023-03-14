@@ -1,0 +1,138 @@
+/* Reseting */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*  */
+
+.wrapper {}
+
+.user {
+    display: block;
+    height: 25px;
+    width: 100%;
+    text-align: end;
+    padding-right: 10vw;
+}
+
+.title_dashboard {
+    background: rgb(83, 181, 220);
+    height: 100px;
+    line-height: 100px;
+    margin-bottom: 2vw;
+}
+
+.title_dashboard h1 {
+    margin-left: 10vw;
+}
+
+
+.container {
+    display: flex;
+    height: 70vh;
+    margin: 0 10vw;
+}
+
+.nav {
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius: 5px;
+}
+
+.nav li {
+    line-height: 50px;
+
+}
+
+.nav li i {
+    margin: 0 0.8vw;
+}
+
+.dashboard {
+    line-height: 50px;
+}
+
+.inforDaiLy {}
+
+.exit {
+    margin-top: 49vh;
+}
+
+
+.content {
+    width: 80%;
+    border-radius: 5px;
+    margin-left: 2vw;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+}
+
+.content_dashboard {
+}
+
+.nav_content {
+    display: flex;
+    border-radius: 5px;
+
+}
+
+.lich_su_nap {
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px;
+
+}
+
+.lich_su_chuyen {
+    width: 50%;
+
+    line-height: 50px;
+    text-align: center;
+
+}
+
+
+
+.bang_lich_su {
+    background: rgb(172, 164, 164);
+    height: 100%;
+    border-radius: 5px;
+}
+
+
+
+.content_inforDaiLy {
+}
+
+
+
+.content_inforDaiLy {
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    line-height: 40px;
+    display: none;
+}
+
+
+.content_inforDaiLy_ten{
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 40px;
+    border-radius: 5px;
+}
+
+
