@@ -27,14 +27,14 @@ a {
     padding-right: 10vw;
 }
 
-.title_dashboard {
+.title {
     background: rgb(83, 181, 220);
     height: 100px;
     line-height: 100px;
     margin-bottom: 2vw;
 }
 
-.title_dashboard h1 {
+.title h1 {
     margin-left: 10vw;
 }
 
@@ -79,8 +79,7 @@ a {
 
 }
 
-.content_dashboard {
-}
+.content_dashboard {}
 
 .nav_content {
     display: flex;
@@ -92,7 +91,7 @@ a {
     width: 50%;
     line-height: 50px;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 
 }
 
@@ -114,8 +113,7 @@ a {
 
 
 
-.content_inforDaiLy {
-}
+.content_inforDaiLy {}
 
 
 
@@ -128,11 +126,9 @@ a {
 }
 
 
-.content_inforDaiLy_ten{
+.content_inforDaiLy_ten {
     width: 100%;
     border: 1px solid #ccc;
     height: 40px;
     border-radius: 5px;
 }
-
-
