@@ -19,14 +19,28 @@ a {
 
 .wrapper {}
 
-.user {
-    display: block;
+/* nav */
+.nav {
+    display: flex;
     height: 25px;
     width: 100%;
-    text-align: end;
     padding-right: 10vw;
+    justify-content: end;
+    line-height: 25px;
+
 }
 
+.user {
+    margin-right: 1.3vw;
+}
+
+.nav i {
+    margin: 0 0.4vw;
+    line-height: 10px;
+}
+
+
+/* title */
 .title {
     background: rgb(83, 181, 220);
     height: 100px;
@@ -39,24 +53,26 @@ a {
 }
 
 
+
+/* container */
 .container {
     display: flex;
-    height: 70vh;
+    height: 75vh;
     margin: 0 10vw;
 }
 
-.nav {
+.sidebar {
     width: 20%;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     border-radius: 5px;
 }
 
-.nav li {
+.sidebar li {
     line-height: 50px;
 
 }
 
-.nav li i {
+.sidebar li i {
     margin: 0 0.8vw;
 }
 
@@ -76,12 +92,15 @@ a {
     border-radius: 5px;
     margin-left: 2vw;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    padding-top: 1.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
 
 }
 
 .content_dashboard {}
 
-.nav_content {
+.sidebar_content {
     display: flex;
     border-radius: 5px;
 
@@ -97,18 +116,25 @@ a {
 
 .lich_su_chuyen {
     width: 50%;
-
     line-height: 50px;
     text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 
+
+}
+
+.active a{
+   color: rgb(255, 0, 0);
+   font-weight: 600;
 }
 
 
 
 .bang_lich_su {
-    background: rgb(172, 164, 164);
-    height: 100%;
+    height: 450px;
     border-radius: 5px;
+    overflow: auto;
+    margin-top: 10px;
 }
 
 
@@ -131,4 +157,17 @@ a {
     border: 1px solid #ccc;
     height: 40px;
     border-radius: 5px;
+    padding-left: 10px;
+}
+
+table,
+td,
+th {
+    border: 1px solid;
+    padding: 7px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
 }
