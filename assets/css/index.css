@@ -186,8 +186,8 @@ table {
     height: 100vh;
     background: #53b5dc;
     background-color: rgb(193, 206, 212,0.9);
-
-}
+    display: none;
+}   
 
 .popup {
     position: absolute;

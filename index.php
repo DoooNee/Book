@@ -1,3 +1,7 @@
+<?php
+   // Khởi tạo phiên
+   session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +21,9 @@
     <div class="wrapper">
         <div class="nav">
             <div class="user">
-                <i class="fa-solid fa-user"></i><span class="user_name">Le Quoc Do</span>
+                <i class="fa-solid fa-user"></i><span class="user_name"></span>
             </div>
-            <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="VP">0</span></div>
+            <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="GP">0</span></div>
 
         </div>
 
@@ -36,7 +40,7 @@
                                 class="fa-solid fa-user"></i>DashBoard</a></li>
                     <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
                             Tin Đại Lý</a></li>
-                    <li class="exit"> <a href=""><i class="fa-solid fa-user"></i>Đăng Xuất</a></li>
+                    <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-user"></i>Đăng Xuất</a></li>
                 </ul>
 
             </div>
@@ -67,7 +71,7 @@
                     <h4>Tổng Nạp (GP)</h4>
                     <div class="content_inforDaiLy_form"><span id="tongNap"></span></div>
                     <h4>Số Dư Ví</h4>
-                    <div class="content_inforDaiLy_form"><span class="VP"></span></div>
+                    <div class="content_inforDaiLy_form"><span class="GP"></span></div>
                 </div>
             </div>
 
@@ -89,7 +93,7 @@
                         <label for="">Mật Khẩu:</label> <br>
                         <input class="mat_khau" type="password">
                     </div>
-                    <input onclick="handleSubmit()" class="submit" type="button" value="Đăng Nhập">
+                    <input onclick="login()" class="submit" type="button" value="Đăng Nhập">
 
                 </form>
             </div>
