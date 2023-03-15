@@ -47,7 +47,7 @@ function lichSuNap() {
             console.log(res.lichsunap)
             $('#table').html(res.lichsunap);
 
-                $(".lich_su_nap").addClass("active");
+            $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
 
 
@@ -80,7 +80,51 @@ function lichSuChuyen() {
         },
         complete: function () {
 
+        }
+    });
 }
+
+
+
+// popup
+
+$('.close').click(function () {
+    $('.popup').hide();
+});
+
+
+function handleSubmit() {
+    let loginname = $(".ten_dang_nhap").val();
+    let password = $(".mat_khau").val();
+    if (loginname == null || loginname == '') {
+        swal("Vui lòng điền tên đăng nhập!");
+        return 0;
+    }
+    if (password == null || password == '') {
+        swal("Vui lòng điền mật khẩu!");
+        return 0;
+    }
+
+
+    $.ajax({
+        url: 'https://ninjahuyenthoai.vn/daily/userinfor.php',
+        type: 'post',
+        data: {
+            loginname: loginname,
+            password: password,
+        },
+        dataType: 'json',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            if(res.status == 'success'){
+                $('.wrapper_popup').hide();
+            }
+            console.log(res)
+        },
+        complete: function () {
+        }
     });
 }
 
