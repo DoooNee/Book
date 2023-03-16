@@ -1,6 +1,6 @@
 <?php
-   // Khởi tạo phiên
-   session_start();
+// Khởi tạo phiên
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRANG CHỦ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/assets/css/index.css">
 
 </head>
@@ -36,11 +34,10 @@
         <div class="container">
             <div class="sidebar">
                 <ul>
-                    <li class="dashboard"><a href="javascript:showDashBoard();"><i
-                                class="fa-solid fa-user"></i>DashBoard</a></li>
+                    <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
                     <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
                             Tin Đại Lý</a></li>
-                    <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-user"></i>Đăng Xuất</a></li>
+                    <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
 
             </div>
@@ -48,9 +45,7 @@
                 <div class="content_dashboard">
                     <ul class="sidebar_content ">
                         <li class="lich_su_nap "><a href="javascript:lichSuNap();"> Lịch Sử Nạp</a></li>
-                        <li class="lich_su_chuyen "><a href="javascript:lichSuChuyen();"> Lịch Sử Chuyển Cho
-                                Khách
-                                Hàng</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:lichSuChuyen();"> Lịch Sử Chuyển </a></li>
                     </ul>
                     <div class="bang_lich_su">
                         <table id="table">
@@ -68,9 +63,9 @@
                     <div class="content_inforDaiLy_form"><span id="stk"></span></div>
                     <h4>Email</h4>
                     <div class="content_inforDaiLy_form"><span id="mail"></span></div>
-                    <h4>Tổng Nạp (GP)</h4>
+                    <h4>Tổng Nạp</h4>
                     <div class="content_inforDaiLy_form"><span id="tongNap"></span></div>
-                    <h4>Số Dư Ví</h4>
+                    <h4>Số Dư Ví (GP)</h4>
                     <div class="content_inforDaiLy_form"><span class="GP"></span></div>
                 </div>
             </div>

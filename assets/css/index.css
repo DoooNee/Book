@@ -133,7 +133,7 @@ a {
 
 
 .bang_lich_su {
-    height: 450px;
+    height: 62vh;
     border-radius: 5px;
     overflow: auto;
     margin-top: 10px;
@@ -185,9 +185,9 @@ table {
     width: 100%;
     height: 100vh;
     background: #53b5dc;
-    background-color: rgb(193, 206, 212,0.9);
+    background-color: rgb(193, 206, 212, 0.9);
     display: none;
-}   
+}
 
 .popup {
     position: absolute;
@@ -201,7 +201,7 @@ table {
     padding-top: 15px;
 }
 
-.form-group{
+.form-group {
     padding-left: 60px;
 }
 
@@ -210,11 +210,13 @@ table {
     width: 325px;
     border-radius: 5px;
     margin-bottom: 15px;
+    padding-left: 7px;
 }
 
 .mat_khau {
     height: 40px;
     width: 325px;
+    padding-left: 7px;
 
     border-radius: 5px;
 
