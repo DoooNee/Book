@@ -40,7 +40,7 @@
                                 class="fa-solid fa-user"></i>DashBoard</a></li>
                     <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
                             Tin Đại Lý</a></li>
-                    <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-user"></i>Đăng Xuất</a></li>
+                    <li class="exit"> <a href="https://ninjahuyenthoai.vn/daily/backend/logout.php"><i class="fa-solid fa-user"></i>Đăng Xuất</a></li>
                 </ul>
 
             </div>

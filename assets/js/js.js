@@ -6,8 +6,8 @@ $( document ).ready(function() {
 
 function loginCheck(){
     $.ajax({
-        //url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
-        url: '/backend/login.php',
+        url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
+  
         type: 'get',
         data: '',
         dataType: 'json',
