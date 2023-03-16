@@ -6,7 +6,9 @@ $( document ).ready(function() {
 
 function loginCheck(){
     $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
+        // url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
+        url: '/backend/login.php',
+
   
         type: 'get',
         data: '',
