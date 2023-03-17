@@ -44,7 +44,6 @@ function loginCheck() {
                 $('.chinh_sach').hide();
                 $('.code_thang').hide();
                 $('.chinh_sach').hide();
-                $('.user').hide();
                 $('.nav_soDu').hide();
 
 
@@ -107,7 +106,6 @@ function showChinhSach() {
     $('.content_inforDaiLy').hide();
     $('.content_kho_code').hide();
     $('.content_chich_sach').show();
-
     $('#title_id').html('Chích Sách Đại Lý');
 }
 
