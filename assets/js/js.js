@@ -33,11 +33,37 @@ function loginCheck() {
                 $('#stk').html(res.stk);
                 $('#mail').html(res.email);
             }
+
+            if (res.role != 'admin') {
+                $('#admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
+                $('#admin').hide();
+            } else {
+
+                $('.dashboard').hide();
+                $('.inforDaiLy').hide();
+                $('.chinh_sach').hide();
+                $('.code_thang').hide();
+                $('.chinh_sach').hide();
+                $('.user').hide();
+                $('.nav_soDu').hide();
+
+
+            }
+
         },
         complete: function () {
         }
     });
 }
+
+
+function checkAdmin() {
+    swal("Bạn Không Phải ADMIN!");
+}
+
+
+
+
 
 
 function addCommas(str) {
@@ -160,7 +186,7 @@ function lichSuChuyen() {
 // show table ADMIN
 function lichSuNapAD() {
     $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
+        url: 'https://ninjahuyenthoai.vn/daily/lichsunhanadmin.php',
         type: 'get',
         data: '',
         dataType: 'json',
@@ -171,7 +197,7 @@ function lichSuNapAD() {
             $('.table').html(res.lichsunap);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
-
+            console.log(res)
 
         },
         complete: function () {
@@ -187,25 +213,24 @@ function lichSuNapAD() {
 
 // show table ADMIN
 function lichSuChuyenAD() {
-    $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
-        type: 'get',
-        data: '',
-        dataType: 'json',
-        beforeSend: function () {
+    // $.ajax({
+    //     url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
+    //     type: 'get',
+    //     data: '',
+    //     dataType: 'json',
+    //     beforeSend: function () {
 
-        },
-        success: function (res) {
-            $('.table').html(res.lichsunap);
-            $(".lich_su_chuyen_admin").addClass("active");
-            $(".lich_su_nap_admin").removeClass("active");
+    //     },
+    //     success: function (res) {
+    //         $('.table').html(res.lichsunap);
+    //         $(".lich_su_chuyen_admin").addClass("active");
+    //         $(".lich_su_nap_admin").removeClass("active");
+    //         console.log(res.lichsunap);
+    //     },
+    //     complete: function () {
 
-            console.log(res.lichsunap);
-        },
-        complete: function () {
-
-        }
-    });
+    //     }
+    // });
 }
 
 
