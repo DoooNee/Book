@@ -43,7 +43,7 @@ session_start();
                             Tin Đại Lý</a></li>
                     <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
                     <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
-                    <li class="admin" id="admin"><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
+                    <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
 
@@ -92,7 +92,40 @@ session_start();
                     </ul>
                     <div class="bang_lich_su_admin">
                         <table class="table">
-                            
+                            <tr>
+                                <th>GP</th>
+                                <th>Tên nhân vật</th>
+                                <th>Trạng thái</th>
+                                <th>Thời gian</th>
+
+
+                            </tr>
+                            <tr>
+                                <td>10000</td>
+                                <td>HGluxy</td>
+                                <td> Đang xử lý</td>
+                                <td>
+                                    <div class="search disabled">
+                                        Tìm
+                                    </div>
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td>500</td>
+                                <td>Walnuts</td>
+                                <td> Hoàn thành</td>
+                                <td>
+                                    <div class="search">
+                                        Tìm
+                                    </div>
+                                </td>
+                            </tr>
+
+
+
+
                         </table>
                     </div>
                 </div>
