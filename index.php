@@ -31,12 +31,18 @@ session_start();
             </h1>
         </div>
 
+        <div style="overflow: hidden;width: auto;height: auto;">
+            <p class="thong_bao"></p>
+        </div>
+
         <div class="container">
             <div class="sidebar">
                 <ul>
                     <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
                     <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
                             Tin Đại Lý</a></li>
+                    <li class="dashboard"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
+                    <li class="dashboard"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
 
@@ -68,17 +74,27 @@ session_start();
                     <h4>Số Dư Ví (GP)</h4>
                     <div class="content_inforDaiLy_form"><span class="GP"></span></div>
                 </div>
+
+                <div class="content_chich_sach">
+                    CHÍNH SÁCH
+                </div>
+
+                <div class="content_kho_code">
+                    KHO CODE
+                </div>
+
+
             </div>
 
 
         </div>
-        <div class="wrapper_popup">
 
+
+        <!-- ĐĂNG NHẬP -->
+        <div class="wrapper_popup">
             <div class="popup">
                 <div style="font-size: 1.5rem;font-weight: 600;text-align: center;">Đăng Nhập</div>
-
                 <form action="">
-
                     <div class="form-group">
                         <label for="">Tên Đăng Nhập:</label><br>
                         <input class="ten_dang_nhap" type="text">
@@ -89,7 +105,6 @@ session_start();
                         <input class="mat_khau" type="password">
                     </div>
                     <input onclick="login()" class="submit" type="button" value="Đăng Nhập">
-
                 </form>
             </div>
         </div>

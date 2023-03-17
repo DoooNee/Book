@@ -1,15 +1,16 @@
-$( document ).ready(function() {
+$(document).ready(function () {
+    thongbao();
+
     loginCheck();
-    
 });
 
 
-function loginCheck(){
+function loginCheck() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
         url: '/backend/login.php',
 
-  
+
         type: 'get',
         data: '',
         dataType: 'json',
@@ -17,11 +18,11 @@ function loginCheck(){
         },
         success: function (res) {
             console.log(res);
-            if(res.isLogin == 0){
+            if (res.isLogin == 0) {
                 $('.wrapper_popup').show();
             }
 
-            else{
+            else {
                 $('.user_name').html(res.username);
                 let GP = addCommas(res.GP);
                 let tongnap = addCommas(res.tongnap);
@@ -44,30 +45,54 @@ function addCommas(str) {
     var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
     var len = arr.length; // Độ dài của chuỗi
     var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
-  
+
     // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
     while (commaIndex > 0) {
-      arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
-      commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
+        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
+        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
     }
-  
+
     // Ghép mảng các kí tự thành chuỗi và trả về
     return arr.join('');
-  }
+}
 
 
 
 function showDashBoard() {
     $('.content_dashboard').show();
     $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
     $('#title_id').html('DashBoard');
 
 }
 function showTTDaiLy() {
     $('.content_dashboard').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
     $('.content_inforDaiLy').show();
     $('#title_id').html('Thông Tin Đại Lý');
 }
+
+
+function showChinhSach() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_kho_code').hide();
+    $('.content_chich_sach').show();
+
+    $('#title_id').html('Chích Sách Đại Lý');
+}
+
+
+function showCODE() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').show();
+    $('#title_id').html('Kho CODE Tháng');
+}
+
+
 
 
 function lichSuNap() {
@@ -147,19 +172,19 @@ function login() {
 
         },
         success: function (res) {
-            if(res.status == "error"){
+            if (res.status == "error") {
                 swal("Thông báo!", "Thông tin đăng nhập không đúng!");
             }
 
-            else{
+            else {
                 swal({
                     title: "Thông báo!",
                     text: "Đăng nhập thành công!"
-                }).then(function() {
+                }).then(function () {
                     window.location = "/";
                 });
             }
-            
+
         },
         complete: function () {
         }
@@ -171,4 +196,24 @@ function login() {
 
 
 
+function thongbao() {
+
+    $.ajax({
+        url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
+        type: 'get',
+        data: '',
+        dataType: 'json',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            $('.thong_bao').html('aaaaaaaaaaaaaaa');
+            console.log(res)
+
+        },
+        complete: function () {
+
+        }
+    });
+}
 

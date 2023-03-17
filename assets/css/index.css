@@ -17,6 +17,7 @@ a {
 
 /*  */
 
+
 .wrapper {
     position: relative;
 }
@@ -47,7 +48,6 @@ a {
     background: rgb(83, 181, 220);
     height: 100px;
     line-height: 100px;
-    margin-bottom: 2vw;
 }
 
 .title h1 {
@@ -85,7 +85,7 @@ a {
 .inforDaiLy {}
 
 .exit {
-    margin-top: 49vh;
+    margin-top: 35vh;
 }
 
 
@@ -140,10 +140,7 @@ a {
 }
 
 
-
-.content_inforDaiLy {}
-
-
+/*  */
 
 .content_inforDaiLy {
     width: 50%;
@@ -173,6 +170,27 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
+
+
+
+/* content_chich_sach */
+
+.content_chich_sach {
+    width: 100%;
+    height: 300px;
+    background: red;
+    display: none;
+}
+
+
+.content_kho_code {
+    width: 100%;
+    height: 300px;
+    background: rgb(140, 195, 201);
+    display: none;
+}
+
+
 
 
 
@@ -239,4 +257,29 @@ table {
 
 .close:hover {
     cursor: pointer;
+}
+
+
+
+
+
+.thong_bao {
+    animation: animate reverse 10s linear infinite;
+    margin: 1vw;
+    color: red;
+    white-space: nowrap;
+
+}
+
+
+
+
+@keyframes animate {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
