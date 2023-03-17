@@ -60,12 +60,14 @@ function addCommas(str) {
 
 function showDashBoard() {
     $('.content_dashboard').show();
+    $('.content_admin').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
     $('#title_id').html('DashBoard');
 
 }
 function showTTDaiLy() {
+    $('.content_admin').hide();
     $('.content_dashboard').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
@@ -75,6 +77,7 @@ function showTTDaiLy() {
 
 
 function showChinhSach() {
+    $('.content_admin').hide();
     $('.content_dashboard').hide();
     $('.content_inforDaiLy').hide();
     $('.content_kho_code').hide();
@@ -87,14 +90,24 @@ function showChinhSach() {
 function showCODE() {
     $('.content_dashboard').hide();
     $('.content_inforDaiLy').hide();
+    $('.content_admin').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').show();
     $('#title_id').html('Kho CODE Tháng');
 }
 
 
+function showADMIN() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_admin').show();
+    $('#title_id').html('ADMIN');
+}
 
 
+// show table dashboard
 function lichSuNap() {
     $.ajax({
         url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
@@ -106,7 +119,6 @@ function lichSuNap() {
         success: function (res) {
             console.log(res.lichsunap)
             $('#table').html(res.lichsunap);
-
             $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
 
@@ -118,9 +130,7 @@ function lichSuNap() {
 }
 
 
-
-
-
+// show table dashboard
 function lichSuChuyen() {
 
     $.ajax({
@@ -143,6 +153,64 @@ function lichSuChuyen() {
         }
     });
 }
+
+
+
+
+
+// show table ADMIN
+function lichSuNapAD() {
+    $.ajax({
+        url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
+        type: 'get',
+        data: '',
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            console.log(res.lichsunap)
+            $('.table').html(res.lichsunap);
+            $(".lich_su_nap_admin").addClass("active");
+            $(".lich_su_chuyen_admin").removeClass("active");
+
+
+        },
+        complete: function () {
+        }
+    });
+}
+
+
+
+
+
+
+
+// show table ADMIN
+function lichSuChuyenAD() {
+    $.ajax({
+        url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
+        type: 'get',
+        data: '',
+        dataType: 'json',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            $('.stable').html(res.lichsunap);
+            $(".lich_su_chuyen_admin").addClass("active");
+            $(".lich_su_nap_admin").removeClass("active");
+
+
+        },
+        complete: function () {
+
+        }
+    });
+}
+
+
+
 
 
 
@@ -195,7 +263,7 @@ function login() {
 
 
 
-
+// thông báo game
 function thongbao() {
 
     $.ajax({
@@ -207,7 +275,7 @@ function thongbao() {
 
         },
         success: function (res) {
-            $('.thong_bao').html('aaaaaaaaaaaaaaa');
+            $('.thong_bao').html(res.noti);
             console.log(res)
 
         },

@@ -43,6 +43,7 @@ session_start();
                             Tin Đại Lý</a></li>
                     <li class="dashboard"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
                     <li class="dashboard"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
+                    <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
 
@@ -81,6 +82,18 @@ session_start();
 
                 <div class="content_kho_code">
                     KHO CODE
+                </div>
+
+                <!--  admin -->
+                <div class="content_admin">
+                    <ul class="sidebar_content ">
+                        <li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nạp</a></li>
+                        <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
+                    </ul>
+                    <div class="bang_lich_su_admin">
+                    <table class="table">
+                        </table>
+                    </div>
                 </div>
 
 
