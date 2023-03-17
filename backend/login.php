@@ -1,7 +1,7 @@
 <?php
 	session_start();
     
-    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = null;
+    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = null;
 
     //unset($_SESSION["username"]);
     
@@ -25,7 +25,7 @@
             $_SESSION["username"] = $username;
             //
             // thực hiện truy vấn SQL
-            $result = mysqli_query($conn, "SELECT  fullname, email, cccd, tongnap, GP, stk FROM daily_acc WHERE login_name = '$username'");
+            $result = mysqli_query($conn, "SELECT  fullname, email, cccd, tongnap, GP, stk, role FROM daily_acc WHERE login_name = '$username'");
             
             // lấy dữ liệu từ kết quả truy vấn và gán vào biến
             while ($row = mysqli_fetch_assoc($result)) {
@@ -35,6 +35,8 @@
                 $tongnap = $row["tongnap"];
                 $GP = $row["GP"];
                 $stk = $row["stk"];
+                $role = $row["role"];
+
 
             }
             // đóng kết nối
@@ -57,7 +59,9 @@
                         "tongnap" => $tongnap,
                         "GP" => $GP,
                         "stk" => $stk,
-                        "username" => $username
+                        "username" => $username,
+                        "role" => $role
+
 
                     );
         echo json_encode($data);
@@ -72,7 +76,7 @@
         $status = 'success';
         $loginname = $_SESSION["username"];
         // thực hiện truy vấn SQL
-        $result = mysqli_query($conn, "SELECT fullname, email, cccd, tongnap, GP, stk FROM daily_acc WHERE login_name = '$loginname'");
+        $result = mysqli_query($conn, "SELECT fullname, email, cccd, tongnap, GP, role , stk  FROM daily_acc WHERE login_name = '$loginname'");
         
         // lấy dữ liệu từ kết quả truy vấn và gán vào biến
         while ($row = mysqli_fetch_assoc($result)) {
@@ -82,6 +86,8 @@
             $tongnap = $row["tongnap"];
             $GP = $row["GP"];
             $stk = $row["stk"];
+            $role = $row["role"];
+
 
         }
         // đóng kết nối
@@ -99,7 +105,9 @@
                         "GP" => $GP,
                         "stk" => $stk,
                         "email" => $email,
-                        "username" => $loginname
+                        "username" => $loginname,
+                        "role" => $role
+
 
 
 
