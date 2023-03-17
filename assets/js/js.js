@@ -197,11 +197,11 @@ function lichSuChuyenAD() {
 
         },
         success: function (res) {
-            $('.stable').html(res.lichsunap);
+            $('.table').html(res.lichsunap);
             $(".lich_su_chuyen_admin").addClass("active");
             $(".lich_su_nap_admin").removeClass("active");
 
-
+            console.log(res.lichsunap);
         },
         complete: function () {
 

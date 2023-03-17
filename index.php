@@ -91,7 +91,7 @@ session_start();
                         <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
                     </ul>
                     <div class="bang_lich_su_admin">
-                    <table class="table">
+                        <table class="table">
                         </table>
                     </div>
                 </div>
