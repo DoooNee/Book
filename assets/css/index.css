@@ -218,6 +218,26 @@ table {
 }
 
 
+.search{
+    width: 80px;
+    height: 30px;
+    background:#00bf58;
+    border-radius:20px;
+    text-align: center;
+    line-height:30px;
+    margin:0 auto;
+}
+
+.search:hover{
+    cursor: pointer;
+}
+
+.disabled{
+    background:#ade6c8;
+    
+}
+
+
 
 
 /* popup */

@@ -35,8 +35,8 @@ function loginCheck() {
             }
 
             if (res.role != 'admin') {
-                $('#admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
-                $('#admin').hide();
+                $('.admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
+                $('.admin').hide();
             } else {
 
                 $('.dashboard').hide();
