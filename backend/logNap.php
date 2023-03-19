@@ -1,16 +1,18 @@
 <?php
 	session_start();
     require_once '../config.php';
+    $current_daily  = $_SESSION["username"];
 
+    
 // Câu lệnh truy vấn SQL để lấy các trường sotien, description và thoigiannap
-$sql = "SELECT sotien, description, thoigiannap FROM webhook";
+$sql = "SELECT sotien, description, thoigiannap FROM webhook WHERE daily = '$current_daily'";
 
 // Thực thi câu lệnh truy vấn
 $result = mysqli_query($conn, $sql);
 
 // Tạo bảng HTML để hiển thị kết quả truy vấn
 
-echo "<tr><th>Số tiền</th><th>Mô tả</th><th>Thời gian nạp</th></tr>";
+echo "<tr><th>Số tiền</th><th>Mô tả</th><th>Thời gian</th></tr>";
 
 // Duyệt qua các bản ghi trả về từ câu lệnh truy vấn
 while ($row = mysqli_fetch_assoc($result)) {

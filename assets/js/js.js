@@ -8,8 +8,6 @@ function loginCheck() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
         url: '/backend/login.php',
-
-
         type: 'get',
         data: '',
         dataType: 'json',
@@ -45,7 +43,8 @@ function loginCheck() {
                 $('.code_thang').hide();
                 $('.chinh_sach').hide();
                 $('.nav_soDu').hide();
-
+                $('.sidebar_content').html(`<li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nhận</a></li>
+                                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li> `);
 
             }
 
@@ -133,15 +132,16 @@ function showADMIN() {
 // show table dashboard
 function lichSuNap() {
     $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
+        // url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
+        url: '/backend/lognap.php',
         type: 'get',
         data: '',
-        dataType: 'json',
+        dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.lichsunap)
-            $('#table').html(res.lichsunap);
+            console.log(res)
+            $('#table').html(res);
             $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
 
@@ -157,15 +157,17 @@ function lichSuNap() {
 function lichSuChuyen() {
 
     $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
+        // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
+        url: '/backend/logchuyen.php',
+
         type: 'get',
         data: '',
-        dataType: 'json',
+        dataType: '',
         beforeSend: function () {
 
         },
         success: function (res) {
-            $('#table').html(res.lichsunap);
+            $('#table').html(res);
             $(".lich_su_chuyen").addClass("active");
             $(".lich_su_nap").removeClass("active");
 
@@ -179,23 +181,21 @@ function lichSuChuyen() {
 
 
 
-
-
 // show table ADMIN
 function lichSuNapAD() {
     $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/lichsunhanadmin.php',
+        url: '/backend/lognapAD.php',
         type: 'get',
         data: '',
-        dataType: 'json',
+        dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.lichsunap)
-            $('.table').html(res.lichsunap);
+            console.log(res)
+            $('#table').html(res);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
-            console.log(res)
+            // console.log(res)
 
         },
         complete: function () {
@@ -211,29 +211,52 @@ function lichSuNapAD() {
 
 // show table ADMIN
 function lichSuChuyenAD() {
-    // $.ajax({
-    //     url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
-    //     type: 'get',
-    //     data: '',
-    //     dataType: 'json',
-    //     beforeSend: function () {
+    $.ajax({
+        // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
+        url: '/backend/logchuyenAD.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
 
-    //     },
-    //     success: function (res) {
-    //         $('.table').html(res.lichsunap);
-    //         $(".lich_su_chuyen_admin").addClass("active");
-    //         $(".lich_su_nap_admin").removeClass("active");
-    //         console.log(res.lichsunap);
-    //     },
-    //     complete: function () {
+        },
+        success: function (res) {
+            $('#table').html(res);
+            $(".lich_su_chuyen_admin").addClass("active");
+            $(".lich_su_nap_admin").removeClass("active");
+        },
+        complete: function () {
 
-    //     }
-    // });
+        }
+    });
 }
 
 
 
+function submitStatus($username){
+    $.ajax({
+        url: '/backend/submitStatus.php',
+        type: 'post',
+        data: {
+            username: $username
+        },
+        dataType: 'json',
+        beforeSend: function () {
 
+        },
+        success: function (res) {
+            console.log(res);
+            if(res.status == 'success'){
+                swal("Thông báo!","Submit thành công");
+            }
+            
+        },
+        complete: function () {
+            lichSuChuyenAD();
+        }
+    });
+
+}
 
 
 function login() {

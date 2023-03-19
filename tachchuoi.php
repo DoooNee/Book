@@ -22,3 +22,13 @@ function sliceUsername($ss, $codinh){
     // echo $first_space_position;
     echo $substring;
 }
+
+
+function findDaiLy($input) {
+    if (strpos($input, 'daily1') !== false) {
+        return 'daily1';
+    }
+    if (strpos($input, 'daily2') !== false) {
+        return 'daily2';
+    }
+}
