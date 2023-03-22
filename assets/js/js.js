@@ -1,35 +1,42 @@
 $(document).ready(function () {
     thongbao();
     loginCheck();
+    $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
+        $(this).toggleClass('open');
+    });
 });
 
 
 function loginCheck() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
-        url: '/backend/login.php',
+        url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
         type: 'get',
         data: '',
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
+            console.log(res.tendaily);
             if (res.isLogin == 0) {
                 $('.wrapper_popup').show();
             }
-
             else {
-                $('.user_name').html(res.username);
+                $('.user_name').html(res.tendaily);
+                $('.GP').html(res.sodu);
+
+                $('#ten').html(res.tendaily);
+                $('#madaily').html(res.madaily);
+                $('#facebook').html(res.facebook);
+                $('#sdt').html(res.sdt);
+                $('#stk_dangky').html(res.stkdangky);
+                $('.stk_nganhang').html(res.stknhan);
+                $('.tongnap').html(res.tongnap);
+
+
                 let GP = addCommas(res.GP);
                 let tongnap = addCommas(res.tongnap);
 
-                $('.GP').html(GP);
-                $('#tongNap').html(tongnap);
-                $('#ten').html(res.fullname);
-                $('#cccd').html(res.cccd);
-                $('#stk').html(res.stk);
-                $('#mail').html(res.email);
             }
 
             if (res.role != 'admin') {
@@ -86,6 +93,7 @@ function showDashBoard() {
     $('.content_admin').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
     $('#title_id').html('DashBoard');
 
 }
@@ -144,8 +152,6 @@ function lichSuNap() {
             $('#table').html(res);
             $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
-
-
         },
         complete: function () {
         }
@@ -233,7 +239,7 @@ function lichSuChuyenAD() {
 
 
 
-function submitStatus($username){
+function submitStatus($username) {
     $.ajax({
         url: '/backend/submitStatus.php',
         type: 'post',
@@ -246,10 +252,10 @@ function submitStatus($username){
         },
         success: function (res) {
             console.log(res);
-            if(res.status == 'success'){
-                swal("Thông báo!","Submit thành công");
+            if (res.status == 'success') {
+                swal("Thông báo!", "Submit thành công");
             }
-            
+
         },
         complete: function () {
             lichSuChuyenAD();
@@ -310,23 +316,39 @@ function login() {
 
 // thông báo game
 function thongbao() {
+    // $.ajax({
+    //     url: '/backend/thongbao.php',
+    //     type: 'get',
+    //     data: '',
+    //     dataType: 'json',
+    //     beforeSend: function () {
 
-    $.ajax({
-        url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
-        type: 'get',
-        data: '',
-        dataType: 'json',
-        beforeSend: function () {
+    //     },
+    //     success: function (res) {
+    //         // $('.thong_bao').html(res.noti);
+    //         console.log(res)
 
-        },
-        success: function (res) {
-            $('.thong_bao').html(res.noti);
-            console.log(res)
+    //     },
+    //     complete: function () {
 
-        },
-        complete: function () {
+    //     }
+    // });
 
-        }
+
+    $.get("/backend/thongbao.php", function (data) {
+        $('.thong_bao').html(data);
     });
+
 }
+
+
+
+$('#nav-icon3').click(function () {
+    $('.nav_fade').toggleClass('open');
+})
+
+
+
+
+
 

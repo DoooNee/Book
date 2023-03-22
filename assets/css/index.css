@@ -45,14 +45,15 @@ a {
 
 /* title */
 .title {
+    padding: 0 10vw;
+    display: flex;
     background: rgb(83, 181, 220);
     height: 100px;
     line-height: 100px;
+    justify-content: space-between;
 }
 
-.title h1 {
-    margin-left: 10vw;
-}
+
 
 
 
@@ -218,26 +219,28 @@ table {
 }
 
 
-.search{
+.search {
     width: 80px;
     height: 30px;
-    background:#00bf58;
-    border-radius:20px;
+    background: #00bf58;
+    border-radius: 20px;
     text-align: center;
-    line-height:30px;
-    margin:0 auto;
+    line-height: 30px;
+    margin: 0 auto;
 }
 
-.search:hover{
+.search:hover {
     cursor: pointer;
 }
 
-.disabled{
-    background:#ade6c8;
-    
+.disabled {
+    background: #ade6c8;
 }
 
 
+.disabled:hover {
+    cursor: auto;
+}
 
 
 /* popup */
@@ -305,17 +308,209 @@ table {
     cursor: pointer;
 }
 
+#nav-icon3 {
+    display: none;
+}
 
 
 
 /* thông báo  */
 .thong_bao {
-    animation: animate reverse 50s linear infinite;
+    animation: animate reverse 60s linear infinite;
     margin: 1vw;
     color: red;
     white-space: nowrap;
 
 }
+
+
+
+/* nav mobile */
+
+#nav-icon3 {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    margin: 50px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon3 span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: #000000;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+    top: 18px;
+}
+
+#nav-icon1 span:nth-child(3) {
+    top: 36px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+
+/* Icon 3 */
+
+#nav-icon3 span:nth-child(1) {
+    top: 2px;
+}
+
+#nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) {
+    top: 11px;
+}
+
+#nav-icon3 span:nth-child(4) {
+    top: 20px;
+}
+
+#nav-icon3.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+#nav-icon3.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#nav-icon3.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#nav-icon3.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+.nav_fade {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(48, 46, 46, 0.4);
+
+}
+
+.open {
+    display: block;
+
+}
+
+.nav_wrapper {
+    background: rgb(255, 255, 255);
+    width: 300px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+/* ngăn cản hành vi scroll khi ấn vào nav */
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+#nav_mb:checked~.nav_wrapper {
+    transform: translateX(0%);
+}
+
+#nav_mb {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @keyframes animate {
@@ -325,5 +520,41 @@ table {
 
     100% {
         transform: translateX(100%);
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width:768px) {
+
+    .container {
+        margin: 0 2vw;
+    }
+
+    .title {
+        padding: 0 5vw;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    #nav-icon3 {
+        display: block;
+        margin: 38px 0 !important;
+    }
+
+
+    .nav_wrapper ul {
+        padding-left: 20px;
+        padding-top: 50px;
     }
 }

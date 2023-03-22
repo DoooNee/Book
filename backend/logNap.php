@@ -1,9 +1,9 @@
 <?php
-	session_start();
-    require_once '../config.php';
-    $current_daily  = $_SESSION["username"];
+session_start();
+require_once '../config.php';
+$current_daily  = $_SESSION["username"];
 
-    
+
 // Câu lệnh truy vấn SQL để lấy các trường sotien, description và thoigiannap
 $sql = "SELECT sotien, description, thoigiannap FROM webhook WHERE daily = '$current_daily'";
 
@@ -20,8 +20,5 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 
-
 // Đóng kết nối
 mysqli_close($conn);
-
-?>

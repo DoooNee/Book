@@ -13,13 +13,13 @@ $result = mysqli_query($conn, $sql);
 echo "<tr><th>Số tiền</th><th>Mô tả</th><th>Thời gian</th></tr>";
 
 // Duyệt qua các bản ghi trả về từ câu lệnh truy vấn
-while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr><td>" . $row['sotien'] . "</td><td>" . $row['description'] . "</td><td>" . $row['thoigiannap'] . "</td></tr>";
-}
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr><td>" . $row['sotien'] . "</td><td>" . $row['description'] . "</td><td>" . $row['thoigiannap'] . "</td></tr>";
+    }
 
 
 
-// Đóng kết nối
-mysqli_close($conn);
+    // Đóng kết nối
+    mysqli_close($conn);
 
 ?>
