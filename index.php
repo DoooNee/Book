@@ -106,14 +106,13 @@ session_start();
                 </div>
 
                 <div class="content_chich_sach">
+
                     <h4>1. ĐIỀU KIỆN LÀM ĐẠI LÝ</h4>
                     <ul>
-
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Tổng nạp từ 50m VNĐ trở lên (không tính các khuyến mãi vàng).</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Chuyển khoản từ " số tài khoản ngân hàng " đăng ký làm đại lý. </p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Hàng tháng chuyển khoản tối thiểu từ 1 triệu VNĐ trở lên.</p>
-                        <p><i class="fa-solid fa-fire-flame-simple"></i> Đăng ký làm đại lý tại facebook Admin </p>
-
+                        <p><i class="fa-solid fa-fire-flame-simple"></i> Đăng ký làm đại lý tại facebook Admin Nezuko Kamado(admin duy nhất của game): <a href="https://www.facebook.com/profile.php?id=100088693733238">https://www.facebook.com/profile.php?id=100088693733238 </a> </p>
                     </ul>
 
                     <h4>2. THÔNG TIN CHUYỂN KHOẢN</h4>
@@ -123,28 +122,27 @@ session_start();
                         <p> <i class="fa-solid fa-fire-flame-simple"></i> Tên ngân hàng: ACB (Ngân hàng thương mại cổ phần Á Châu)</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Chi nhánh: ACB - PGD BINH TRIEU</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Cú Pháp: Ninjadl_" tên tài khoản "</p>
-
                     </ul>
-                    <h4>3. ƯU ĐÃI KHI ĐẠI KÝ CHUYỂN KHOẢN</h4>
 
+                    <h4>3. ƯU ĐÃI KHI ĐẠI KÝ CHUYỂN KHOẢN</h4>
                     <ul>
-                        <i class="fa-solid fa-fire-flame-simple"></i> Ưu đãi của người nhận
+                        <p><i class="fa-solid fa-fire-flame-simple"></i> Ưu đãi của người nhận</p>
                         <li>+ Người chơi nhận thêm 6% GP cộng thẳng vào tài khoản ví</li>
-                        <i class="fa-solid fa-fire-flame-simple"></i> Ưu đãi của người nhận
+                        <p><i class="fa-solid fa-fire-flame-simple"></i> Ưu đãi của người nhận</p>
                         <li>+ Nhận code đặc biệt hàng tháng</li>
                         <li>+ Được hưởng hoa hồng hàng tháng.</li>
-
+                        <li>+ Hoa hồng 4% nếu doanh số dưới 100 triệu.</li>
+                        <li>+ Hoa hồng 5% nếu doanh số trên 100 triệu.</li>
                     </ul>
+
                     <h4>4. NOTE</h4>
-                    <ul>
+                    <ul style="margin-bottom: 2w;">
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Các đại lý tạo doc riêng share quyền cho gmail của Admin</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Ngày đầu tiên mỗi tháng sẽ tiến hành đối soát, thời gian đối soát từ 3-5 ngày</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Hoa Hồng sẽ được gửi vào ngày 15 hàng tháng thông qua chuyển khoản ATM</p>
-
                     </ul>
 
-
-
+                    <div class="bottom_chinh_sach"></div>
                 </div>
 
                 <div class="content_kho_code">
