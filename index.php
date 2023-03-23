@@ -18,7 +18,7 @@ session_start();
 <body>
 
     <?php
-        // echo $_SESSION["username"];
+    // echo $_SESSION["username"];
     ?>
     <div class="wrapper">
         <div class="nav">

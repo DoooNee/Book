@@ -22,22 +22,24 @@ function loginCheck() {
                 $('.wrapper_popup').show();
             }
             else {
-                $('.user_name').html(res.tendaily);
-                $('.GP').html(res.sodu);
-                $('#ten').html(res.tendaily);
+                let GP = addCommas(res.sodu);
+                let tongnap = addCommas(res.tongnap);
+                let sodu = addCommas(res.sodu);
+                let tongthangtruoc = addCommas(res.tong_thangtruoc);
+
+
+                $('.user_name').html(res.fullname);
+                $('.GP').html(GP);
+                $('#ten').html(res.fullname);
                 $('#madaily').html(res.madaily);
                 $('#facebook').html(res.facebook);
                 $('#sdt').html(res.sdt);
-                $('#stk_dangky').html(res.stkdangky);
-                $('.stk_nganhang').html(res.stknhan);
-                $('.tongthangtruoc').html(res.tongthangtruoc);
-                $('.tongnap').html(res.tongnap);
-                $('.sodu').html(res.sodu);
+                $('#stk_dangky').html(res.stk_dangky);
+                $('.stk_nganhang').html(res.stk_nhan);
+                $('.tongthangtruoc').html(tongthangtruoc);
+                $('.tongnap').html(tongnap);
+                $('.sodu').html(sodu);
                 $("#facebook").attr("href", res.facebook);
-
-
-                let GP = addCommas(res.GP);
-                let tongnap = addCommas(res.tongnap);
 
             }
 
@@ -45,7 +47,6 @@ function loginCheck() {
                 $('.admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
                 $('.admin').hide();
             } else {
-
                 $('.dashboard').hide();
                 $('.inforDaiLy').hide();
                 $('.chinh_sach').hide();
@@ -54,7 +55,7 @@ function loginCheck() {
                 $('.nav_soDu').hide();
                 $('.sidebar_content').html(`<li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nhận</a></li>
                                             <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li> `);
-
+                showADMIN();
             }
 
         },
