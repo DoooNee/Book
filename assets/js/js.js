@@ -46,6 +46,7 @@ function loginCheck() {
             if (res.role != 'admin') {
                 $('.admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
                 $('.admin').hide();
+                lichSuNap();
             } else {
                 $('.dashboard').hide();
                 $('.inforDaiLy').hide();
@@ -56,6 +57,7 @@ function loginCheck() {
                 $('.sidebar_content').html(`<li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nhận</a></li>
                                             <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li> `);
                 showADMIN();
+                lichSuNapAD();
             }
 
         },
@@ -212,7 +214,7 @@ function lichSuNapAD() {
         },
         success: function (res) {
             console.log(res)
-            $('#table').html(res);
+            $('.table').html(res);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
             // console.log(res)
@@ -241,7 +243,7 @@ function lichSuChuyenAD() {
 
         },
         success: function (res) {
-            $('#table').html(res);
+            $('.table').html(res);
             $(".lich_su_chuyen_admin").addClass("active");
             $(".lich_su_nap_admin").removeClass("active");
         },

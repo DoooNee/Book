@@ -121,7 +121,7 @@ session_start();
                     </ul>
                     <div class="bang_lich_su_admin">
                         <table class="table">
-                            <tr>
+                            <!-- <tr>
                                 <th>GP</th>
                                 <th>Tên nhân vật</th>
                                 <th>Trạng thái</th>
@@ -146,7 +146,7 @@ session_start();
                                         Tìm
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
                 </div>
