@@ -9,8 +9,8 @@ $(document).ready(function () {
 
 function loginCheck() {
     $.ajax({
-        // url: 'https://ninjahuyenthoai.vn/daily/backend/login.php',
-        url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
+        url: '/backend/login.php',
+        // url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
         type: 'get',
         data: '',
         dataType: 'json',
@@ -33,7 +33,7 @@ function loginCheck() {
                 $('.tongthangtruoc').html(res.tongthangtruoc);
                 $('.tongnap').html(res.tongnap);
                 $('.sodu').html(res.sodu);
-                $("#facebook").attr("href", res.facebook)
+                $("#facebook").attr("href", res.facebook);
 
 
                 let GP = addCommas(res.GP);
@@ -329,25 +329,6 @@ function login() {
 
 // thông báo game
 function thongbao() {
-    // $.ajax({
-    //     url: '/backend/thongbao.php',
-    //     type: 'get',
-    //     data: '',
-    //     dataType: 'json',
-    //     beforeSend: function () {
-
-    //     },
-    //     success: function (res) {
-    //         // $('.thong_bao').html(res.noti);
-    //         console.log(res)
-
-    //     },
-    //     complete: function () {
-
-    //     }
-    // });
-
-
     $.get("/backend/thongbao.php", function (data) {
         $('.thong_bao').html(data);
     });

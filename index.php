@@ -16,6 +16,10 @@ session_start();
 </head>
 
 <body>
+
+    <?php
+        // echo $_SESSION["username"];
+    ?>
     <div class="wrapper">
         <div class="nav">
             <div class="user">

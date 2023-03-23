@@ -1,7 +1,7 @@
 <?php
 	session_start();
     
-    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = null;
+    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = $madaily = $facebook = $sdt = $stk_dangky = $stk_nhan = $sodu = $tong_thangtruoc = null;
 
     //unset($_SESSION["username"]);
     
@@ -25,19 +25,22 @@
             $_SESSION["username"] = $username;
             //
             // thực hiện truy vấn SQL
-            $result = mysqli_query($conn, "SELECT  fullname, email, cccd, tongnap, GP, stk, role FROM daily_acc WHERE login_name = '$username'");
+            $result = mysqli_query($conn, "SELECT * FROM daily_acc WHERE login_name = '$username'");
             
             // lấy dữ liệu từ kết quả truy vấn và gán vào biến
             while ($row = mysqli_fetch_assoc($result)) {
-                $fullname = $row["fullname"];
-                $email = $row["email"];
+                $fullname = $row["tendaily"];
+                $madaily = $row["madaily"];
+                $facebook = $row["facebook"];
+                $sdt = $row["sdt"];
+                $stk_dangky = $row["stk_dangky"];
+                $stk_nhan = $row["stk_nhan"];
+                $email = $row["Email"];
                 $cccd = $row["cccd"];
                 $tongnap = $row["tongnap"];
-                $GP = $row["GP"];
-                $stk = $row["stk"];
+                $sodu = $row["sodu"];
+                $tong_thangtruoc = $row["tong_thangtruoc"];
                 $role = $row["role"];
-
-
             }
             // đóng kết nối
             mysqli_close($conn);
@@ -55,14 +58,17 @@
         $data = array( "status" => $status, 
                         "isLogin" => $isLogin,
                         "fullname" => $fullname,
+                        "madaily" => $madaily,
+                        "facebook" => $facebook,
+                        "sdt" => $sdt,
+                        "stk_dangky" => $stk_dangky,
+                        "stk_nhan" => $stk_nhan,
+                        "email" => $email,
                         "cccd" => $cccd,
                         "tongnap" => $tongnap,
-                        "GP" => $GP,
-                        "stk" => $stk,
-                        "username" => $username,
+                        "sodu" => $sodu,
+                        "tong_thangtruoc" => $tong_thangtruoc,
                         "role" => $role
-
-
                     );
         echo json_encode($data);
         exit;
@@ -76,19 +82,22 @@
         $status = 'success';
         $loginname = $_SESSION["username"];
         // thực hiện truy vấn SQL
-        $result = mysqli_query($conn, "SELECT fullname, email, cccd, tongnap, GP, role , stk  FROM daily_acc WHERE login_name = '$loginname'");
+        $result = mysqli_query($conn, "SELECT * FROM daily_acc WHERE login_name = '$loginname'");
         
         // lấy dữ liệu từ kết quả truy vấn và gán vào biến
         while ($row = mysqli_fetch_assoc($result)) {
-            $fullname = $row["fullname"];
-            $email = $row["email"];
-            $cccd = $row["cccd"];
-            $tongnap = $row["tongnap"];
-            $GP = $row["GP"];
-            $stk = $row["stk"];
-            $role = $row["role"];
-
-
+                $fullname = $row["tendaily"];
+                $madaily = $row["madaily"];
+                $facebook = $row["facebook"];
+                $sdt = $row["sdt"];
+                $stk_dangky = $row["stk_dangky"];
+                $stk_nhan = $row["stk_nhan"];
+                $email = $row["Email"];
+                $cccd = $row["cccd"];
+                $tongnap = $row["tongnap"];
+                $sodu = $row["sodu"];
+                $tong_thangtruoc = $row["tong_thangtruoc"];
+                $role = $row["role"];
         }
         // đóng kết nối
         mysqli_close($conn);
@@ -97,16 +106,20 @@
 		$isLogin = 0;
 	}
     // mảng thông tin người dùng
-    $data = array( "status" => $status, 
-                        "isLogin" => $isLogin,
-                        "fullname" => $fullname,
-                        "cccd" => $cccd,
-                        "tongnap" => $tongnap,
-                        "GP" => $GP,
-                        "stk" => $stk,
-                        "email" => $email,
-                        "username" => $loginname,
-                        "role" => $role
+    $data = array("status" => $status, 
+                    "isLogin" => $isLogin,
+                    "fullname" => $fullname,
+                    "madaily" => $madaily,
+                    "facebook" => $facebook,
+                    "sdt" => $sdt,
+                    "stk_dangky" => $stk_dangky,
+                    "stk_nhan" => $stk_nhan,
+                    "email" => $email,
+                    "cccd" => $cccd,
+                    "tongnap" => $tongnap,
+                    "sodu" => $sodu,
+                    "tong_thangtruoc" => $tong_thangtruoc,
+                    "role" => $role
 
 
 
