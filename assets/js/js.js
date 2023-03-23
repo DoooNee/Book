@@ -18,20 +18,22 @@ function loginCheck() {
         },
         success: function (res) {
             console.log(res.tendaily);
-            if (res.isLogin == 0) {
+            if (res.isLogin != 1) {
                 $('.wrapper_popup').show();
             }
             else {
                 $('.user_name').html(res.tendaily);
                 $('.GP').html(res.sodu);
-
                 $('#ten').html(res.tendaily);
                 $('#madaily').html(res.madaily);
                 $('#facebook').html(res.facebook);
                 $('#sdt').html(res.sdt);
                 $('#stk_dangky').html(res.stkdangky);
                 $('.stk_nganhang').html(res.stknhan);
+                $('.tongthangtruoc').html(res.tongthangtruoc);
                 $('.tongnap').html(res.tongnap);
+                $('.sodu').html(res.sodu);
+                $("#facebook").attr("href", res.facebook)
 
 
                 let GP = addCommas(res.GP);
@@ -95,6 +97,11 @@ function showDashBoard() {
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
     $('#title_id').html('DashBoard');
+    checkInput();
+
+    // $('.nav_fade').toggleClass('open');
+    // $('#nav-icon3').toggleClass('open');
+
 
 }
 function showTTDaiLy() {
@@ -104,6 +111,8 @@ function showTTDaiLy() {
     $('.content_kho_code').hide();
     $('.content_inforDaiLy').show();
     $('#title_id').html('Thông Tin Đại Lý');
+    checkInput();
+
 }
 
 
@@ -114,6 +123,8 @@ function showChinhSach() {
     $('.content_kho_code').hide();
     $('.content_chich_sach').show();
     $('#title_id').html('Chích Sách Đại Lý');
+    checkInput();
+
 }
 
 
@@ -124,6 +135,8 @@ function showCODE() {
     $('.content_chich_sach').hide();
     $('.content_kho_code').show();
     $('#title_id').html('Kho CODE Tháng');
+    checkInput();
+
 }
 
 
@@ -350,5 +363,13 @@ $('#nav-icon3').click(function () {
 
 
 
+
+// check input của nav mobbile
+function checkInput() {
+    $('.nav_fade').toggleClass('open');
+    $('#nav-icon3').toggleClass('open');
+    // checked false cho input
+    $('#nav_mb').get(0).checked = false;
+}
 
 

@@ -22,14 +22,13 @@ session_start();
                 <i class="fa-solid fa-user"></i><span class="user_name"></span>
             </div>
             <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="GP">0</span></div>
-
         </div>
         <div class="title">
 
             <h1 id="title_id">
                 DashBoard
             </h1>
-            <label for="nav_mb" id="nav-icon3" style="z-index: 1;">
+            <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -38,17 +37,18 @@ session_start();
             <div class="nav_fade" class="open">
                 <input type="checkbox" id="nav_mb">
                 <div class="nav_wrapper">
-                <ul class="">
-                    <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
-                    <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
-                            Tin Đại Lý</a></li>
-                    <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
-                    <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
-                    <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
-                </ul>
+                    <ul class="">
+                        <label for="nav_mb">
+                            <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
+                        </label>
+                        <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
+                                Tin Đại Lý</a></li>
+                        <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
+                        <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
+                        <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
+                    </ul>
                 </div>
             </div>
-
         </div>
 
         <div style="overflow: hidden;width: auto;height: auto;">
@@ -82,19 +82,23 @@ session_start();
                 <div class="content_inforDaiLy">
                     <h2>Thông Tin Đại Lý</h2>
                     <h4>Tên Đại Lý</h4>
-                    <div class="content_inforDaiLy_form "><span   id="ten"></span></div>
+                    <div class="content_inforDaiLy_form "><span id="ten"></span></div>
                     <h4>Mã Đại Lý</h4>
                     <div class="content_inforDaiLy_form"><span id="madaily"></span></div>
                     <h4>Facebook</h4>
-                    <div class="content_inforDaiLy_form"><span id="facebook"></span></div>
+                    <div class="content_inforDaiLy_form"><a target="_blank" id="facebook" href=""></a></div>
                     <h4>SĐT</h4>
                     <div class="content_inforDaiLy_form"><span id="sdt"></span></div>
-                    <h4>STK Đăng Ký</h4>
+                    <h4>STK Đăng Ký Đại Lý</h4>
                     <div class="content_inforDaiLy_form"><span id="stk_dangky"></span></div>
-                    <h4>Số Tài Khoảng Ngân Hàng</h4>
+                    <h4>STK Nhận Hoa Hồng</h4>
                     <div class="content_inforDaiLy_form"><span class="stk_nganhang"></span></div>
                     <h4>Số Tiền Nạp Tháng 3 2023</h4>
+                    <div class="content_inforDaiLy_form"><span class="tongthangtruoc"></span></div>
+                    <h4>Tổng Nạp (GP)</h4>
                     <div class="content_inforDaiLy_form"><span class="tongnap"></span></div>
+                    <h4>Số Dư (GP)</h4>
+                    <div class="content_inforDaiLy_form"><span class="sodu"></span></div>
                 </div>
 
                 <div class="content_chich_sach">
@@ -167,13 +171,6 @@ session_start();
 
 
     </div>
-
-
-
-
-
-
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="/assets/js/js.js"></script>
