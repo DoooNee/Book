@@ -96,6 +96,7 @@ function addCommas(str) {
 function showDashBoard() {
     $('.content_dashboard').show();
     $('.content_admin').hide();
+    $('.tongnap_daily').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
@@ -109,6 +110,7 @@ function showDashBoard() {
 }
 function showTTDaiLy() {
     $('.content_admin').hide();
+    $('.tongnap_daily').hide();
     $('.content_dashboard').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
@@ -121,6 +123,7 @@ function showTTDaiLy() {
 
 function showChinhSach() {
     $('.content_admin').hide();
+    $('.tongnap_daily').hide();
     $('.content_dashboard').hide();
     $('.content_inforDaiLy').hide();
     $('.content_kho_code').hide();
@@ -135,6 +138,7 @@ function showCODE() {
     $('.content_dashboard').hide();
     $('.content_inforDaiLy').hide();
     $('.content_admin').hide();
+    $('.tongnap_daily').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').show();
     $('#title_id').html('Kho CODE Tháng');
@@ -150,6 +154,38 @@ function showADMIN() {
     $('.content_kho_code').hide();
     $('.content_admin').show();
     $('#title_id').html('ADMIN');
+    $('.tongnap_daily').hide();
+}
+
+function showTongNap (){
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_admin').hide();
+    $('.tongnap_daily').show();
+
+    getTongNap ();
+}
+
+
+function getTongNap (){
+    $.ajax({
+        url: 'https://daily.vngates.com/backend/log_tongnap_daily.php',
+        // url: '/backend/lognap.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            console.log(res)
+            $('.tongnap_daily').html(`<table > ${res} </table>`);
+            
+        },
+        complete: function () {
+        }
+    });
 }
 
 
