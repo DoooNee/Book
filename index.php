@@ -121,7 +121,7 @@ session_start();
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Tên chủ tài khoản: DO THI TIEN</p>
                         <p> <i class="fa-solid fa-fire-flame-simple"></i> Tên ngân hàng: ACB (Ngân hàng thương mại cổ phần Á Châu)</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Chi nhánh: ACB - PGD BINH TRIEU</p>
-                        <p><i class="fa-solid fa-fire-flame-simple"></i> Cú Pháp: Ninjadl_" tên tài khoản "</p>
+                        <p><i class="fa-solid fa-fire-flame-simple"></i> Cú Pháp khi nạp: NAPDL_"tên tài khoản_"mã đại lý"</p>
                     </ul>
 
                     <h4>3. ƯU ĐÃI KHI ĐẠI KÝ CHUYỂN KHOẢN</h4>
@@ -131,8 +131,8 @@ session_start();
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Ưu đãi của người nhận</p>
                         <li>+ Nhận code đặc biệt hàng tháng</li>
                         <li>+ Được hưởng hoa hồng hàng tháng.</li>
-                        <li>+ Hoa hồng 4% nếu doanh số dưới 100 triệu.</li>
-                        <li>+ Hoa hồng 5% nếu doanh số trên 100 triệu.</li>
+                        <li>+ Hoa hồng 4% nếu doanh số tháng dưới 200 triệu. </li>
+                        <li>+ Hoa hồng 5% nếu doanh số tháng từ 200 triệu trở lên. </li>
                     </ul>
 
                     <h4>4. NOTE</h4>
@@ -146,7 +146,7 @@ session_start();
                 </div>
 
                 <div class="content_kho_code">
-                    KHO CODE
+                    <a href="">CODE tháng</a>
                 </div>
 
                 <!--  admin -->
@@ -213,7 +213,7 @@ session_start();
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="/assets/js/js.js"></script>
+    <script src="/assets/js/js.js?v=0.0.6"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 

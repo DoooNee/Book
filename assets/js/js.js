@@ -40,7 +40,7 @@ function loginCheck() {
                 $('.tongnap').html(tongnap);
                 $('.sodu').html(sodu);
                 $("#facebook").attr("href", res.facebook);
-
+				$('.content_kho_code').html(`<a href="/assets/kho_code/${res.link_code}">link CODE tháng</a>`)
             }
 
             if (res.role != 'admin') {
@@ -206,7 +206,7 @@ function lichSuChuyen() {
 // show table ADMIN
 function lichSuNapAD() {
     $.ajax({
-        url: '/backend/lognapAD.php',
+        url: '/backend/logNapAD.php',
         type: 'get',
         data: '',
         dataType: '',
