@@ -7,6 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+        <!-- 
+            - Tên đại lý
+            - Tiêu đề 
+            - Nội dung
+            - Hình ảnh đính kèm (tối đa 5 hình)
+            - Nút submit
+         -->
 </body>
 </html>
