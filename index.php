@@ -68,7 +68,6 @@ session_start();
                     <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
                     <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
                     <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
-          			<li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Tổng nạp đại lý</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
             </div>
@@ -187,12 +186,6 @@ session_start();
                         </table>
                     </div>
                 </div>
-              
-              	<div class="tongnap_daily">
-                        <table >
-
-                        </table>
-                </div>
             </div>
         </div>
 
@@ -220,7 +213,7 @@ session_start();
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="/assets/js/js.js?v=0.1.1"></script>
+    <script src="/assets/js/js.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 

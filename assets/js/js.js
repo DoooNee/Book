@@ -96,7 +96,6 @@ function addCommas(str) {
 function showDashBoard() {
     $('.content_dashboard').show();
     $('.content_admin').hide();
-  	$('.tongnap_daily').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
@@ -110,7 +109,6 @@ function showDashBoard() {
 }
 function showTTDaiLy() {
     $('.content_admin').hide();
-  	$('.tongnap_daily').hide();
     $('.content_dashboard').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
@@ -154,38 +152,6 @@ function showADMIN() {
     $('.content_kho_code').hide();
     $('.content_admin').show();
     $('#title_id').html('ADMIN');
-  	$('.tongnap_daily').hide();
-}
-
-function showTongNap (){
-    $('.content_dashboard').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').hide();
-    $('.content_admin').hide();
-    $('.tongnap_daily').show();
-
-    getTongNap ();
-}
-
-
-function getTongNap (){
-    $.ajax({
-        url: '/backend/log_tongnap_daily.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.tongnap_daily').html(`<table > ${res} </table>`);
-            
-        },
-        complete: function () {
-        }
-    });
 }
 
 
