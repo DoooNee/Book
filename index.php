@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRANG CHỦ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/index.css?v=0.0.1">
 
 </head>
 
@@ -68,6 +68,7 @@ session_start();
                     <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
                     <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
                     <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
+          			<li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Tổng nạp đại lý</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
             </div>
@@ -121,7 +122,7 @@ session_start();
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Tên chủ tài khoản: DO THI TIEN</p>
                         <p> <i class="fa-solid fa-fire-flame-simple"></i> Tên ngân hàng: ACB (Ngân hàng thương mại cổ phần Á Châu)</p>
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Chi nhánh: ACB - PGD BINH TRIEU</p>
-                        <p><i class="fa-solid fa-fire-flame-simple"></i> Cú Pháp: Ninjadl_" tên tài khoản "</p>
+                        <p><i class="fa-solid fa-fire-flame-simple"></i> Cú Pháp khi nạp: NAPDL_"tên tài khoản_"mã đại lý"</p>
                     </ul>
 
                     <h4>3. ƯU ĐÃI KHI ĐẠI KÝ CHUYỂN KHOẢN</h4>
@@ -131,8 +132,8 @@ session_start();
                         <p><i class="fa-solid fa-fire-flame-simple"></i> Ưu đãi của người nhận</p>
                         <li>+ Nhận code đặc biệt hàng tháng</li>
                         <li>+ Được hưởng hoa hồng hàng tháng.</li>
-                        <li>+ Hoa hồng 4% nếu doanh số dưới 100 triệu.</li>
-                        <li>+ Hoa hồng 5% nếu doanh số trên 100 triệu.</li>
+                        <li>+ Hoa hồng 4% nếu doanh số tháng dưới 200 triệu. </li>
+                        <li>+ Hoa hồng 5% nếu doanh số tháng từ 200 triệu trở lên. </li>
                     </ul>
 
                     <h4>4. NOTE</h4>
@@ -146,7 +147,7 @@ session_start();
                 </div>
 
                 <div class="content_kho_code">
-                    KHO CODE
+                    <a href="">CODE tháng</a>
                 </div>
 
                 <!--  admin -->
@@ -186,6 +187,12 @@ session_start();
                         </table>
                     </div>
                 </div>
+              
+              	<div class="tongnap_daily">
+                        <table >
+
+                        </table>
+                </div>
             </div>
         </div>
 
@@ -213,7 +220,7 @@ session_start();
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="/assets/js/js.js"></script>
+    <script src="/assets/js/js.js?v=0.1.1"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 

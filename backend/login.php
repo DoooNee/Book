@@ -1,7 +1,7 @@
 <?php
 	session_start();
     
-    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = $madaily = $facebook = $sdt = $stk_dangky = $stk_nhan = $sodu = $tong_thangtruoc = null;
+    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = $madaily = $facebook = $sdt = $stk_dangky = $stk_nhan = $sodu = $tong_thangtruoc = $link_code = null;
 
     //unset($_SESSION["username"]);
     
@@ -41,6 +41,7 @@
                 $sodu = $row["sodu"];
                 $tong_thangtruoc = $row["tong_thangtruoc"];
                 $role = $row["role"];
+              	$link_code = $row["link_code"];
             }
             // đóng kết nối
             mysqli_close($conn);
@@ -68,7 +69,8 @@
                         "tongnap" => $tongnap,
                         "sodu" => $sodu,
                         "tong_thangtruoc" => $tong_thangtruoc,
-                        "role" => $role
+                        "role" => $role,
+                      	"link_code" => $link_code
                     );
         echo json_encode($data);
         exit;
@@ -98,6 +100,7 @@
                 $sodu = $row["sodu"];
                 $tong_thangtruoc = $row["tong_thangtruoc"];
                 $role = $row["role"];
+          		$link_code = $row["link_code"];
         }
         // đóng kết nối
         mysqli_close($conn);
@@ -119,11 +122,8 @@
                     "tongnap" => $tongnap,
                     "sodu" => $sodu,
                     "tong_thangtruoc" => $tong_thangtruoc,
-                    "role" => $role
-
-
-
-
+                    "role" => $role,
+                  	"link_code" => $link_code
                     );
 
 
