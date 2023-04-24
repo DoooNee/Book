@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRANG CHỦ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/index.css?v=0.0.2">
 
 </head>
 
@@ -69,6 +69,8 @@ session_start();
                     <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
                     <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
                     <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
+                    <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Tổng nạp đại lý</a></li>
+                    <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
             </div>
@@ -187,6 +189,25 @@ session_start();
                         </table>
                     </div>
                 </div>
+              
+              	<div class="tongnap_daily">
+                        <table >
+
+                        </table>
+                </div>
+
+
+                <div class="saoke_daily">
+                    <ul class="sidebar_content1 ">
+                        <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeKunBanThe();">KunBanThe</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
+                    </ul>
+                    <div class="bang_saoke">
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -214,7 +235,7 @@ session_start();
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="/assets/js/js.js"></script>
+    <script src="/assets/js/js.js?v=0.2.0"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 

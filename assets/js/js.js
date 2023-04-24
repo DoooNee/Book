@@ -161,10 +161,7 @@ function showADMIN() {
     $('.content_admin').show();
     $('#title_id').html('ADMIN');
   	$('.tongnap_daily').hide();
-<<<<<<< HEAD
       $('.saoke_daily').hide();
-=======
->>>>>>> 606e55f3686e33de5962fa8c433c42fc5904923f
 }
 
 function showTongNap (){
@@ -174,7 +171,6 @@ function showTongNap (){
     $('.content_kho_code').hide();
     $('.content_admin').hide();
     $('.tongnap_daily').show();
-<<<<<<< HEAD
     $('.saoke_daily').hide();
     getTongNap ();
 }
@@ -278,12 +274,6 @@ function getSaoKeKunBanThe(){
 
 
 
-=======
-
-    getTongNap ();
-}
-
->>>>>>> 606e55f3686e33de5962fa8c433c42fc5904923f
 
 function getTongNap (){
     $.ajax({
