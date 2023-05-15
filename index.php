@@ -50,6 +50,7 @@ session_start();
                         <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
                         <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
                         <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Tổng nạp đại lý</a></li>
+                        <li class="admin" id=""><a href="javascript:showInforDaily();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
                         <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                     </ul>
                 </div>
@@ -71,6 +72,7 @@ session_start();
                     <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
                     <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Tổng nạp đại lý</a></li>
                     <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
+                    <li class="admin" id=""><a href="javascript:showInforDaily();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
                     <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                 </ul>
             </div>
@@ -189,26 +191,136 @@ session_start();
                         </table>
                     </div>
                 </div>
-              
-              	<div class="tongnap_daily">
-                        <table >
 
-                        </table>
+                <div class="tongnap_daily">
+                    <table>
+
+                    </table>
                 </div>
 
 
                 <div class="saoke_daily">
                     <ul class="sidebar_content1 ">
                         <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
-                      	<li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
                         <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
                         <li class="lich_su_chuyen "><a href="javascript:getSaoKeWeacc();">Weacc</a></li>
-                      	<li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
-                      	<li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
                     </ul>
                     <div class="bang_saoke">
-
                     </div>
+                </div>
+
+                <div class="infor_daily">
+                    <table>
+                        <tr>
+                            <th>Tên đại lý</th>
+                            <th>Tên đăng nhập</th>
+                            <th>Mật khẩu</th>
+                            <th>Mã đại lý</th>
+                            <th>Facebook</th>
+                            <th>SĐT</th>
+                            <th>STK đăng ký đại lý</th>
+                            <th>STK nhận hoa hồng</th>
+                        </tr>
+                        <tr>
+                            <td>DailyGameVN</td>
+                            <td>Dailygamevn</td>
+                            <td>daily77036</td>
+                            <td>DLDG</td>
+                            <td><a href="https://www.facebook.com/soiden2210">https://www.facebook.com/soiden2210</a></td>
+                            <td>036.377.1361</td>
+                            <td>0451000240040- Vietcombank</td>
+                            <td>0451000240040
+                                - Vietcombank
+                                - Nguyen Quang Huy</td>
+
+                        </tr>
+                        <tr>
+                            <td>Quyền Quyền</td>
+                            <td>QuyenQuyen</td>
+                            <td>quyen87510</td>
+                            <td>DLQQ</td>
+                            <td><a href="https://www.facebook.com/profile.php?id=100010839150318">https://www.facebook.com/profile.php?id=100010839150318</a></td>
+
+                            <td>0788.055.101</td>
+                            <td>030063122277
+                                - Sacombank
+                                - Nguyễn Văn Quyền</td>
+                            <td>030063122277
+                                - Sacombank
+                                - Nguyễn Văn Quyền</td>
+
+                        </tr>
+                        <tr>
+                            <td>Nguyễn Quang Tùng</td>
+                            <td>QuangTung</td>
+                            <td>tung836853</td>
+                            <td>DLQT</td>
+                            <td><a href="https://www.facebook.com/tungpio12">https://www.facebook.com/tungpio12</a></td>
+
+                            <td>0962.885.130</td>
+                            <td>0801000292751-
+                                Vietcombank-
+                                Nguyễn Quang Tùng</td>
+                            <td>0801000292751-
+                                Vietcombank-
+                                Nguyễn Quang Tùng</td>
+
+                        </tr>
+                        <tr>
+                            <td>Weacc (Nông Văn Doanh)</td>
+                            <td>Weacc</td>
+                            <td>Weacc69197</td>
+                            <td>DLWE</td>
+                            <td><a href="https://www.facebook.com/hnaod2000/">https://www.facebook.com/hnaod2000/</a></td>
+
+                            <td>0369.877.911</td>
+                            <td>9369877911
+                                - Vietcombank
+                                - Nông Văn Doanh</td>
+                            <td>9369877911
+                                - Vietcombank
+                                - Nông Văn Doanh</td>
+
+                        </tr>
+                        <tr>
+                            <td>Minato</td>
+                            <td>Minato</td>
+                            <td>Minato79623</td>
+                            <td>DLMT</td>
+                            <td><a href="https://www.facebook.com/trongphuctrade">https://www.facebook.com/trongphuctrade</a></td>
+
+                            <td>347932255</td>
+                            <td>0021000442860
+                                - Vietcombank
+                                - Đặng Trọng Phúc
+                                - 0347932255
+                                - VPbank
+                                đặng trọng phúc</td>
+                            <td>0021000442860
+                                - Vietcombank
+                                - Đặng Trọng Phúc</td>
+
+                        </tr>
+                        <tr>
+                            <td>SonHero Gaming</td>
+                            <td>SonHero</td>
+                            <td>Sonhero8504</td>
+                            <td>DLSH</td>
+                            <td><a href="https://www.facebook.com/SonHeroHaHa">https://www.facebook.com/SonHeroHaHa</a></td>
+
+                            <td>349625408</td>
+                            <td>0349625408
+                                - TPbank
+                                - Nguyễn Hồng Sơn</td>
+                            <td>0349625408
+                                - TPbank
+                                - Nguyễn Hồng Sơn</td>
+
+
+                    </table>
                 </div>
             </div>
         </div>

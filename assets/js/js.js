@@ -40,17 +40,17 @@ function loginCheck() {
                 $('.tongnap').html(tongnap);
                 $('.sodu').html(sodu);
                 $("#facebook").attr("href", res.facebook);
-				$('.content_kho_code').html(`<a href="/assets/kho_code/${res.link_code}">link CODE tháng</a>`)
+                $('.content_kho_code').html(`<a href="/assets/kho_code/${res.link_code}">link CODE tháng</a>`)
             }
 
             if (res.role == 'daily') {
                 $('.admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
                 $('.admin').hide();
-              $('.saoke_daily').hide();
-              
+                $('.saoke_daily').hide();
+
                 lichSuNap();
             } else {
-              	var role = res.role;
+                var role = res.role;
                 $('.dashboard').hide();
                 $('.inforDaiLy').hide();
                 $('.chinh_sach').hide();
@@ -58,7 +58,7 @@ function loginCheck() {
                 $('.chinh_sach').hide();
                 $('.nav_soDu').hide();
                 $('.sidebar_content').html(`<li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nhận</a></li>
-                                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('`+role+`');"> Lịch Sử Chuyển</a></li>`);
+                                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('`+ role + `');"> Lịch Sử Chuyển</a></li>`);
                 showADMIN();
                 lichSuNapAD();
             }
@@ -99,12 +99,14 @@ function addCommas(str) {
 function showDashBoard() {
     $('.content_dashboard').show();
     $('.content_admin').hide();
-  	$('.tongnap_daily').hide();
+    $('.tongnap_daily').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
     $('#title_id').html('DashBoard');
     $('.saoke_daily').hide();
+    $('.infor_daily').hide();
+
     checkInput();
 
     // $('.nav_fade').toggleClass('open');
@@ -114,13 +116,15 @@ function showDashBoard() {
 }
 function showTTDaiLy() {
     $('.content_admin').hide();
-  	$('.tongnap_daily').hide();
+    $('.tongnap_daily').hide();
     $('.content_dashboard').hide();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
     $('.content_inforDaiLy').show();
     $('#title_id').html('Thông Tin Đại Lý');
     $('.saoke_daily').hide();
+    $('.infor_daily').hide();
+
     checkInput();
 
 }
@@ -135,6 +139,8 @@ function showChinhSach() {
     $('.content_chich_sach').show();
     $('#title_id').html('Chích Sách Đại Lý');
     $('.saoke_daily').hide();
+    $('.infor_daily').hide();
+
     checkInput();
 
 }
@@ -150,6 +156,8 @@ function showCODE() {
     $('#title_id').html('Kho CODE Tháng');
     checkInput();
     $('.saoke_daily').hide();
+    $('.infor_daily').hide();
+
 }
 
 
@@ -160,11 +168,14 @@ function showADMIN() {
     $('.content_kho_code').hide();
     $('.content_admin').show();
     $('#title_id').html('ADMIN');
-  	$('.tongnap_daily').hide();
-      $('.saoke_daily').hide();
+    $('.tongnap_daily').hide();
+    $('.saoke_daily').hide();
+    $('.infor_daily').hide();
+
+
 }
 
-function showTongNap (){
+function showTongNap() {
     $('.content_dashboard').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
@@ -172,10 +183,11 @@ function showTongNap (){
     $('.content_admin').hide();
     $('.tongnap_daily').show();
     $('.saoke_daily').hide();
-    getTongNap ();
+    $('.infor_daily').hide();
+    getTongNap();
 }
 
-function showSaoKe(){
+function showSaoKe() {
     $('.content_dashboard').hide();
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').hide();
@@ -183,12 +195,28 @@ function showSaoKe(){
     $('.content_admin').hide();
     $('.tongnap_daily').hide();
     $('.saoke_daily').show();
+    $('.infor_daily').hide();
+
 
 
     //getTongNap ();
 }
 
-function getSaoKeDailyGame(){
+function showInforDaily() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_admin').hide();
+    $('.tongnap_daily').hide();
+    $('.saoke_daily').hide();
+    $('.infor_daily').show();
+}
+
+
+
+
+function getSaoKeDailyGame() {
     $.ajax({
         url: '/backend/saoKeDailyGame.php',
         // url: '/backend/lognap.php',
@@ -207,7 +235,7 @@ function getSaoKeDailyGame(){
     });
 }
 
-function getSaoKeNguyenQuangTung(){
+function getSaoKeNguyenQuangTung() {
     $.ajax({
         url: '/backend/saoKeNguyenQuangTung.php',
         // url: '/backend/lognap.php',
@@ -226,7 +254,7 @@ function getSaoKeNguyenQuangTung(){
     });
 }
 
-function getSaoKeMinato(){
+function getSaoKeMinato() {
     $.ajax({
         url: '/backend/saoKeMinato.php',
         // url: '/backend/lognap.php',
@@ -245,67 +273,67 @@ function getSaoKeMinato(){
     });
 }
 
-function getSaoKeQuyenQuyen(){
+function getSaoKeQuyenQuyen() {
     //$('.bang_saoke').html(`No info`);
-     $.ajax({
-         url: '/backend/saoKeQuyenQuyen.php',
-         // url: '/backend/lognap.php',
-         type: 'get',
-         data: '',
-         dataType: '',
-         beforeSend: function () {
-         },
-         success: function (res) {
-             console.log(res)
-             $('.bang_saoke').html(`<table > ${res} </table>`);
-            
-         },
-         complete: function () {
-         }
-     });
+    $.ajax({
+        url: '/backend/saoKeQuyenQuyen.php',
+        // url: '/backend/lognap.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            console.log(res)
+            $('.bang_saoke').html(`<table > ${res} </table>`);
+
+        },
+        complete: function () {
+        }
+    });
 }
 
-function getSaoKeWeacc(){
+function getSaoKeWeacc() {
     //$('.bang_saoke').html(`No info`);
-     $.ajax({
-         url: '/backend/saokeWeacc.php',
-         // url: '/backend/lognap.php',
-         type: 'get',
-         data: '',
-         dataType: '',
-         beforeSend: function () {
-         },
-         success: function (res) {
-             console.log(res)
-             $('.bang_saoke').html(`<table > ${res} </table>`);
-            
-         },
-         complete: function () {
-         }
-     });
+    $.ajax({
+        url: '/backend/saokeWeacc.php',
+        // url: '/backend/lognap.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            console.log(res)
+            $('.bang_saoke').html(`<table > ${res} </table>`);
+
+        },
+        complete: function () {
+        }
+    });
 }
 
-function getSaoKeSonHeroGaming(){
+function getSaoKeSonHeroGaming() {
     //$('.bang_saoke').html(`No info`);
-     $.ajax({
-         url: '/backend/saokeSonheroGaming.php',
-         // url: '/backend/lognap.php',
-         type: 'get',
-         data: '',
-         dataType: '',
-         beforeSend: function () {
-         },
-         success: function (res) {
-             console.log(res)
-             $('.bang_saoke').html(`<table > ${res} </table>`);
-            
-         },
-         complete: function () {
-         }
-     });
+    $.ajax({
+        url: '/backend/saokeSonheroGaming.php',
+        // url: '/backend/lognap.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            console.log(res)
+            $('.bang_saoke').html(`<table > ${res} </table>`);
+
+        },
+        complete: function () {
+        }
+    });
 }
 
-function getSaoKeKunBanThe(){
+function getSaoKeKunBanThe() {
     $.ajax({
         url: '/backend/saoKeKunBanThe.php',
         // url: '/backend/lognap.php',
@@ -334,7 +362,7 @@ function getSaoKeKunBanThe(){
 
 
 
-function getTongNap (){
+function getTongNap() {
     $.ajax({
         url: '/backend/log_tongnap_daily.php',
         // url: '/backend/lognap.php',
@@ -346,7 +374,7 @@ function getTongNap (){
         success: function (res) {
             console.log(res)
             $('.tongnap_daily').html(`<table > ${res} </table>`);
-            
+
         },
         complete: function () {
         }
@@ -412,14 +440,14 @@ function lichSuNapAD() {
         data: '',
         dataType: '',
         beforeSend: function () {
-          
+
         },
         success: function (res) {
             console.log(res)
             $('.table').html(res);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
-            
+
 
         },
         complete: function () {
@@ -435,7 +463,7 @@ function lichSuNapAD() {
 
 // show table ADMIN
 function lichSuChuyenAD(role) {
-  
+
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
         url: '/backend/logchuyenAD.php',
@@ -449,8 +477,8 @@ function lichSuChuyenAD(role) {
             $('.table').html(res);
             $(".lich_su_chuyen_admin").addClass("active");
             $(".lich_su_nap_admin").removeClass("active");
-          	if(role == 'ctv'){
-            	$(".search").hide();
+            if (role == 'ctv') {
+                $(".search").hide();
             }
         },
         complete: function () {
@@ -467,7 +495,7 @@ function submitStatus($username, $nguoichuyen) {
         type: 'post',
         data: {
             username: $username,
-          	nguoichuyen: $nguoichuyen
+            nguoichuyen: $nguoichuyen
         },
         dataType: 'json',
         beforeSend: function () {
@@ -477,7 +505,7 @@ function submitStatus($username, $nguoichuyen) {
             console.log(res);
             if (res.status == 'success') {
                 swal("Thông báo!", "Submit thành công");
-              lichSuChuyenAD();
+                lichSuChuyenAD();
             }
 
         },
