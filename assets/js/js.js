@@ -200,11 +200,7 @@ function getSaoKeDailyGame(){
         success: function (res) {
             console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
-<<<<<<< HEAD
             $('.bang_saoke').html(`<table > ${res} </table>`);
-=======
-            $('.bang_saoke').html(`Tổng nạp: 510,110,000.00<br><table > ${res} </table>`);
->>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
         },
         complete: function () {
         }
@@ -223,7 +219,6 @@ function getSaoKeNguyenQuangTung(){
         success: function (res) {
             console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
-<<<<<<< HEAD
             $('.bang_saoke').html(`<table > ${res} </table>`);
         },
         complete: function () {
@@ -244,9 +239,6 @@ function getSaoKeMinato(){
             console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
             $('.bang_saoke').html(`<table > ${res} </table>`);
-=======
-            $('.bang_saoke').html(`Tổng nạp: 6,100,000.00<br><table > ${res} </table>`);
->>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
         },
         complete: function () {
         }
@@ -254,7 +246,6 @@ function getSaoKeMinato(){
 }
 
 function getSaoKeQuyenQuyen(){
-<<<<<<< HEAD
     //$('.bang_saoke').html(`No info`);
      $.ajax({
          url: '/backend/saoKeQuyenQuyen.php',
@@ -312,25 +303,6 @@ function getSaoKeSonHeroGaming(){
          complete: function () {
          }
      });
-=======
-    $('.bang_saoke').html(`No info`);
-    // $.ajax({
-    //     url: '/backend/saoKeQuyenQuyen.php',
-    //     // url: '/backend/lognap.php',
-    //     type: 'get',
-    //     data: '',
-    //     dataType: '',
-    //     beforeSend: function () {
-    //     },
-    //     success: function (res) {
-    //         console.log(res)
-    //         $('.bang_saoke').html(`<table > ${res} </table>`);
-            
-    //     },
-    //     complete: function () {
-    //     }
-    // });
->>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
 }
 
 function getSaoKeKunBanThe(){
@@ -345,11 +317,7 @@ function getSaoKeKunBanThe(){
         success: function (res) {
             console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
-<<<<<<< HEAD
             $('.bang_saoke').html(`<table > ${res} </table>`);
-=======
-            $('.bang_saoke').html(`Tổng nạp: 1,250,000<br><table > ${res} </table>`);
->>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
         },
         complete: function () {
         }
