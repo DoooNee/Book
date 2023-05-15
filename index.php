@@ -200,11 +200,17 @@ session_start();
                 <div class="saoke_daily">
                     <ul class="sidebar_content1 ">
                         <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
+<<<<<<< HEAD
                       	<li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
                         <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
                         <li class="lich_su_chuyen "><a href="javascript:getSaoKeWeacc();">Weacc</a></li>
                       	<li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
                       	<li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
+=======
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeKunBanThe();">KunBanThe</a></li>
+                        <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
+>>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
                     </ul>
                     <div class="bang_saoke">
 
@@ -237,7 +243,11 @@ session_start();
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<<<<<<< HEAD
     <script src="/assets/js/js.js?v=0.2.7"></script>
+=======
+    <script src="/assets/js/js.js?v=0.2.0"></script>
+>>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 

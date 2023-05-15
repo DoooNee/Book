@@ -58,7 +58,34 @@ function findDaiLy($input) {
   if (strpos($input, 'DLSH') !== false) {
           return 'SonHero';
       }
+<<<<<<< HEAD
 
+=======
+  /*
+  if (strpos($input, '0363771361') !== false) {
+        return 'DailyGameVN';
+    }
+    if (strpos($input, '0981007879') !== false) {
+        return 'NgocKenGaming';
+    }
+  	if (strpos($input, '0855622222') !== false) {
+        return 'TangTap';
+    }
+     if (strpos($input, '0374010500') !== false) {
+          return 'KunBanThe';
+      }
+  	if (strpos($input, '0944175968') !== false) {
+          return 'BreakerG';
+     }
+    if (strpos($input, '0788055101') !== false) {
+          return 'Quyền Quyền';
+      }
+    if (strpos($input, '0962885130') !== false) {
+          return 'NguyenQuangTung';
+      }
+  
+  */
+>>>>>>> e9027091f2d60097c15998145852b62e9b5f7d05
 
   else return '';
 }
