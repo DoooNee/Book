@@ -1,0 +1,642 @@
+/* Reseting */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*  */
+
+
+.wrapper {
+    position: relative;
+}
+
+
+.stk {
+	color: #0055f2;
+}
+
+/* nav */
+.nav {
+    display: flex;
+    height: 25px;
+    width: 100%;
+    padding-right: 10vw;
+    justify-content: end;
+    line-height: 25px;
+
+}
+
+.user {
+    margin-right: 1.3vw;
+}
+
+.nav i {
+    margin: 0 0.4vw;
+    line-height: 10px;
+}
+
+
+/* title */
+.title {
+    padding: 0 10vw;
+    display: flex;
+    background: rgb(83, 181, 220);
+    height: 100px;
+    line-height: 100px;
+    justify-content: space-between;
+}
+
+
+
+
+
+/* container */
+.container {
+    display: flex;
+    height: 75vh;
+    margin: 0 10vw;
+}
+
+.sidebar {
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    border-radius: 5px;
+}
+
+.sidebar li {
+    line-height: 50px;
+
+}
+
+.sidebar li i {
+    margin: 0 0.8vw;
+}
+
+.dashboard {
+    line-height: 50px;
+}
+
+.inforDaiLy {}
+
+.exit {
+    margin-top: 32vh;
+}
+
+
+.content {
+    overflow: auto;
+    width: 80%;
+    border-radius: 5px;
+    margin-left: 2vw;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    padding-top: 1.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+
+}
+
+.content_dashboard {}
+
+.sidebar_content {
+    display: flex;
+    border-radius: 5px;
+
+}
+
+.sidebar_content1 {
+    display: flex;
+    border-radius: 5px;
+
+}
+
+.lich_su_nap {
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+}
+
+.lich_su_chuyen {
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
+
+}
+
+
+
+.active a {
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+}
+
+
+
+.bang_lich_su {
+    height: 62vh;
+    border-radius: 5px;
+    overflow: auto;
+    margin-top: 10px;
+}
+
+
+/*  */
+
+.content_inforDaiLy {
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    line-height: 40px;
+    display: none;
+}
+
+
+.content_inforDaiLy_form {
+    display: inline-table;
+    width: 150%;
+    border: 1px solid #ccc;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+table,
+td,
+th {
+    border: 1px solid #000;
+    padding: 7px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+/* content_chich_sach */
+
+.content_chich_sach {
+    width: 100%;
+    height: 300px;
+    display: none;
+}
+
+
+.content_kho_code {
+    width: 100%;
+    height: 300px;
+    background: rgb(140, 195, 201);
+    display: none;
+}
+
+
+
+
+
+.content_admin {
+    width: 100%;
+    height: 300px;
+    display: none;
+
+}
+
+.lich_su_nap_admin {
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.lich_su_chuyen_admin {
+    width: 50%;
+    line-height: 50px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+
+.search {
+    width: 80px;
+    height: 30px;
+    background: #00bf58;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 auto;
+}
+
+.search:hover {
+    cursor: pointer;
+}
+
+.disabled {
+    background: #ade6c8;
+}
+
+
+.disabled:hover {
+    cursor: auto;
+}
+
+
+/* popup */
+
+.wrapper_popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #53b5dc;
+    background-color: rgb(193 206 212);
+    display: none;
+    z-index: 10000;
+}
+
+.popup {
+    position: absolute;
+    width: 450px;
+    height: 240px;
+    background: #53b5dc;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 5px;
+    padding-top: 15px;
+}
+
+.form-group {
+    padding-left: 60px;
+}
+
+.ten_dang_nhap {
+    height: 40px;
+    width: 325px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding-left: 7px;
+}
+
+.mat_khau {
+    height: 40px;
+    width: 325px;
+    padding-left: 7px;
+
+    border-radius: 5px;
+
+}
+
+.submit {
+    margin-left: 150px;
+    height: 40px;
+    width: 150px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+
+
+
+.close:hover {
+    cursor: pointer;
+}
+
+#nav-icon3 {
+    display: none;
+}
+
+
+
+/* thông báo  */
+.thong_bao {
+    animation: animate reverse 60s linear infinite;
+    margin: 1vw;
+    color: red;
+    white-space: nowrap;
+
+}
+
+
+
+/* nav mobile */
+
+#nav-icon3 {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    margin: 50px auto;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+#nav-icon3 span {
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: #000000;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+    top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+    top: 18px;
+}
+
+#nav-icon1 span:nth-child(3) {
+    top: 36px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+    top: 18px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+
+/* Icon 3 */
+
+#nav-icon3 span:nth-child(1) {
+    top: 2px;
+}
+
+#nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) {
+    top: 11px;
+}
+
+#nav-icon3 span:nth-child(4) {
+    top: 20px;
+}
+
+#nav-icon3.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+#nav-icon3.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#nav-icon3.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#nav-icon3.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+.nav_fade {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(48, 46, 46, 0.4);
+    z-index: 10;
+}
+
+.open {
+    display: block;
+
+}
+
+.nav_wrapper {
+    background: rgb(255, 255, 255);
+    width: 300px;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+    z-index: 10;
+}
+
+/* ngăn cản hành vi scroll khi ấn vào nav */
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+#nav_mb:checked~.nav_wrapper {
+    transform: translateX(0%);
+}
+
+#nav_mb {
+    display: none;
+}
+
+
+
+
+
+/* chính sách */
+
+.content_chich_sach ul li{
+    margin: 8px;
+    margin-left: 20px;
+
+}
+
+.content_chich_sach h4{
+    margin: 1vw 0vw;
+}
+
+
+.content_chich_sach p{
+    margin: 8px;
+
+}
+
+.bottom_chinh_sach{
+    height: 30px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes animate {
+    0% {
+        transform: translateX(-160%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width:768px) {
+
+    .container {
+        margin: 0 2vw;
+    }
+
+    .title {
+        padding: 0 5vw;
+        line-height: 50px;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    #nav-icon3 {
+        display: block;
+        margin: 38px 0 !important;
+    }
+
+
+    .nav_wrapper ul {
+        padding-left: 20px;
+        padding-top: 50px;
+    }
+
+
+
+    .content_inforDaiLy {
+        width: 100%;
+    }
+
+    /* chiều dài form tt đại lý*/
+    .content_inforDaiLy_form {
+        width: 90vw;
+
+    }
+
+    .nav_wrapper i {
+        margin: 0 5px;
+    }
+
+
+    .exit {
+        margin-top: 55vw;
+    }
+
+    h1#title_id {
+        line-height: 100px;
+    }
+}
+
+
+
+
+
+@media only screen and (max-width:1036px) {
+
+    .container {
+        margin: 0 2vw;
+    }
+
+}
+
+
+@media only screen and (min-width:679px) {
+
+    .open {
+        display: none;
+    }
+
+}
