@@ -1,11 +1,37 @@
 $(document).ready(function () {
     thongbao();
     loginCheck();
+    loginOptions();
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
     });
 });
 
+
+
+function loginOptions() {
+    $.ajax({
+        url: '/backend/login.php',
+        type: 'get',
+        data: '',
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            console.log(res);
+            if (res.role == 'admin') {
+                $('.daily_wrapper').hide();
+                $('.ctv_wrapper').hide();
+            }else{
+                $('.admin_wrapper').hide();
+                $('.ctv_wrapper').hide();
+            }
+          
+        },
+        complete: function () {
+        }
+    });
+}
 
 function loginCheck() {
     $.ajax({
@@ -380,7 +406,6 @@ function lichSuNapAD() {
 
         },
         success: function (res) {
-            console.log(res)
             $('.table').html(res);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
@@ -528,5 +553,3 @@ function checkInput() {
     // checked false cho input
     $('#nav_mb').get(0).checked = false;
 }
-
-

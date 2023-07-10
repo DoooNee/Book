@@ -12,7 +12,6 @@ session_start();
     <title>TRANG CHỦ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./assets/css/index.css?v=0.0.4">
-
 </head>
 
 <body>
@@ -25,7 +24,7 @@ session_start();
             <div class="user">
                 <i class="fa-solid fa-user"></i><span class="user_name"></span>
             </div>
-            <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="GP">0</span></div>
+            <div class="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/backend/logout.php">Đăng xuất</a></div>
         </div>
 
         <div class="title">
@@ -62,18 +61,17 @@ session_start();
         <div class="container">
             <div class="content">
                 <div class="content_ninja">
-                    <a href="http://localhost:3000/ninja">
+                    <a href="/ninja">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">NINJA</div>
                 </div>
                 <div class="content_vodai content_ninja">
-                    <a href="http://localhost:3000/vodai">
+                    <a href="/vodai">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">VÕ ĐÀI TỐI THƯỢNG</div>
                 </div>
             </div>
         </div>
-
 
         <!-- ĐĂNG NHẬP -->
         <div class="wrapper_popup">

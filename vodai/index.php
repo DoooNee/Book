@@ -154,7 +154,7 @@
         <!--==================== END ADMIN ==============================-->
 
         <!--===================== DAILY ========================-->
-        <div style="display: none;" class="daily_wrapper">
+        <div  class="daily_wrapper">
             <div class="admin_wrapper">
                 <!-- nav -->
                 <div class="nav">
@@ -491,7 +491,7 @@
         <!--===================== END DAILY ========================-->
 
         <!--===================== CTV ========================-->
-        <div style="display: none;" class="ctv_wrapper">
+        <div  class="ctv_wrapper">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
