@@ -12,7 +12,7 @@
 <body>
     <div class="wrapper">
         <!--======================= ADMIN ============================-->
-        <div style="display: none;" class="admin_wrapper">
+        <div  class="admin_wrapper">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -154,7 +154,7 @@
         <!--==================== END ADMIN ==============================-->
 
         <!--===================== DAILY ========================-->
-        <div  class="daily_wrapper">
+        <div style="display: none;" class="daily_wrapper">
             <div class="admin_wrapper">
                 <!-- nav -->
                 <div class="nav">

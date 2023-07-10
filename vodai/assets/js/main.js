@@ -1,3 +1,4 @@
+var root = '/vodai';
 $(document).ready(function () {
     thongbao();
     loginCheck();
@@ -9,7 +10,7 @@ $(document).ready(function () {
 
 function loginCheck() {
     $.ajax({
-        url: './backend/login.php',
+        url: root + '/backend/login.php',
         // url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
         type: 'get',
         data: '',
@@ -17,7 +18,7 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.tendaily);
+            console.log(res);
             if (res.isLogin != 1) {
                 $('.wrapper_popup').show();
             }
@@ -155,8 +156,8 @@ function showSaoKe() {
 
 function getSaoKeDailyGame() {
     $.ajax({
-        url: './backend/saoKeDailyGame.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saoKeDailyGame.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -174,8 +175,8 @@ function getSaoKeDailyGame() {
 
 function getSaoKeNguyenQuangTung() {
     $.ajax({
-        url: './backend/saoKeNguyenQuangTung.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saoKeNguyenQuangTung.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -193,8 +194,8 @@ function getSaoKeNguyenQuangTung() {
 
 function getSaoKeMinato() {
     $.ajax({
-        url: './backend/saoKeMinato.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saoKeMinato.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -213,8 +214,8 @@ function getSaoKeMinato() {
 function getSaoKeQuyenQuyen() {
     //$('.bang_saoke').html(`No info`);
     $.ajax({
-        url: './backend/saoKeQuyenQuyen.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saoKeQuyenQuyen.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -233,8 +234,8 @@ function getSaoKeQuyenQuyen() {
 function getSaoKeWeacc() {
     //$('.bang_saoke').html(`No info`);
     $.ajax({
-        url: './backend/saokeWeacc.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saokeWeacc.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -253,8 +254,8 @@ function getSaoKeWeacc() {
 function getSaoKeSonHeroGaming() {
     //$('.bang_saoke').html(`No info`);
     $.ajax({
-        url: './backend/saokeSonheroGaming.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saokeSonheroGaming.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -272,8 +273,8 @@ function getSaoKeSonHeroGaming() {
 
 function getSaoKeKunBanThe() {
     $.ajax({
-        url: './backend/saoKeKunBanThe.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/saoKeKunBanThe.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -301,8 +302,8 @@ function getSaoKeKunBanThe() {
 
 function getTongNap() {
     $.ajax({
-        url: './backend/log_tongnap_daily.php',
-        // url: './backend/lognap.php',
+        url: root + '/backend/log_tongnap_daily.php',
+        // url: '/vodai/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -323,7 +324,7 @@ function getTongNap() {
 function lichSuNap() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
-        url: './backend/lognap.php',
+        url: root + '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -346,7 +347,7 @@ function lichSuChuyen() {
 
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
-        url: './backend/logchuyen.php',
+        url: root + '/backend/logchuyen.php',
 
         type: 'get',
         data: '',
@@ -372,7 +373,7 @@ function lichSuChuyen() {
 // show table ADMIN
 function lichSuNapAD() {
     $.ajax({
-        url: './backend/logNapAD.php',
+        url: root + '/backend/logNapAD.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -380,7 +381,7 @@ function lichSuNapAD() {
 
         },
         success: function (res) {
-            console.log(res)
+            // console.log(res)
             $('.table').html(res);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
@@ -403,7 +404,7 @@ function lichSuChuyenAD(role) {
 
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
-        url: './backend/logchuyenAD.php',
+        url: root + '/backend/logchuyenAD.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -428,7 +429,7 @@ function lichSuChuyenAD(role) {
 
 function submitStatus($username, $nguoichuyen) {
     $.ajax({
-        url: './backend/submitStatus.php',
+        url: root + '/backend/submitStatus.php',
         type: 'post',
         data: {
             username: $username,
@@ -468,7 +469,7 @@ function login() {
 
 
     $.ajax({
-        url: './backend/login.php',
+        url: root + '/backend/login.php',
         type: 'post',
         data: {
             loginname: loginname,
@@ -489,7 +490,7 @@ function login() {
                     title: "Thông báo!",
                     text: "Đăng nhập thành công!"
                 }).then(function () {
-                    window.location = "/";
+                    window.location = "/vodai";
                 });
             }
 
@@ -505,7 +506,7 @@ function login() {
 
 // thông báo game
 function thongbao() {
-    $.get("./backend/thongbao.php", function (data) {
+    $.get("/vodai/backend/thongbao.php", function (data) {
         $('.thong_bao').html(data);
     });
 
