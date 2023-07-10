@@ -1,37 +1,12 @@
 $(document).ready(function () {
     thongbao();
     loginCheck();
-    loginOptions();
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
     });
 });
 
 
-
-function loginOptions() {
-    $.ajax({
-        url: '/backend/login.php',
-        type: 'get',
-        data: '',
-        dataType: 'json',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res);
-            if (res.role == 'admin') {
-                $('.daily_wrapper').hide();
-                $('.ctv_wrapper').hide();
-            }else{
-                $('.admin_wrapper').hide();
-                $('.ctv_wrapper').hide();
-            }
-          
-        },
-        complete: function () {
-        }
-    });
-}
 
 function loginCheck() {
     $.ajax({
@@ -70,23 +45,13 @@ function loginCheck() {
             }
 
             if (res.role == 'daily') {
-                $('.admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
-                $('.admin').hide();
-                $('.saoke_daily').hide();
+                $('.admin_wrapper').hide();
+                $('.ctv_wrapper').hide();
 
                 lichSuNap();
             } else {
-                var role = res.role;
-                $('.dashboard').hide();
-                $('.inforDaiLy').hide();
-                $('.chinh_sach').hide();
-                $('.code_thang').hide();
-                $('.chinh_sach').hide();
-                $('.nav_soDu').hide();
-                $('.sidebar_content').html(`<li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nhận</a></li>
-                                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('`+ role + `');"> Lịch Sử Chuyển</a></li>`);
-                showADMIN();
-                lichSuNapAD();
+                $('.daily_wrapper').hide();
+                $('.ctv_wrapper').hide();
             }
 
         },

@@ -18,7 +18,6 @@
                 <div class="user">
                     <i class="fa-solid fa-user"></i><span class="user_name"></span>
                 </div>
-                <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="GP">0</span></div>
             </div>
             <!-- title -->
             <div class="title">
