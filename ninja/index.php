@@ -21,7 +21,6 @@
             </div>
             <!-- title -->
             <div class="title">
-
                 <h1 id="title_id">
                     ADMIN
                 </h1>
@@ -31,16 +30,17 @@
                     <span></span>
                     <span></span>
                 </label>
-                <div class="nav_fade" class="open">
+
+                <div class="nav_fade">
                     <input type="checkbox" id="nav_mb">
                     <div class="nav_wrapper">
-                        <ul class="">
+                        <ul>
                             <label for="nav_mb">
-                                <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
+                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>ADMIN</a></li>
                             </label>
-                            <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
+                            <li class="inforDaiLy"><a href="javascript:showTongNap();"><i class="fa-solid fa-user"></i>Thông
                                     Tin Đại Lý</a></li>
-                            <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
+                            <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao Kê Đại Lý</a></li>
                             <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                         </ul>
                     </div>
@@ -60,38 +60,6 @@
                     </ul>
                 </div>
                 <div class="content">
-                    <!-- <div class="content_dashboard">
-                        <ul class="sidebar_content ">
-                            <li class="lich_su_nap "><a href="javascript:lichSuNap();"> Lịch Sử Nạp</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:lichSuChuyen();"> Lịch Sử Chuyển </a></li>
-                        </ul>
-                        <div class="bang_lich_su">
-                            <table id="table">
-                            </table>
-                        </div>
-                    </div> -->
-
-                    <div class="content_inforDaiLy">
-                        <h2>Thông Tin Đại Lý</h2>
-                        <h4>Tên Đại Lý</h4>
-                        <div class="content_inforDaiLy_form "><span id="ten"></span></div>
-                        <h4>Mã Đại Lý</h4>
-                        <div class="content_inforDaiLy_form"><span id="madaily"></span></div>
-                        <h4>Facebook</h4>
-                        <div class="content_inforDaiLy_form"><a target="_blank" id="facebook" href=""></a></div>
-                        <h4>SĐT</h4>
-                        <div class="content_inforDaiLy_form"><span id="sdt"></span></div>
-                        <h4>STK Đăng Ký Đại Lý</h4>
-                        <div class="content_inforDaiLy_form"><span id="stk_dangky"></span></div>
-                        <h4>STK Nhận Hoa Hồng</h4>
-                        <div class="content_inforDaiLy_form"><span class="stk_nganhang"></span></div>
-                        <h4>Số Tiền Nạp Tháng 6 2023</h4>
-                        <div class="content_inforDaiLy_form"><span class="tongthangtruoc"></span></div>
-                        <h4>Tổng Nạp (GP)</h4>
-                        <div class="content_inforDaiLy_form"><span class="tongnap"></span></div>
-                        <h4>Số Dư (GP)</h4>
-                        <div class="content_inforDaiLy_form"><span class="sodu"></span></div>
-                    </div>
                     <!--  admin -->
                     <div class="content_admin">
                         <ul class="sidebar_content ">
@@ -100,32 +68,6 @@
                         </ul>
                         <div class="bang_lich_su_admin">
                             <table class="table">
-                                <!-- <tr>
-                                <th>GP</th>
-                                <th>Tên nhân vật</th>
-                                <th>Trạng thái</th>
-                                <th>Thời gian</th>
-                            </tr>
-                            <tr>
-                                <td>10000</td>
-                                <td>HGluxy</td>
-                                <td> Đang xử lý</td>
-                                <td>
-                                    <div class="search disabled">
-                                        Tìm
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>500</td>
-                                <td>Walnuts</td>
-                                <td> Hoàn thành</td>
-                                <td>
-                                    <div class="search">
-                                        Tìm
-                                    </div>
-                                </td>
-                            </tr> -->
                             </table>
                         </div>
                     </div>
@@ -172,7 +114,7 @@
                     <span></span>
                     <span></span>
                 </label>
-                <div class="nav_fade" class="open">
+                <div class="nav_fade">
                     <input type="checkbox" id="nav_mb">
                     <div class="nav_wrapper">
                         <ul class="">

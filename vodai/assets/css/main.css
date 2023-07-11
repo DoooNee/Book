@@ -96,7 +96,6 @@ a {
 
 
 .content {
-    overflow: auto;
     width: 80%;
     border-radius: 5px;
     margin-left: 2vw;
@@ -105,6 +104,10 @@ a {
     padding-left: 1.5vw;
     padding-right: 1.5vw;
 
+}
+
+.bang_lich_su_admin{
+    overflow: auto;
 }
 
 .content_dashboard {}
@@ -470,7 +473,7 @@ table {
     background: rgb(255, 255, 255);
     width: 300px;
     height: 100vh;
-    transform: translateX(-100%);
+    transform: translateX(0%);
     transition: all 0.5s ease;
     z-index: 10;
 }

@@ -30,42 +30,22 @@ session_start();
         <div class="title">
             <h1 id="title_id">
             </h1>
-            <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-            <div class="nav_fade" class="open">
-                <input type="checkbox" id="nav_mb">
-                <div class="nav_wrapper">
-                    <ul class="">
-                        <label for="nav_mb">
-                            <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
-                        </label>
-                        <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
-                                Tin Đại Lý</a></li>
-                        <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
-                        <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
-                        <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
-                        <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
         <div style="overflow: hidden;width: auto;height: auto;">
             <p class="thong_bao"></p>
         </div>
 
+
+        <!-- container -->
         <div class="container">
-            <div class="content">
-                <div class="content_ninja">
+            <div class="content_group">
+                <div class="content">
                     <a href="/ninja">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">NINJA</div>
                 </div>
-                <div class="content_vodai content_ninja">
+                <div class="content">
                     <a href="/vodai">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">VÕ ĐÀI TỐI THƯỢNG</div>

@@ -61,12 +61,7 @@ a {
 
 
 
-/* container */
-.container {
-    display: flex;
-    max-height: 75vh;
-    margin: 0 10vw;
-}
+
 
 .sidebar {
     width: 20%;
@@ -94,49 +89,6 @@ a {
 }
 
 
-.content {
-    display: flex;
-    overflow: auto;
-    width: 100%;
-    border-radius: 5px;
-    margin-left: 2vw;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    padding-top: 1.5vw;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
-
-}
-
-.content_ninja {
-    position: relative;
-}
-
-.content_ninja_name {
-    position: absolute;
-    bottom: 1.5%;
-    left: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 21vw;
-    height: 10%;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    font-weight: bold;
-    font-size:1.5vw;
-}
-
-.content_ninja img {
-    width: 31.5vw;
-    border-radius: 20px;
-    margin: 0 3vw;
-}
-
-.content_vodai img {
-    width: 31.5vw;
-    border-radius: 20px;
-    margin: 0 3vw;
-}
 
 .content_dashboard {}
 
@@ -184,6 +136,41 @@ a {
     overflow: auto;
     margin-top: 10px;
 }
+
+
+/* container */
+.content_group {
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+    grid-template-rows: 23vw 23vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.content {
+    padding: 0 1.5vw;
+    border-radius: 10px;
+    position: relative;
+}
+
+.content img {
+    border-radius: 10px;
+    width: 36vw;
+}
+
+.content_ninja_name {
+    position: absolute;
+    bottom: 3vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    background: rgba(48, 46, 46, 0.8);
+    color: #ffffff;
+}
+
 
 
 /*  */
@@ -596,20 +583,40 @@ table {
 
 @media only screen and (max-width:768px) {
 
-    .container {
-        margin: 0 2vw;
-    }
+
+
 
     .title {
         padding: 0 5vw;
         line-height: 50px;
     }
 
-    .content {
-        width: 100%;
-        margin-left: 0;
-        justify-content: center;
+
+    /* container */
+    .content_group {
+        display: grid;
+        grid-template-columns: 40vw;
+        grid-template-rows: 49vw;
+        font-size: 20px;
     }
+
+    .content {
+        width: 200%;
+    }
+
+    .content img {
+        width: 78vw;
+    }
+
+    .content_ninja_name {
+        position:inherit;
+        transform:none;
+        width: 100%;
+        left:auto;
+    }
+
+
+
 
     .sidebar {
         display: none;
@@ -656,13 +663,7 @@ table {
 
 
 
-@media only screen and (max-width:1036px) {
-
-    .container {
-        margin: 0 2vw;
-    }
-
-}
+@media only screen and (max-width:1036px) {}
 
 
 @media only screen and (min-width:679px) {

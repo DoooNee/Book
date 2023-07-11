@@ -4,9 +4,8 @@ $(document).ready(function () {
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
     });
-
-
 });
+
 
 
 function loginCheck() {
@@ -27,7 +26,6 @@ function loginCheck() {
                 let tongnap = addCommas(res.tongnap);
                 let sodu = addCommas(res.sodu);
                 let tongthangtruoc = addCommas(res.tong_thangtruoc);
-
 
                 $('.user_name').html(res.fullname);
                 $('.GP').html(GP);

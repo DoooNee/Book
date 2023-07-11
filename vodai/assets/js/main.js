@@ -4,8 +4,13 @@ $(document).ready(function () {
     loginCheck();
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
+        $('.nav_fade').toggleClass('open');
     });
 });
+$('#nav-icon3').click(function () {
+    $('.nav_fade').toggleClass('open');
+})
+
 
 
 function loginCheck() {
