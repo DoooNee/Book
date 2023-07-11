@@ -15,7 +15,7 @@ $('#nav-icon3').click(function () {
 
 function loginCheck() {
     $.ajax({
-        url: root + '/backend/login.php',
+        // url: root + '/backend/login.php',
         url: 'https://goirongat.tranthanhquan.com/backend/daily/logintest.php',
         type: 'get',
         data: '',
