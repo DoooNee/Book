@@ -105,7 +105,7 @@
             </div>
             <div class="title">
 
-                <h1 id="title_id">
+                <h1  id="title_id">
                     ĐẠI LÝ
                 </h1>
                 <label for="nav_mb" id="nav-icon3" style="z-index: 11;">

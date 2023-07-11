@@ -24,7 +24,7 @@ a {
 
 
 .stk {
-	color: #0055f2;
+    color: #0055f2;
 }
 
 /* nav */
@@ -64,6 +64,7 @@ a {
 
 /* container */
 .container {
+    overflow: auto;
     display: flex;
     height: 75vh;
     margin: 0 10vw;
@@ -153,7 +154,7 @@ a {
     margin-top: 10px;
 }
 
-.bang_lich_su_admin{
+.bang_lich_su_admin {
     overflow: auto;
 }
 
@@ -498,23 +499,23 @@ table {
 
 /* chính sách */
 
-.content_chich_sach ul li{
+.content_chich_sach ul li {
     margin: 8px;
     margin-left: 20px;
 
 }
 
-.content_chich_sach h4{
+.content_chich_sach h4 {
     margin: 1vw 0vw;
 }
 
 
-.content_chich_sach p{
+.content_chich_sach p {
     margin: 8px;
 
 }
 
-.bottom_chinh_sach{
+.bottom_chinh_sach {
     height: 30px;
     width: 100%;
 }

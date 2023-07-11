@@ -16,7 +16,7 @@ $('#nav-icon3').click(function () {
 function loginCheck() {
     $.ajax({
         // url: root + '/backend/login.php',
-        url: 'https://goirongat.tranthanhquan.com/backend/daily/logintest.php',
+        url: '/backend/login.php',
         type: 'get',
         data: '',
         dataType: 'json',
@@ -25,7 +25,7 @@ function loginCheck() {
         success: function (res) {
             console.log(res);
             if (res.isLogin != 1) {
-                $('.wrapper_popup').show();
+                    window.location="/";
             }
             else {
                 let GP = addCommas(res.sodu);
@@ -52,11 +52,16 @@ function loginCheck() {
             if (res.role == 'daily') {
                 $('.admin_wrapper').hide();
                 $('.ctv_wrapper').hide();
-
                 lichSuNap();
-            } else {
+            }
+            if (res.role == 'admin'){
                 $('.daily_wrapper').hide();
                 $('.ctv_wrapper').hide();
+            }
+
+            if (res.role == 'ctv'){
+                $('.daily_wrapper').hide();
+                $('.admin_wrapper').hide();
             }
 
         },

@@ -15,7 +15,7 @@ $('#nav-icon3').click(function () {
 
 function loginCheck() {
     $.ajax({
-        url: './backend/login.php',
+        url: '/backend/login.php',
         // url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
         type: 'get',
         data: '',
@@ -23,9 +23,9 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.tendaily);
+            console.log(res);
             if (res.isLogin != 1) {
-                $('.wrapper_popup').show();
+                window.location = "/";
             }
             else {
                 let GP = addCommas(res.sodu);
@@ -52,15 +52,20 @@ function loginCheck() {
             if (res.role == 'daily') {
                 $('.admin_wrapper').hide();
                 $('.ctv_wrapper').hide();
-
                 lichSuNap();
-            } else {
+            }
+            if (res.role == 'admin'){
                 $('.daily_wrapper').hide();
                 $('.ctv_wrapper').hide();
             }
 
+            if (res.role == 'ctv'){
+                $('.daily_wrapper').hide();
+                $('.admin_wrapper').hide();
+            }
+           
         },
-        complete: function () {
+        complete: function (res) {
         }
     });
 }

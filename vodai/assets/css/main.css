@@ -64,6 +64,7 @@ a {
 
 /* container */
 .container {
+    overflow: auto;
     display: flex;
     height: 75vh;
     margin: 0 10vw;
