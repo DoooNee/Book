@@ -1,7 +1,7 @@
 <?php
 	session_start();
     
-    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = $madaily = $facebook = $sdt = $stk_dangky = $stk_nhan = $sodu = $tong_thangtruoc = $link_code = null;
+    $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = $madaily = $facebook = $sdt = $stk_dangky = $stk_nhan = $sodu = $tong_thangtruoc = $link_code =$game = null;
 
     //unset($_SESSION["username"]);
     
