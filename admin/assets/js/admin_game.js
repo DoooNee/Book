@@ -297,7 +297,7 @@ function lichSuNapAD() {
         }
     });
 }
-lichSuNapAD();
+// lichSuNapAD();
 
 $('#table_lich_su_chuyen').hide();
 
@@ -352,12 +352,12 @@ function submitStatus(id, nguoichuyen) {
             console.log(res);
             if (res.status == 'success') {
                 swal("Thông báo!", "Submit thành công");
-                lichSuChuyenAD();
+                lichSuChuyenAD(role);
             }
 
         },
         complete: function () {
-            lichSuChuyenAD();
+            lichSuChuyenAD(role);
         }
     });
 
