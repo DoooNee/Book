@@ -212,7 +212,7 @@ function getSaoKeKunBanThe() {
 
 function getTongNap() {
     $.ajax({
-        url: '/backend/log_tongnap_daily.php',
+        url: '/backend/thongtindaily.php',
         // url: '/backend/lognap.php',
         type: 'get',
         data: '',
