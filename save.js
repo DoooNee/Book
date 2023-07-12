@@ -3,36 +3,30 @@ $(document).ready(function () {
     loginCheck();
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
-        $('.nav_fade').toggleClass('open');
     });
 });
-$('#nav-icon3').click(function () {
-    $('.nav_fade').toggleClass('open');
-})
-
 
 
 
 function loginCheck() {
     $.ajax({
         url: '/backend/login.php',
-        // url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
+        // url : 'https://goirongat.tranthanhquan.com/backend/daily/logintest.php',
         type: 'get',
         data: '',
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
+            console.log(res.tendaily);
             if (res.isLogin != 1) {
-                window.location = "/";
+                $('.wrapper_popup').show();
             }
             else {
                 let GP = addCommas(res.sodu);
                 let tongnap = addCommas(res.tongnap);
                 let sodu = addCommas(res.sodu);
                 let tongthangtruoc = addCommas(res.tong_thangtruoc);
-
 
                 $('.user_name').html(res.fullname);
                 $('.GP').html(GP);
@@ -50,22 +44,13 @@ function loginCheck() {
             }
 
             if (res.role == 'daily') {
-                $('.admin_wrapper').hide();
-                $('.ctv_wrapper').hide();
-                lichSuNap();
-            }
-            if (res.role == 'admin'){
-                $('.daily_wrapper').hide();
-                $('.ctv_wrapper').hide();
+                console.log(res.role);
+            } else {
+                var role = res.role;
             }
 
-            if (res.role == 'ctv'){
-                $('.daily_wrapper').hide();
-                $('.admin_wrapper').hide();
-            }
-           
         },
-        complete: function (res) {
+        complete: function () {
         }
     });
 }
@@ -74,11 +59,6 @@ function loginCheck() {
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
 }
-
-
-
-
-
 
 function addCommas(str) {
     var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
@@ -95,67 +75,6 @@ function addCommas(str) {
     return arr.join('');
 }
 
-
-
-function showDashBoard() {
-    $('.content_dashboard').show();
-    $('.content_admin').hide();
-    $('.tongnap_daily').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').hide();
-    checkInput();
-}
-function showTTDaiLy() {
-    $('.content_dashboard').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').hide();
-    $('.content_inforDaiLy').show();
-    $('.saoke_daily').hide();
-    checkInput();
-
-}
-
-
-function showChinhSach() {
-    $('.content_dashboard').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_kho_code').hide();
-    $('.content_chich_sach').show();
-    checkInput();
-}
-
-
-function showCODE() {
-    $('.content_dashboard').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').show();
-    checkInput();
-}
-
-
-function showADMIN() {
-    $('.content_admin').show();
-    $('.tongnap_daily').hide();
-    $('.saoke_daily').hide();
-}
-
-function showTongNap() {
-    $('.content_admin').hide();
-    $('.tongnap_daily').show();
-    $('.saoke_daily').hide();
-    $('.content_dashboard').hide();
-
-    getTongNap();
-}
-
-function showSaoKe() {
-    $('.content_admin').hide();
-    $('.tongnap_daily').hide();
-    $('.saoke_daily').show();
-    //getTongNap ();
-}
 
 function getSaoKeDailyGame() {
     $.ajax({
@@ -334,7 +253,6 @@ function lichSuNap() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
             $('#table').html(res);
             $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
@@ -371,29 +289,6 @@ function lichSuChuyen() {
     });
 }
 
-
-
-// show table ADMIN
-function lichSuNapAD() {
-    $.ajax({
-        url: './backend/logNapAD.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-
-        },
-        success: function (res) {
-            $('.table').html(res);
-            $(".lich_su_nap_admin").addClass("active");
-            $(".lich_su_chuyen_admin").removeClass("active");
-
-
-        },
-        complete: function () {
-        }
-    });
-}
 
 
 
@@ -472,6 +367,7 @@ function login() {
 
     $.ajax({
         url: './backend/login.php',
+        // url: 'https://goirongat.tranthanhquan.com/backend/daily/logintest.php',
         type: 'post',
         data: {
             loginname: loginname,
@@ -492,7 +388,12 @@ function login() {
                     title: "Thông báo!",
                     text: "Đăng nhập thành công!"
                 }).then(function () {
-                    window.location = "/";
+                    if(res.role == 'daily'){
+                        window.location = "/daily";
+                    }
+                    else {
+                        window.location = "/admin";
+                    }
                 });
             }
 
@@ -501,6 +402,8 @@ function login() {
         }
     });
 }
+
+
 
 
 
@@ -531,3 +434,5 @@ function checkInput() {
     // checked false cho input
     $('#nav_mb').get(0).checked = false;
 }
+
+

@@ -1,19 +1,12 @@
-<?php
-// Khởi tạo phiên
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRANG CHỦ</title>
+    <title>Admin</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/index.css?v=0.0.4">
+    <link rel="stylesheet" href="/admin/assets/css/admin.css">
 </head>
-
 <body>
 
     <?php
@@ -38,20 +31,20 @@ session_start();
 
 
         <!-- container -->
-        <!-- <div class="container">
+        <div class="container">
             <div class="content_group">
                 <div class="content">
-                    <a href="/ninja">
+                    <a href="/admin/ninja">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">NINJA</div>
                 </div>
                 <div class="content">
-                    <a href="/vodai">
+                    <a href="/admin/vodai">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">VÕ ĐÀI TỐI THƯỢNG</div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- ĐĂNG NHẬP -->
         <div class="wrapper_popup">
@@ -76,7 +69,7 @@ session_start();
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="/assets/js/home.js"></script>
+    <script src="./assets/js/admin.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 

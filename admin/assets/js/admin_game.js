@@ -1,12 +1,18 @@
 $(document).ready(function () {
-    thongbao();
+    // thongbao();
+    // var role = '';
     loginCheck();
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
+        $('.nav_fade').toggleClass('open');
     });
 });
+$('#nav-icon3').click(function () {
+    $('.nav_fade').toggleClass('open');
+})
 
 
+var role = '';
 
 function loginCheck() {
     $.ajax({
@@ -17,47 +23,32 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.tendaily);
+            console.log(res);
             if (res.isLogin != 1) {
-                $('.wrapper_popup').show();
+                window.location = "/";
             }
             else {
-                let GP = addCommas(res.sodu);
-                let tongnap = addCommas(res.tongnap);
-                let sodu = addCommas(res.sodu);
-                let tongthangtruoc = addCommas(res.tong_thangtruoc);
+                role = res.role;
 
-                $('.user_name').html(res.fullname);
-                $('.GP').html(GP);
-                $('#ten').html(res.fullname);
-                $('#madaily').html(res.madaily);
-                $('#facebook').html(res.facebook);
-                $('#sdt').html(res.sdt);
-                $('#stk_dangky').html(res.stk_dangky);
-                $('.stk_nganhang').html(res.stk_nhan);
-                $('.tongthangtruoc').html(tongthangtruoc);
-                $('.tongnap').html(tongnap);
-                $('.sodu').html(sodu);
-                $("#facebook").attr("href", res.facebook);
-                $('.content_kho_code').html(`<a href="/assets/kho_code/${res.link_code}">link CODE tháng</a>`)
             }
 
-            if (res.role == 'daily') {
-                console.log(res.role);
-            } else {
-                var role = res.role;
-            }
-
+           
         },
-        complete: function () {
+        complete: function (res) {
         }
     });
 }
 
 
+
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
 }
+
+
+
+
+
 
 function addCommas(str) {
     var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
@@ -74,6 +65,67 @@ function addCommas(str) {
     return arr.join('');
 }
 
+
+
+function showDashBoard() {
+    $('.content_dashboard').show();
+    $('.content_admin').hide();
+    $('.tongnap_daily').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    checkInput();
+}
+function showTTDaiLy() {
+    $('.content_dashboard').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_inforDaiLy').show();
+    $('.saoke_daily').hide();
+    checkInput();
+
+}
+
+
+function showChinhSach() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_kho_code').hide();
+    $('.content_chich_sach').show();
+    checkInput();
+}
+
+
+function showCODE() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').show();
+    checkInput();
+}
+
+
+function showADMIN() {
+    $('.content_admin').show();
+    $('.tongnap_daily').hide();
+    $('.saoke_daily').hide();
+}
+
+function showTongNap() {
+    $('.content_admin').hide();
+    $('.tongnap_daily').show();
+    $('.saoke_daily').hide();
+    $('.content_dashboard').hide();
+
+    getTongNap();
+}
+
+function showSaoKe() {
+    $('.content_admin').hide();
+    $('.tongnap_daily').hide();
+    $('.saoke_daily').show();
+    //getTongNap ();
+}
 
 function getSaoKeDailyGame() {
     $.ajax({
@@ -223,7 +275,7 @@ function getSaoKeKunBanThe() {
 
 function getTongNap() {
     $.ajax({
-        url: './backend/log_tongnap_daily.php',
+        url: '/backend/log_tongnap_daily.php',
         // url: './backend/lognap.php',
         type: 'get',
         data: '',
@@ -252,6 +304,7 @@ function lichSuNap() {
         beforeSend: function () {
         },
         success: function (res) {
+            console.log(res)
             $('#table').html(res);
             $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
@@ -290,6 +343,30 @@ function lichSuChuyen() {
 
 
 
+// show table ADMIN
+function lichSuNapAD() {
+    console.log(role);
+    $.ajax({
+        url: '/backend/logNapAD.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
+
+        },
+        success: function (res) {
+            $('.table').html(res);
+            $(".lich_su_nap_admin").addClass("active");
+            $(".lich_su_chuyen_admin").removeClass("active");
+
+
+        },
+        complete: function () {
+        }
+    });
+}
+
+
 
 
 
@@ -300,7 +377,7 @@ function lichSuChuyenAD(role) {
 
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
-        url: './backend/logchuyenAD.php',
+        url: '/backend/logchuyenAD.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -351,52 +428,50 @@ function submitStatus($username, $nguoichuyen) {
 }
 
 
-function login() {
-    let loginname = $(".ten_dang_nhap").val();
-    let password = $(".mat_khau").val();
-    if (loginname == null || loginname == '') {
-        swal("Vui lòng điền tên đăng nhập!");
-        return 0;
-    }
-    if (password == null || password == '') {
-        swal("Vui lòng điền mật khẩu!");
-        return 0;
-    }
+// function login() {
+//     let loginname = $(".ten_dang_nhap").val();
+//     let password = $(".mat_khau").val();
+//     if (loginname == null || loginname == '') {
+//         swal("Vui lòng điền tên đăng nhập!");
+//         return 0;
+//     }
+//     if (password == null || password == '') {
+//         swal("Vui lòng điền mật khẩu!");
+//         return 0;
+//     }
 
 
-    $.ajax({
-        url: './backend/login.php',
-        type: 'post',
-        data: {
-            loginname: loginname,
-            password: password,
-            action: 'login'
-        },
-        dataType: 'json',
-        beforeSend: function () {
+//     $.ajax({
+//         url: './backend/login.php',
+//         type: 'post',
+//         data: {
+//             loginname: loginname,
+//             password: password,
+//             action: 'login'
+//         },
+//         dataType: 'json',
+//         beforeSend: function () {
 
-        },
-        success: function (res) {
-            if (res.status == "error") {
-                swal("Thông báo!", "Thông tin đăng nhập không đúng!");
-            }
+//         },
+//         success: function (res) {
+//             if (res.status == "error") {
+//                 swal("Thông báo!", "Thông tin đăng nhập không đúng!");
+//             }
 
-            else {
-                swal({
-                    title: "Thông báo!",
-                    text: "Đăng nhập thành công!"
-                }).then(function () {
-                    window.location = "/";
-                });
-            }
+//             else {
+//                 swal({
+//                     title: "Thông báo!",
+//                     text: "Đăng nhập thành công!"
+//                 }).then(function () {
+//                     window.location = "/";
+//                 });
+//             }
 
-        },
-        complete: function () {
-        }
-    });
-}
-
-
+//         },
+//         complete: function () {
+//         }
+//     });
+// }
 
 
 
@@ -427,5 +502,3 @@ function checkInput() {
     // checked false cho input
     $('#nav_mb').get(0).checked = false;
 }
-
-

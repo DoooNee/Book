@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/ninja/assets/css/main.css">
-    <script src="/ninja/assets/js/jquery.js"></script>
+    <title>Admin Ninja</title>
+    <link rel="stylesheet" href="/admin//assets/css/admin_game.css">
+    <script src="/admin/assets/js/jquery.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                     <div class="nav_wrapper">
                         <ul>
                             <label for="nav_mb">
-                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>ADMIN</a></li>
+                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
                             </label>
                             <li class="inforDaiLy"><a href="javascript:showTongNap();"><i class="fa-solid fa-user"></i>Thông
                                     Tin Đại Lý</a></li>
@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="sidebar">
                     <ul>
-                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
+                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>Dashboard</a></li>
                         <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
                         <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
                         <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
@@ -95,7 +95,7 @@
         <!--==================== END ADMIN ==============================-->
 
         <!--===================== DAILY ========================-->
-        <div class="daily_wrapper">
+        <div class="daily_wrapper" style="display:none">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -430,7 +430,7 @@
         <!--===================== END DAILY ========================-->
 
         <!--===================== CTV ========================-->
-        <div class="ctv_wrapper">
+        <div class="ctv_wrapper" style="display:none">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -573,7 +573,7 @@
     </div>
 
 
-    <script src="/ninja/assets/js/main.js"></script>
+    <script src="/admin/assets/js/admin_game.js"></script>
 </body>
 
 </html>
