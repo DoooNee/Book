@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['role']) && isset($_PO
     // Kiểm tra role có phải là 'admin' không
     if ($role === 'admin') {
         // Xây dựng câu truy vấn SQL
-        $sql = "SELECT sotien, description, thoigiannap FROM lognap_$game WHERE game = '$game' ORDER BY id DESC";
+        $sql = "SELECT sotien, description, thoigiannap FROM lognap_$game ORDER BY id DESC";
         // echo $sql;
         // exit;
         // Thực hiện truy vấn SQL
