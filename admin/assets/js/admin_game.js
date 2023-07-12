@@ -316,7 +316,7 @@ function lichSuChuyenAD(username) {
             $(".lich_su_nap_admin").removeClass("active");
             var html = '';
             $.each(res, function (i, item) {
-                html += `<tr><td>${addCommas(res[i].sotien)}</td><td >${res[i].username}</td><td >${res[i].status}</td><td >${res[i].nguoi_chuyen}</td><td ><div class="search disabled"><a href="javascript:submitStatus(${res[i].id},\'' + username + '\')">Submit</a></div></td></tr>`;
+                html += `<tr><td>${addCommas(res[i].sotien)}</td><td >${res[i].username}</td><td >${res[i].status}</td><td >${res[i].nguoi_chuyen}</td><td ><div class="search disabled"><a href="javascript:submitStatus(${res[i].id},'${username}')">Submit</a></div></td></tr>`;
             });
             var html_rank = '<table id="table_lich_su_nap"><tr><th>GP</th><th>Tên Nhân Vật</th><th>Trạng Thái</th><th>Người Chuyển</th><th></th></tr> ' + html + '</table>';
             $('#table_lich_su_nap').html(html_rank);
