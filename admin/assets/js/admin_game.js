@@ -214,16 +214,33 @@ function getTTDaiLy() {
     $.ajax({
         url: '/backend/thongtindaily.php',
         type: 'post',
-        data:  { role: role, game: "ninja" },
-        dataType:'json',
+        data: { role: role, game: "ninja" },
+        dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            var html = '';
+            $.each(res, function (i, item) {
+                html += `<tr><td>${res[i].tendaily}</td><td >${addCommas(res[i].tongnap)}</td><td >${hoaHong_HienTai(res[i].tongnap)}</td><td >${addCommas(res[i].tong_thangtruoc)}</td><td  >${res[i].hoahong_thangtruoc}</td><td class ="stk_css" >${res[i].stk_dangky}</td><td class ="stk_css" >${res[i].stk_nhan}</td><td >${res[i].sdt}</td></tr>`;
+            });
+            var html_rank = '<table id="table_lich_su_nap"><tr><th>Tên Đại Lý</th><th>Tổng Tháng 7</th><th>Hoa Hồng Tháng 7</th><th>Tổng Tháng 6</th><th>Hoa Hồng Tháng 6</th><th >STK Đăng Ký Đại Lý</th><th >STK Nhận Hoa Hồng</th><th>SĐT</th></tr> ' + html + '</table>';
+            $('#table_ttDaiLy').html(html_rank);
+
         },
         complete: function () {
         }
     });
+}
+
+// Tính Hoa Hồng Đại Lý
+function hoaHong_HienTai(sotien) {
+    if (sotien >= 20000000) {
+        let a = sotien * 0.05;
+        return a;
+    } else {
+        let a = sotien * 0.04;
+        return a;
+    }
 }
 
 // show table dashboard
@@ -279,7 +296,6 @@ function lichSuNapAD() {
         beforeSend: function () {
         },
         success: function (res) {
-
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
             var html = '';
@@ -308,7 +324,6 @@ function lichSuChuyenAD(username) {
         beforeSend: function () {
         },
         success: function (res) {
-
             $(".lich_su_chuyen_admin").addClass("active");
             $(".lich_su_nap_admin").removeClass("active");
             var html = '';
@@ -322,7 +337,6 @@ function lichSuChuyenAD(username) {
         }
     });
 }
-
 
 
 
@@ -343,7 +357,6 @@ function submitStatus(id, nguoichuyen) {
         },
         dataType: 'json',
         beforeSend: function () {
-
         },
         success: function (res) {
             console.log(res);
@@ -351,7 +364,6 @@ function submitStatus(id, nguoichuyen) {
                 swal("Thông báo!", "Submit thành công");
                 lichSuChuyenAD(role);
             }
-
         },
         complete: function () {
             lichSuChuyenAD(role);

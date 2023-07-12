@@ -70,16 +70,13 @@
                         </ul>
                         <div class="bang_lich_su_admin">
                             <table id="table_lich_su_nap" class="table">
-                                
                             </table>
-
-
-
                         </div>
                     </div>
                     <!-- tongnap -->
                     <div class="tongnap_daily">
-                        <table>
+                        <table id="table_ttDaiLy">
+
                         </table>
                     </div>
                     <!-- saoke -->
