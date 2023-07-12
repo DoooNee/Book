@@ -67,13 +67,24 @@
                             <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
                         </ul>
                         <div class="bang_lich_su_admin">
-                            <table id="records_table" class="table">
+                            <table id="table_lich_su_nap" class="table">
                                 <tr>
                                     <th>Số Tiền</th>
                                     <th>Mô Tả</th>
                                     <th>Thời Gian</th>
                                 </tr>
                             </table>
+
+                             <table id="table_lich_su_chuyen" class="table">
+                                <tr>
+                                    <th>GP</th>
+                                    <th>Tên Nhân Vật</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Người Chuyển</th>
+                                    <th></th>
+                                </tr>
+                            </table>
+                         
                         </div>
                     </div>
                     <!-- tongnap -->

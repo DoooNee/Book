@@ -9,6 +9,10 @@ $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
     $('.nav_fade').toggleClass('open');
 });
 
+
+
+
+
 var role = '';
 function loginCheck() {
     $.ajax({
@@ -282,9 +286,41 @@ function lichSuNapAD() {
         },
         success: function (res) {
             console.log(res);
+            $('#table_lich_su_nap').show();
+            $('#table_lich_su_chuyen').hide();
+            $(".lich_su_nap_admin").addClass("active");
+            $(".lich_su_chuyen_admin").removeClass("active");
+
             $.each(res, function (i, item) {
                 $('<tr>').html(
-                    "<td>" + res[i].sotien + "</td><td>" + res[i].description + "</td><td>" + res[i].thoigiannap + "</td>").appendTo('#records_table');
+                    "<td>" + res[i].sotien + "</td><td>" + res[i].description + "</td><td>" + res[i].thoigiannap + "</td>").appendTo('#table_lich_su_nap');
+            });
+        },
+        complete: function () {
+        }
+    });
+}
+
+$('#table_lich_su_chuyen').hide();
+
+function lichSuChuyenAD() {
+    console.log(role);
+    $.ajax({
+        url: '/backend/logchuyenAD.php',
+        type: 'post',
+        data: { role: role, game: "ninja" },
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        success: function (res) {
+            $('#table_lich_su_nap').hide();
+            $('#table_lich_su_chuyen').show();
+            $(".lich_su_chuyen_admin").addClass("active");
+            $(".lich_su_nap_admin").removeClass("active");
+            console.log(res);
+            $.each(res, function (i, item) {
+                $('<tr>').html(
+                    "<td>" + res[i].sotien + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(res[i].id, <?php echo $_SESSION["username"] ?>Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
             });
         },
         complete: function () {
@@ -293,25 +329,6 @@ function lichSuNapAD() {
 }
 
 
-// show table ADMIN
-function lichSuChuyenAD() {
-    console.log(role);
-    $.ajax({
-        // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
-        url: '/backend/logchuyenAD.php',
-        type: 'post',
-        data: { role: role, game: "ninja" },
-        dataType: 'json',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-        },
-        complete: function () {
-
-        }
-    });
-}
 
 
 function submitStatus($username, $nguoichuyen) {

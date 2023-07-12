@@ -48,6 +48,12 @@ a {
 }
 
 
+.active {
+    color: red;
+    font-weight: bold;
+}
+
+
 /* title */
 .title {
     padding: 0 10vw;
