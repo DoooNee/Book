@@ -8,6 +8,7 @@
     <title>Admin Ninja</title>
     <link rel="stylesheet" href="/admin//assets/css/admin_game.css">
     <script src="/admin/assets/js/jquery.js"></script>
+    <script src="/admin/assets/js/sweetalert.js"></script>
 </head>
 
 <body>
@@ -76,7 +77,7 @@
                                 </tr>
                             </table>
 
-                             <table id="table_lich_su_chuyen" class="table">
+                            <table id="table_lich_su_chuyen" class="table">
                                 <tr>
                                     <th>GP</th>
                                     <th>Tên Nhân Vật</th>
@@ -85,7 +86,7 @@
                                     <th></th>
                                 </tr>
                             </table>
-                         
+
                         </div>
                     </div>
                     <!-- tongnap -->
@@ -94,7 +95,7 @@
                         </table>
                     </div>
                     <!-- saoke -->
-                    <div class="saoke_daily">
+                    <div style="display:none;" class="saoke_daily">
                         <ul class="sidebar_content1 ">
                             <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
                             <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>

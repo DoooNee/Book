@@ -11,8 +11,6 @@ $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
 
 
 
-
-
 var role = '';
 function loginCheck() {
     $.ajax({
@@ -23,6 +21,7 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
+
             console.log(res);
             if (res.isLogin != 1) {
                 window.location = "/";
@@ -273,7 +272,6 @@ function lichSuChuyen() {
         }
     });
 }
-
 // show table ADMIN
 function lichSuNapAD() {
     console.log(role);
@@ -300,6 +298,7 @@ function lichSuNapAD() {
         }
     });
 }
+lichSuNapAD();
 
 $('#table_lich_su_chuyen').hide();
 
@@ -313,7 +312,6 @@ function lichSuChuyenAD(username) {
         beforeSend: function () {
         },
         success: function (res) {
-
             $('#table_lich_su_nap').hide();
             $('#table_lich_su_chuyen').show();
             $(".lich_su_chuyen_admin").addClass("active");
@@ -321,14 +319,15 @@ function lichSuChuyenAD(username) {
             console.log(res);
             $.each(res, function (i, item) {
                 $('<tr>').html(
-                    "<td>" + res[i].sotien + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(' + res[i].id +',\''+ username +'\')">Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
-            
+                    "<td>" + res[i].sotien + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(' + res[i].id + ',\'' + username + '\')">Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
+
             });
         },
         complete: function () {
         }
     });
 }
+
 
 
 
@@ -342,7 +341,7 @@ function submitStatus(id, nguoichuyen) {
         url: '/backend/submitStatus.php',
         type: 'post',
         data: {
-            role: role, 
+            role: role,
             game: "ninja",
             id: id,
             nguoichuyen: nguoichuyen
