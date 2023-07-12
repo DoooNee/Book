@@ -1,19 +1,15 @@
 $(document).ready(function () {
-    // thongbao();
-    // var role = '';
     loginCheck();
-    $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
-        $(this).toggleClass('open');
-        $('.nav_fade').toggleClass('open');
-    });
+    showADMIN();
 });
-$('#nav-icon3').click(function () {
-    $('.nav_fade').toggleClass('open');
-})
 
+// nav mobile
+$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
+    $(this).toggleClass('open');
+    $('.nav_fade').toggleClass('open');
+});
 
 var role = '';
-
 function loginCheck() {
     $.ajax({
         url: '/backend/login.php',
@@ -29,26 +25,16 @@ function loginCheck() {
             }
             else {
                 role = res.role;
-
             }
-
-           
         },
         complete: function (res) {
         }
     });
 }
 
-
-
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
 }
-
-
-
-
-
 
 function addCommas(str) {
     var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
@@ -65,46 +51,6 @@ function addCommas(str) {
     return arr.join('');
 }
 
-
-
-function showDashBoard() {
-    $('.content_dashboard').show();
-    $('.content_admin').hide();
-    $('.tongnap_daily').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').hide();
-    checkInput();
-}
-function showTTDaiLy() {
-    $('.content_dashboard').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').hide();
-    $('.content_inforDaiLy').show();
-    $('.saoke_daily').hide();
-    checkInput();
-
-}
-
-
-function showChinhSach() {
-    $('.content_dashboard').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_kho_code').hide();
-    $('.content_chich_sach').show();
-    checkInput();
-}
-
-
-function showCODE() {
-    $('.content_dashboard').hide();
-    $('.content_inforDaiLy').hide();
-    $('.content_chich_sach').hide();
-    $('.content_kho_code').show();
-    checkInput();
-}
-
-
 function showADMIN() {
     $('.content_admin').show();
     $('.tongnap_daily').hide();
@@ -115,8 +61,6 @@ function showTongNap() {
     $('.content_admin').hide();
     $('.tongnap_daily').show();
     $('.saoke_daily').hide();
-    $('.content_dashboard').hide();
-
     getTongNap();
 }
 
@@ -263,16 +207,6 @@ function getSaoKeKunBanThe() {
     });
 }
 
-
-
-
-
-
-
-
-
-
-
 function getTongNap() {
     $.ajax({
         url: '/backend/log_tongnap_daily.php',
@@ -291,7 +225,6 @@ function getTongNap() {
         }
     });
 }
-
 
 // show table dashboard
 function lichSuNap() {
@@ -314,14 +247,11 @@ function lichSuNap() {
     });
 }
 
-
 // show table dashboard
 function lichSuChuyen() {
-
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
         url: './backend/logchuyen.php',
-
         type: 'get',
         data: '',
         dataType: '',
@@ -332,8 +262,6 @@ function lichSuChuyen() {
             $('#table').html(res);
             $(".lich_su_chuyen").addClass("active");
             $(".lich_su_nap").removeClass("active");
-
-
         },
         complete: function () {
 
@@ -341,15 +269,13 @@ function lichSuChuyen() {
     });
 }
 
-
-
 // show table ADMIN
 function lichSuNapAD() {
     console.log(role);
     $.ajax({
         url: '/backend/logNapAD.php',
-        type: 'get',
-        data: '',
+        type: 'post',
+        data: { role: role, name: "ninja" },
         dataType: '',
         beforeSend: function () {
 
@@ -358,8 +284,6 @@ function lichSuNapAD() {
             $('.table').html(res);
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
-
-
         },
         complete: function () {
         }
@@ -367,22 +291,15 @@ function lichSuNapAD() {
 }
 
 
-
-
-
-
-
 // show table ADMIN
 function lichSuChuyenAD(role) {
-
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
         url: '/backend/logchuyenAD.php',
-        type: 'get',
-        data: '',
+        type: 'post',
+        data: { role: role, name: "ninja" },
         dataType: '',
         beforeSend: function () {
-
         },
         success: function (res) {
             $('.table').html(res);
@@ -397,7 +314,6 @@ function lichSuChuyenAD(role) {
         }
     });
 }
-
 
 
 function submitStatus($username, $nguoichuyen) {
@@ -427,56 +343,6 @@ function submitStatus($username, $nguoichuyen) {
 
 }
 
-
-// function login() {
-//     let loginname = $(".ten_dang_nhap").val();
-//     let password = $(".mat_khau").val();
-//     if (loginname == null || loginname == '') {
-//         swal("Vui lòng điền tên đăng nhập!");
-//         return 0;
-//     }
-//     if (password == null || password == '') {
-//         swal("Vui lòng điền mật khẩu!");
-//         return 0;
-//     }
-
-
-//     $.ajax({
-//         url: './backend/login.php',
-//         type: 'post',
-//         data: {
-//             loginname: loginname,
-//             password: password,
-//             action: 'login'
-//         },
-//         dataType: 'json',
-//         beforeSend: function () {
-
-//         },
-//         success: function (res) {
-//             if (res.status == "error") {
-//                 swal("Thông báo!", "Thông tin đăng nhập không đúng!");
-//             }
-
-//             else {
-//                 swal({
-//                     title: "Thông báo!",
-//                     text: "Đăng nhập thành công!"
-//                 }).then(function () {
-//                     window.location = "/";
-//                 });
-//             }
-
-//         },
-//         complete: function () {
-//         }
-//     });
-// }
-
-
-
-
-
 // thông báo game
 function thongbao() {
     $.get("./backend/thongbao.php", function (data) {
@@ -484,16 +350,6 @@ function thongbao() {
     });
 
 }
-
-
-
-$('#nav-icon3').click(function () {
-    $('.nav_fade').toggleClass('open');
-})
-
-
-
-
 
 // check input của nav mobbile
 function checkInput() {

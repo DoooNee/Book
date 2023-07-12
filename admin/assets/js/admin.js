@@ -3,9 +3,9 @@ $(document).ready(function () {
     loginCheck();
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
         $(this).toggleClass('open');
+        $('.nav_fade').toggleClass('open');
     });
 });
-
 
 
 function loginCheck() {
@@ -23,54 +23,35 @@ function loginCheck() {
             }
             else {
                 //Nếu là admin thì hiển thị tất cả game
-                $('.content_group').css('display','grid');
-                
+                $('.content_group').css('display', 'grid');
             }
-
-
-
         },
         complete: function () {
         }
     });
 }
 
-function getGameNumber($name){
+function getGameNumber($name) {
     $.ajax({
         url: '/backend/getGameNumber.php',
         type: 'post',
         data: {
             name: $name,
-
         },
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
             console.log(res);
-            
-
-
-
         },
         complete: function () {
         }
     });
 }
 
-
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
 }
-
-
-$('#nav-icon3').click(function () {
-    $('.nav_fade').toggleClass('open');
-})
-
-
-
-
 
 // check input của nav mobbile
 function checkInput() {
