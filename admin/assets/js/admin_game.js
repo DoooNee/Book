@@ -262,6 +262,7 @@ function lichSuChuyen() {
             $('#table').html(res);
             $(".lich_su_chuyen").addClass("active");
             $(".lich_su_nap").removeClass("active");
+
         },
         complete: function () {
 
