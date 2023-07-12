@@ -275,10 +275,10 @@ function lichSuNapAD() {
     $.ajax({
         url: '/backend/logNapAD.php',
         type: 'post',
-        data: { role: role, name: "ninja" },
-        dataType: '',
+        data: { role: role, game: "ninja" },
+        dataType: 'json',
         beforeSend: function () {
-
+            
         },
         success: function (res) {
             $('.table').html(res);
@@ -297,7 +297,7 @@ function lichSuChuyenAD(role) {
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
         url: '/backend/logchuyenAD.php',
         type: 'post',
-        data: { role: role, name: "ninja" },
+        data: { role: role, name: "vodai" },
         dataType: '',
         beforeSend: function () {
         },
