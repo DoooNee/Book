@@ -1,45 +1,37 @@
 <?php
 	session_start();
     require_once '../config.php';
-	//$sql = "SELECT tendaily, tongnap,tong_thangtruoc FROM daily_acc WHERE id < 8";
-	$sql = "SELECT tendaily, tongnap,tong_thangtruoc, hoahong_thangtruoc , stk_nhan, stk_dangky, sdt FROM daily_acc WHERE role = 'daily'";	
-
-// Thực thi câu lệnh truy vấn
-$result = mysqli_query($conn, $sql);
-// Tạo bảng HTML để hiển thị kết quả truy vấn
-
-echo "<tr><th>Tên đại lý</th><th>Tổng tháng 7</th><th>Hoa hồng tháng 7</th><th>Tổng tháng 6</th><th>Hoa hồng tháng 6</th><th>STK đăng ký đại lý</th><th>STK nhận hoa hồng</th><th>SĐT</th></tr>";
-
-// Duyệt qua các bản ghi trả về từ câu lệnh truy vấn
-while ($row = mysqli_fetch_assoc($result)) {
-  $thangnay = separateString($row['tongnap']);
-  $thangtruoc = separateString($row['tong_thangtruoc']);
-  $hoahong_thangtruoc = separateString($row['hoahong_thangtruoc']);
-  $hoahong = tinhHoaHong($row['tongnap']);
-  
-  
-  echo "<tr><td>" . $row['tendaily'] . "</td><td>" . $thangnay . "</td><td>" . $hoahong . "</td><td>" . $thangtruoc . "</td><td>" . $hoahong_thangtruoc ."</td><td class='stk'>" . $row['stk_dangky'] . "</td><td class='stk'>" . $row['stk_nhan'] . "</td><td>" . $row['sdt'] . "</td></tr>";
-
+    // Kiểm tra kết nối
+if ($conn->connect_error) {
+  die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->connect_error);
 }
 
-// Đóng kết nối
-mysqli_close($conn);
-function separateString($string) {
-        $reversed = strrev($string);
-        $chunks = str_split($reversed, 3);
-        $result = implode(',', $chunks);
-        return strrev($result);
-    }
 
+// Lấy giá trị role và game từ Ajax
+$role = $_POST['role'];
+$game = $_POST['game'];
 
+// Kiểm tra nếu role là admin
+if ($role == 'admin') {
+  // Truy vấn SQL để lấy dữ liệu từ bảng daily_acc
+  $sql = "SELECT tendaily, tongnap, tong_thangtruoc, hoahong_thangtruoc, stk_nhan, stk_dangky, sdt FROM daily_acc WHERE role = 'daily'";
+  $result = $conn->query($sql);
 
-
-function tinhHoaHong($thangnay) {
-//  intval($stringNumber)
-  if ($thangnay < 200000000) {
-    $hoaHong = $thangnay * 0.04;
+  // Kiểm tra kết quả truy vấn
+  if ($result->num_rows > 0) {
+      $data = array();
+      // Lặp qua các hàng dữ liệu
+      while ($row = $result->fetch_assoc()) {
+          $data[] = $row;
+      }
+      // Trả về dữ liệu dưới dạng JSON
+      echo json_encode($data);
   } else {
-    $hoaHong = $thangnay * 0.05;
+      echo "Không có dữ liệu.";
   }
-  return number_format($hoaHong, 0, ",", ",");
+} else {
+  echo "Bạn không có quyền truy cập.";
 }
+
+// Đóng kết nối cơ sở dữ liệu
+$conn->close();
