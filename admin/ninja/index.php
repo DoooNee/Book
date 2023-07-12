@@ -67,7 +67,12 @@
                             <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
                         </ul>
                         <div class="bang_lich_su_admin">
-                            <table class="table">
+                            <table id="records_table" class="table">
+                                <tr>
+                                    <th>Số Tiền</th>
+                                    <th>Mô Tả</th>
+                                    <th>Thời Gian</th>
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -105,7 +110,7 @@
             </div>
             <div class="title">
 
-                <h1  id="title_id">
+                <h1 id="title_id">
                     ĐẠI LÝ
                 </h1>
                 <label for="nav_mb" id="nav-icon3" style="z-index: 11;">

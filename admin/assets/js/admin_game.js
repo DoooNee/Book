@@ -279,12 +279,13 @@ function lichSuNapAD() {
         data: { role: role, game: "ninja" },
         dataType: 'json',
         beforeSend: function () {
-            
         },
         success: function (res) {
-            $('.table').html(res);
-            $(".lich_su_nap_admin").addClass("active");
-            $(".lich_su_chuyen_admin").removeClass("active");
+            console.log(res);
+            $.each(res, function (i, item) {
+                $('<tr>').html(
+                    "<td>" + res[i].sotien + "</td><td>" + res[i].description + "</td><td>" + res[i].thoigiannap + "</td>").appendTo('#records_table');
+            });
         },
         complete: function () {
         }
@@ -299,16 +300,11 @@ function lichSuChuyenAD(role) {
         url: '/backend/logchuyenAD.php',
         type: 'post',
         data: { role: role, game: "ninja" },
-        dataType: '',
+        dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            $('.table').html(res);
-            $(".lich_su_chuyen_admin").addClass("active");
-            $(".lich_su_nap_admin").removeClass("active");
-            if (role == 'ctv') {
-                $(".search").hide();
-            }
+            console.log(res)
         },
         complete: function () {
 
