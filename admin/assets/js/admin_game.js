@@ -294,7 +294,8 @@ function lichSuNapAD() {
 
 
 // show table ADMIN
-function lichSuChuyenAD(role) {
+function lichSuChuyenAD() {
+    console.log(role);
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
         url: '/backend/logchuyenAD.php',
