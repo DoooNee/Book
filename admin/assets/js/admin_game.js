@@ -297,7 +297,7 @@ function lichSuChuyenAD(role) {
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
         url: '/backend/logchuyenAD.php',
         type: 'post',
-        data: { role: role, name: "vodai" },
+        data: { role: role, game: "ninja" },
         dataType: '',
         beforeSend: function () {
         },
