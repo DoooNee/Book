@@ -13,7 +13,7 @@
 // Kiểm tra role
 if ($role == 'admin') {
   // Truy vấn SQL
-  $sql = "SELECT id, sotien, username, status, nguoi_chuyen FROM lognap_ninja ORDER BY id DESC";
+  $sql = "SELECT id, sotien, username, status, nguoi_chuyen FROM lognap_$game ORDER BY id DESC";
   $result = $conn->query($sql);
   // Kiểm tra kết quả truy vấn
   if ($result->num_rows > 0) {

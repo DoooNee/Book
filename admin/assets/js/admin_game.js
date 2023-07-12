@@ -77,8 +77,8 @@ function showSaoKe() {
 
 function getSaoKeDailyGame() {
     $.ajax({
-        url: './backend/saoKeDailyGame.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeDailyGame.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -96,8 +96,8 @@ function getSaoKeDailyGame() {
 
 function getSaoKeNguyenQuangTung() {
     $.ajax({
-        url: './backend/saoKeNguyenQuangTung.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeNguyenQuangTung.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -115,8 +115,8 @@ function getSaoKeNguyenQuangTung() {
 
 function getSaoKeMinato() {
     $.ajax({
-        url: './backend/saoKeMinato.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeMinato.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -135,8 +135,8 @@ function getSaoKeMinato() {
 function getSaoKeQuyenQuyen() {
     //$('.bang_saoke').html(`No info`);
     $.ajax({
-        url: './backend/saoKeQuyenQuyen.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeQuyenQuyen.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -155,8 +155,8 @@ function getSaoKeQuyenQuyen() {
 function getSaoKeWeacc() {
     //$('.bang_saoke').html(`No info`);
     $.ajax({
-        url: './backend/saokeWeacc.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saokeWeacc.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -175,8 +175,8 @@ function getSaoKeWeacc() {
 function getSaoKeSonHeroGaming() {
     //$('.bang_saoke').html(`No info`);
     $.ajax({
-        url: './backend/saokeSonheroGaming.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saokeSonheroGaming.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -194,8 +194,8 @@ function getSaoKeSonHeroGaming() {
 
 function getSaoKeKunBanThe() {
     $.ajax({
-        url: './backend/saoKeKunBanThe.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeKunBanThe.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -214,7 +214,7 @@ function getSaoKeKunBanThe() {
 function getTongNap() {
     $.ajax({
         url: '/backend/log_tongnap_daily.php',
-        // url: './backend/lognap.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -234,7 +234,7 @@ function getTongNap() {
 function lichSuNap() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
-        url: './backend/lognap.php',
+        url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -255,7 +255,7 @@ function lichSuNap() {
 function lichSuChuyen() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
-        url: './backend/logchuyen.php',
+        url: '/backend/logchuyen.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -303,7 +303,7 @@ function lichSuNapAD() {
 
 $('#table_lich_su_chuyen').hide();
 
-function lichSuChuyenAD() {
+function lichSuChuyenAD(username) {
     console.log(role);
     $.ajax({
         url: '/backend/logchuyenAD.php',
@@ -313,6 +313,7 @@ function lichSuChuyenAD() {
         beforeSend: function () {
         },
         success: function (res) {
+
             $('#table_lich_su_nap').hide();
             $('#table_lich_su_chuyen').show();
             $(".lich_su_chuyen_admin").addClass("active");
@@ -320,7 +321,8 @@ function lichSuChuyenAD() {
             console.log(res);
             $.each(res, function (i, item) {
                 $('<tr>').html(
-                    "<td>" + res[i].sotien + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(res[i].id, <?php echo $_SESSION["username"] ?>Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
+                    "<td>" + res[i].sotien + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(' + res[i].id +',\''+ username +'\')">Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
+            
             });
         },
         complete: function () {
@@ -331,13 +333,19 @@ function lichSuChuyenAD() {
 
 
 
-function submitStatus($username, $nguoichuyen) {
+function submitStatus(id, nguoichuyen) {
+    console.log(role);
+    // console.log(id);
+    // console.log(nguoichuyen);
+
     $.ajax({
-        url: './backend/submitStatus.php',
+        url: '/backend/submitStatus.php',
         type: 'post',
         data: {
-            username: $username,
-            nguoichuyen: $nguoichuyen
+            role: role, 
+            game: "ninja",
+            id: id,
+            nguoichuyen: nguoichuyen
         },
         dataType: 'json',
         beforeSend: function () {
@@ -360,7 +368,7 @@ function submitStatus($username, $nguoichuyen) {
 
 // thông báo game
 function thongbao() {
-    $.get("./backend/thongbao.php", function (data) {
+    $.get("/backend/thongbao.php", function (data) {
         $('.thong_bao').html(data);
     });
 

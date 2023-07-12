@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,7 +65,7 @@
                     <div class="content_admin">
                         <ul class="sidebar_content ">
                             <li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nạp</a></li>
-                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
+                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('<?php echo $_SESSION["username"] ?>');"> Lịch Sử Chuyển </a></li>
                         </ul>
                         <div class="bang_lich_su_admin">
                             <table id="table_lich_su_nap" class="table">
