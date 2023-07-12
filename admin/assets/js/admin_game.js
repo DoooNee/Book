@@ -9,9 +9,22 @@ $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
     $('.nav_fade').toggleClass('open');
 });
 
-
-
 var role = '';
+var game = '';
+
+function checkGame() {
+    str = window.location.href;
+    if (str.includes('ninja')) {
+      game = 'ninja';
+    } else if (str.includes('vodai')) {
+      game = 'vodai';
+    }
+    return game;
+}
+  
+
+
+
 function loginCheck() {
     $.ajax({
         url: '/backend/login.php',
@@ -71,157 +84,57 @@ function showSaoKe() {
     $('.content_admin').hide();
     $('.tongnap_daily').hide();
     $('.saoke_daily').show();
-    //getTongNap ();
+    getDanhSachDaiLy()
 }
 
-function getSaoKeDailyGame() {
+function getDanhSachDaiLy(){
     $.ajax({
-        url: '/backend/saoKeDailyGame.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
+        url: '/backend/getDanhSachDaiLy.php',
+        type: 'post',
+        data: { role: role, game: checkGame()},
+        dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
-            //$('.bang_saoke').html(`<table > ${res} </table>`);
-            $('.bang_saoke').html(`<table > ${res} </table>`);
+            // console.log(res)
+            // $('.bang_saoke').html(`<table > ${res} </table>`);
         },
         complete: function () {
         }
     });
 }
 
-function getSaoKeNguyenQuangTung() {
+function getSaoKe(daily) {
+    // console.log(daily);
     $.ajax({
-        url: '/backend/saoKeNguyenQuangTung.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
+        url: '/backend/getSaoKe.php',
+        type: 'post',
+        data: { role: role, game: checkGame(), daily: daily },
+        dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
-            //$('.bang_saoke').html(`<table > ${res} </table>`);
-            $('.bang_saoke').html(`<table > ${res} </table>`);
+            // console.log(res)
+            // $('.bang_saoke').html(`<table > ${res} </table>`);
         },
         complete: function () {
         }
     });
 }
 
-function getSaoKeMinato() {
-    $.ajax({
-        url: '/backend/saoKeMinato.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            //$('.bang_saoke').html(`<table > ${res} </table>`);
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-        },
-        complete: function () {
-        }
-    });
-}
-
-function getSaoKeQuyenQuyen() {
-    //$('.bang_saoke').html(`No info`);
-    $.ajax({
-        url: '/backend/saoKeQuyenQuyen.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-
-        },
-        complete: function () {
-        }
-    });
-}
-
-function getSaoKeWeacc() {
-    //$('.bang_saoke').html(`No info`);
-    $.ajax({
-        url: '/backend/saokeWeacc.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-
-        },
-        complete: function () {
-        }
-    });
-}
-
-function getSaoKeSonHeroGaming() {
-    //$('.bang_saoke').html(`No info`);
-    $.ajax({
-        url: '/backend/saokeSonheroGaming.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-
-        },
-        complete: function () {
-        }
-    });
-}
-
-function getSaoKeKunBanThe() {
-    $.ajax({
-        url: '/backend/saoKeKunBanThe.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            //$('.bang_saoke').html(`<table > ${res} </table>`);
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-        },
-        complete: function () {
-        }
-    });
-}
 
 function getTTDaiLy() {
     $.ajax({
         url: '/backend/thongtindaily.php',
         type: 'post',
-        data: { role: role, game: "ninja" },
+        data: { role: role, game: checkGame() },
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
             var html = '';
             $.each(res, function (i, item) {
-                html += `<tr><td>${res[i].tendaily}</td><td >${addCommas(res[i].tongnap)}</td><td >${hoaHong_HienTai(res[i].tongnap)}</td><td >${addCommas(res[i].tong_thangtruoc)}</td><td  >${res[i].hoahong_thangtruoc}</td><td class ="stk_css" >${res[i].stk_dangky}</td><td class ="stk_css" >${res[i].stk_nhan}</td><td >${res[i].sdt}</td></tr>`;
+                html += `<tr><td>${res[i].tendaily}</td><td >${addCommas(res[i].tongnap)}</td><td >${addCommas(String(hoaHong_HienTai(res[i].tongnap)))}</td><td >${addCommas(res[i].tong_thangtruoc)}</td><td  >${res[i].hoahong_thangtruoc}</td><td class ="stk_css" >${res[i].stk_dangky}</td><td class ="stk_css" >${res[i].stk_nhan}</td><td >${res[i].sdt}</td></tr>`;
             });
             var html_rank = '<table id="table_lich_su_nap"><tr><th>Tên Đại Lý</th><th>Tổng Tháng 7</th><th>Hoa Hồng Tháng 7</th><th>Tổng Tháng 6</th><th>Hoa Hồng Tháng 6</th><th >STK Đăng Ký Đại Lý</th><th >STK Nhận Hoa Hồng</th><th>SĐT</th></tr> ' + html + '</table>';
             $('#table_ttDaiLy').html(html_rank);
@@ -234,7 +147,7 @@ function getTTDaiLy() {
 
 // Tính Hoa Hồng Đại Lý
 function hoaHong_HienTai(sotien) {
-    if (sotien >= 20000000) {
+    if (sotien >= 200000000) {
         let a = sotien * 0.05;
         return a;
     } else {
@@ -244,54 +157,52 @@ function hoaHong_HienTai(sotien) {
 }
 
 // show table dashboard
-function lichSuNap() {
-    $.ajax({
-        // url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
-        url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('#table').html(res);
-            $(".lich_su_nap").addClass("active");
-            $(".lich_su_chuyen").removeClass("active");
-        },
-        complete: function () {
-        }
-    });
-}
+// function lichSuNap() {
+//     $.ajax({
+//         url: '/backend/lognap.php',
+//         type: 'get',
+//         data: '',
+//         dataType: '',
+//         beforeSend: function () {
+//         },
+//         success: function (res) {
+//             console.log(res)
+//             $('#table').html(res);
+//             $(".lich_su_nap").addClass("active");
+//             $(".lich_su_chuyen").removeClass("active");
+//         },
+//         complete: function () {
+//         }
+//     });
+// }
 
 // show table dashboard
-function lichSuChuyen() {
-    $.ajax({
-        // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
-        url: '/backend/logchuyen.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
+// function lichSuChuyen() {
+//     $.ajax({
+//         url: '/backend/logchuyen.php',
+//         type: 'get',
+//         data: '',
+//         dataType: '',
+//         beforeSend: function () {
 
-        },
-        success: function (res) {
-            $('#table').html(res);
-            $(".lich_su_chuyen").addClass("active");
-            $(".lich_su_nap").removeClass("active");
+//         },
+//         success: function (res) {
+//             $('#table').html(res);
+//             $(".lich_su_chuyen").addClass("active");
+//             $(".lich_su_nap").removeClass("active");
 
-        },
-        complete: function () {
+//         },
+//         complete: function () {
 
-        }
-    });
-}
+//         }
+//     });
+// }
 // show table ADMIN
 function lichSuNapAD() {
     $.ajax({
         url: '/backend/logNapAD.php',
         type: 'post',
-        data: { role: role, game: "ninja" },
+        data: { role: role, game: checkGame() },
         dataType: 'json',
         beforeSend: function () {
         },
@@ -310,16 +221,16 @@ function lichSuNapAD() {
         }
     });
 }
-// lichSuNapAD();
+
 
 $('#table_lich_su_chuyen').hide();
 
 function lichSuChuyenAD(username) {
-    console.log(role);
+    // console.log(role);
     $.ajax({
         url: '/backend/logchuyenAD.php',
         type: 'post',
-        data: { role: role, game: "ninja" },
+        data: { role: role, game: checkGame() },
         dataType: 'json',
         beforeSend: function () {
         },
@@ -351,7 +262,7 @@ function submitStatus(id, nguoichuyen) {
         type: 'post',
         data: {
             role: role,
-            game: "ninja",
+            game: checkGame(),
             id: id,
             nguoichuyen: nguoichuyen
         },

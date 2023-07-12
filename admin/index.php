@@ -22,6 +22,7 @@
 
         <div class="title">
             <h1 id="title_id">
+                ADMIN
             </h1>
         </div>
 

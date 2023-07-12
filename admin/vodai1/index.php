@@ -1,14 +1,12 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Võ Đài</title>
-    <link rel="stylesheet" href="/admin//assets/css/admin_game.css">
-    <script src="/admin/assets/js/jquery.js"></script>
-    <script src="/admin/assets/js/sweetalert.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="/vodai/assets/css/main.css">
+    <script src="/vodai/assets/js/jquery.js"></script>
 </head>
 
 <body>
@@ -23,8 +21,9 @@
             </div>
             <!-- title -->
             <div class="title">
+
                 <h1 id="title_id">
-                    ADMIN VÕ ĐÀI TỐI THƯỢNG
+                    ADMIN
                 </h1>
                 <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
                     <span></span>
@@ -32,15 +31,14 @@
                     <span></span>
                     <span></span>
                 </label>
-
-                <div class="nav_fade">
+                <div class="nav_fade" class="open">
                     <input type="checkbox" id="nav_mb">
                     <div class="nav_wrapper">
-                        <ul>
+                        <ul class="">
                             <label for="nav_mb">
-                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
+                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>ADMIN</a></li>
                             </label>
-                            <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
+                            <li class="inforDaiLy"><a href="javascript:showTongNap();"><i class="fa-solid fa-user"></i>Thông
                                     Tin Đại Lý</a></li>
                             <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao Kê Đại Lý</a></li>
                             <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
@@ -55,8 +53,8 @@
             <div class="container">
                 <div class="sidebar">
                     <ul>
-                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>Dashboard</a></li>
-                        <li class="admin" id=""><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
+                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
+                        <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
                         <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
                         <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                     </ul>
@@ -66,28 +64,27 @@
                     <div class="content_admin">
                         <ul class="sidebar_content ">
                             <li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nạp</a></li>
-                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('<?php echo $_SESSION["username"] ?>');"> Lịch Sử Chuyển </a></li>
+                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
                         </ul>
                         <div class="bang_lich_su_admin">
-                            <table id="table_lich_su_nap" class="table">
+                            <table class="table">
                             </table>
                         </div>
                     </div>
                     <!-- tongnap -->
                     <div class="tongnap_daily">
-                        <table id="table_ttDaiLy">
-
+                        <table>
                         </table>
                     </div>
                     <!-- saoke -->
-                    <div style="display:none;" class="saoke_daily">
+                    <div class="saoke_daily">
                         <ul class="sidebar_content1 ">
-                            <li class="lich_su_nap "><a href="javascript:getSaoKe('DailyGame');">DailyGame</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('QuyenQuyen');">QuyenQuyen</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('NguyenQuangTung');">NguyenQuangTung</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('Weacc');">Weacc</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('Minato');">Minato</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('SonHeroGaming');">SonHeroGaming</a></li>
+                            <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeWeacc();">Weacc</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
                         </ul>
                         <div class="bang_saoke">
                         </div>
@@ -98,7 +95,7 @@
         <!--==================== END ADMIN ==============================-->
 
         <!--===================== DAILY ========================-->
-        <div class="daily_wrapper" style="display:none">
+        <div class="daily_wrapper">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -117,7 +114,7 @@
                     <span></span>
                     <span></span>
                 </label>
-                <div class="nav_fade">
+                <div class="nav_fade" class="open">
                     <input type="checkbox" id="nav_mb">
                     <div class="nav_wrapper">
                         <ul class="">
@@ -228,8 +225,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <!--================= END DAILY =======================-->
 
@@ -433,7 +428,7 @@
         <!--===================== END DAILY ========================-->
 
         <!--===================== CTV ========================-->
-        <div class="ctv_wrapper" style="display:none">
+        <div class="ctv_wrapper">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -573,10 +568,12 @@
             </div>
         </div>
         <!--===================== END CTV ========================-->
+
+
     </div>
 
 
-    <script src="/admin/assets/js/admin_game.js"></script>
+    <script src="/vodai/assets/js/main.js"></script>
 </body>
 
 </html>
