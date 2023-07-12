@@ -60,11 +60,11 @@ function showADMIN() {
     lichSuNapAD();
 }
 
-function showTongNap() {
+function showTTDaiLy() {
     $('.content_admin').hide();
     $('.tongnap_daily').show();
     $('.saoke_daily').hide();
-    getTongNap();
+    getTTDaiLy();
 }
 
 function showSaoKe() {
@@ -210,19 +210,16 @@ function getSaoKeKunBanThe() {
     });
 }
 
-function getTongNap() {
+function getTTDaiLy() {
     $.ajax({
         url: '/backend/thongtindaily.php',
-        // url: '/backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
+        type: 'post',
+        data:  { role: role, game: "ninja" },
+        dataType:'json',
         beforeSend: function () {
         },
         success: function (res) {
             console.log(res)
-            $('.tongnap_daily').html(`<table > ${res} </table>`);
-
         },
         complete: function () {
         }
@@ -282,7 +279,7 @@ function lichSuNapAD() {
         beforeSend: function () {
         },
         success: function (res) {
-          
+
             $(".lich_su_nap_admin").addClass("active");
             $(".lich_su_chuyen_admin").removeClass("active");
             var html = '';
@@ -311,7 +308,7 @@ function lichSuChuyenAD(username) {
         beforeSend: function () {
         },
         success: function (res) {
-         
+
             $(".lich_su_chuyen_admin").addClass("active");
             $(".lich_su_nap_admin").removeClass("active");
             var html = '';
