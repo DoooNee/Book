@@ -58,6 +58,7 @@ function showADMIN() {
     $('.content_admin').show();
     $('.tongnap_daily').hide();
     $('.saoke_daily').hide();
+    lichSuNapAD();
 }
 
 function showTongNap() {
@@ -283,7 +284,6 @@ function lichSuNapAD() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
             $('#table_lich_su_nap').show();
             $('#table_lich_su_chuyen').hide();
             $(".lich_su_nap_admin").addClass("active");
@@ -291,9 +291,10 @@ function lichSuNapAD() {
 
             $.each(res, function (i, item) {
                 $('<tr>').html(
-                    "<td>" + res[i].sotien + "</td><td>" + res[i].description + "</td><td>" + res[i].thoigiannap + "</td>").appendTo('#table_lich_su_nap');
+                    "<td>" + addCommas(res[i].sotien) + "</td><td>" + res[i].description + "</td><td>" + res[i].thoigiannap + "</td>").appendTo('#table_lich_su_nap');
             });
         },
+
         complete: function () {
         }
     });
@@ -319,7 +320,7 @@ function lichSuChuyenAD(username) {
             console.log(res);
             $.each(res, function (i, item) {
                 $('<tr>').html(
-                    "<td>" + res[i].sotien + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(' + res[i].id + ',\'' + username + '\')">Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
+                    "<td>" + addCommas(res[i].sotien) + "</td><td>" + res[i].username + "</td><td>" + res[i].status + "</td><td>" + res[i].nguoi_chuyen + "</td><td>" + '<div class="search disabled"><a href="javascript:submitStatus(' + res[i].id + ',\'' + username + '\')">Submit</a></div>' + "</td>").appendTo('#table_lich_su_chuyen');
 
             });
         },
