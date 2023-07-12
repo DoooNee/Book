@@ -14,7 +14,7 @@ $game = $_POST['game'];
 // Kiểm tra nếu role là admin
 if ($role == 'admin') {
     // Truy vấn SQL để lấy dữ liệu từ bảng daily_acc
-    $sql = "SELECT login_name FROM daily_acc WHERE role = 'daily' and game = '$game'";
+    $sql = "SELECT login_name AS name FROM daily_acc WHERE role = 'daily' and game = '$game'";
   
     $result = $conn->query($sql);
   
