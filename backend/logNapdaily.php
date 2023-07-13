@@ -9,35 +9,25 @@ $role = $_POST['role'];
 $game = $_POST['game'];
 
 
-
-echo $role;
-echo $game;
-
-exit;
 // Câu lệnh truy vấn SQL để lấy các trường sotien, description và thoigiannap
-$sql = "SELECT sotien, description, thoigiannap FROM webhook WHERE daily = '$current_daily' ORDER BY id DESC";
+$sql = "SELECT sotien, description, thoigiannap FROM lognap_$game WHERE daily = '$current_daily' ORDER BY id DESC";
 
 // Thực thi câu lệnh truy vấn
-$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
 
-// Tạo bảng HTML để hiển thị kết quả truy vấn
-
-echo "<tr><th>Số tiền</th><th>Mô tả</th><th>Thời gian</th></tr>";
-
-// Duyệt qua các bản ghi trả về từ câu lệnh truy vấn
-while ($row = mysqli_fetch_assoc($result)) {
-  $sotien = separateString($row['sotien']);
-    echo "<tr><td>" . $sotien . "</td><td>" . $row['description'] . "</td><td>" . $row['thoigiannap'] . "</td></tr>";
-}
+  // Kiểm tra kết quả truy vấn
+  if ($result->num_rows > 0) {
+      $data = array();
+      // Lặp qua các hàng dữ liệu
+      while ($row = $result->fetch_assoc()) {
+          $data[] = $row;
+      }
+      // Trả về dữ liệu dưới dạng JSON
+      echo json_encode($data);
+  } else {
+      echo "Không có dữ liệu.";
+  }
 
 
 // Đóng kết nối
 mysqli_close($conn);
-
-
-function separateString($string) {
-        $reversed = strrev($string);
-        $chunks = str_split($reversed, 3);
-        $result = implode(',', $chunks);
-        return strrev($result);
-    }

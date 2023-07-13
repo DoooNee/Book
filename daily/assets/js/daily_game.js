@@ -86,6 +86,7 @@ function showTTDaiLy() {
     $('.content_inforDaiLy').show();
     $('.content_chich_sach').hide();
     $('.content_kho_code').hide();
+    getTTDaiLy();
 }
 
 function showChinhSach() {
@@ -147,36 +148,58 @@ function lichSuChuyen() {
 
 $('#table_lich_su_chuyen').hide();
 
-function submitStatus(id, nguoichuyen) {
-    console.log(role);
-    // console.log(id);
-    // console.log(nguoichuyen);
-
+function getTTDaiLy() {
     $.ajax({
-        url: '/backend/submitStatus.php',
+        url: '/backend/thongtindaily.php',
         type: 'post',
-        data: {
-            role: role,
-            game: checkGame(),
-            id: id,
-            nguoichuyen: nguoichuyen
-        },
+        data: { role: role, game: checkGame() },
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
-            if (res.status == 'success') {
-                swal("Thông báo!", "Submit thành công");
-                lichSuChuyenAD(role);
-            }
+            // var html = '';
+            // $.each(res, function (i, item) {
+            //     html += `<tr><td>${res[i].tendaily}</td><td >${addCommas(res[i].tongnap)}</td><td >${addCommas(String(hoaHong_HienTai(res[i].tongnap)))}</td><td >${addCommas(res[i].tong_thangtruoc)}</td><td  >${res[i].hoahong_thangtruoc}</td><td class ="stk_css" >${res[i].stk_dangky}</td><td class ="stk_css" >${res[i].stk_nhan}</td><td >${res[i].sdt}</td></tr>`;
+            // });
+            // var html_rank = '<table id="table_lich_su_nap"><tr><th>Tên Đại Lý</th><th>Tổng Tháng 7</th><th>Hoa Hồng Tháng 7</th><th>Tổng Tháng 6</th><th>Hoa Hồng Tháng 6</th><th >STK Đăng Ký Đại Lý</th><th >STK Nhận Hoa Hồng</th><th>SĐT</th></tr> ' + html + '</table>';
+            // $('#table_ttDaiLy').html(html_rank);
         },
         complete: function () {
-            lichSuChuyenAD(role);
         }
     });
-
 }
+
+
+// function submitStatus(id, nguoichuyen) {
+//     console.log(role);
+//     // console.log(id);
+//     // console.log(nguoichuyen);
+
+//     $.ajax({
+//         url: '/backend/submitStatus.php',
+//         type: 'post',
+//         data: {
+//             role: role,
+//             game: checkGame(),
+//             id: id,
+//             nguoichuyen: nguoichuyen
+//         },
+//         dataType: 'json',
+//         beforeSend: function () {
+//         },
+//         success: function (res) {
+//             console.log(res);
+//             if (res.status == 'success') {
+//                 swal("Thông báo!", "Submit thành công");
+//                 lichSuChuyenAD(role);
+//             }
+//         },
+//         complete: function () {
+//             lichSuChuyenAD(role);
+//         }
+//     });
+
+// }
 
 // thông báo game
 function thongbao() {
