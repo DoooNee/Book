@@ -38,6 +38,7 @@ function loginCheck() {
         },
         success: function (res) {
             console.log(res);
+            //show tên user đăng nhập
             $('.user_name').html(res.name)
 
             if (res.isLogin != 1) {
@@ -79,7 +80,6 @@ function showDashBoard() {
     $('.content_kho_code').hide();
     lichSuNap();
 }
-
 
 function showTTDaiLy() {
     $('.content_dashboard').hide();
