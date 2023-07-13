@@ -8,6 +8,7 @@
     <title>Admin Võ Đài</title>
     <link rel="stylesheet" href="/admin//assets/css/admin_game.css">
     <script src="/admin/assets/js/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="/admin/assets/js/sweetalert.js"></script>
 </head>
 
@@ -20,6 +21,8 @@
                 <div class="user">
                     <i class="fa-solid fa-user"></i><span class="user_name"></span>
                 </div>
+                <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="GP">0</span></div>
+                <div class="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/backend/logout.php">Đăng xuất</a></div>
             </div>
             <!-- title -->
             <div class="title">

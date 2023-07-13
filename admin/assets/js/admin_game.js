@@ -36,6 +36,7 @@ function loginCheck() {
         },
         success: function (res) {
             console.log(res);
+            $('.user_name').html(res.name)
             if (res.isLogin != 1) {
                 window.location = "/";
             }
