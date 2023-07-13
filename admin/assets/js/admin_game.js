@@ -225,12 +225,14 @@ function getTTDaiLy() {
             });
             var html_rank = '<table id="table_lich_su_nap"><tr><th>Tên Đại Lý</th><th>Tổng Tháng 7</th><th>Hoa Hồng Tháng 7</th><th>Tổng Tháng 6</th><th>Hoa Hồng Tháng 6</th><th >STK Đăng Ký Đại Lý</th><th >STK Nhận Hoa Hồng</th><th>SĐT</th></tr> ' + html + '</table>';
             $('#table_ttDaiLy').html(html_rank);
-
         },
         complete: function () {
         }
     });
 }
+
+
+
 
 // Tính Hoa Hồng Đại Lý
 function hoaHong_HienTai(sotien) {
