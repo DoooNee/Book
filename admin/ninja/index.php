@@ -76,19 +76,24 @@
                     <!-- tongnap -->
                     <div class="tongnap_daily">
                         <table id="table_ttDaiLy">
+                            <tr>
+
+                            </tr>
 
                         </table>
+
+
                     </div>
                     <!-- saoke -->
                     <div style="display:none;" class="saoke_daily">
-                        <ul class="sidebar_content1 ">
+                        <!-- <ul class="sidebar_content1 ">
                             <li class="lich_su_nap "><a href="javascript:getSaoKe('DailyGame');">DailyGame</a></li>
                             <li class="lich_su_chuyen "><a href="javascript:getSaoKe('QuyenQuyen');">QuyenQuyen</a></li>
                             <li class="lich_su_chuyen "><a href="javascript:getSaoKe('NguyenQuangTung');">NguyenQuangTung</a></li>
                             <li class="lich_su_chuyen "><a href="javascript:getSaoKe('Weacc');">Weacc</a></li>
                             <li class="lich_su_chuyen "><a href="javascript:getSaoKe('Minato');">Minato</a></li>
                             <li class="lich_su_chuyen "><a href="javascript:getSaoKe('SonHeroGaming');">SonHeroGaming</a></li>
-                        </ul>
+                        </ul> -->
                         <div class="bang_saoke">
                         </div>
                     </div>

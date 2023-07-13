@@ -15,13 +15,13 @@ var game = '';
 function checkGame() {
     str = window.location.href;
     if (str.includes('ninja')) {
-      game = 'ninja';
+        game = 'ninja';
     } else if (str.includes('vodai')) {
-      game = 'vodai';
+        game = 'vodai';
     }
     return game;
 }
-  
+
 
 
 
@@ -87,17 +87,22 @@ function showSaoKe() {
     getDanhSachDaiLy()
 }
 
-function getDanhSachDaiLy(){
+function getDanhSachDaiLy() {
     $.ajax({
         url: '/backend/getDanhSachDaiLy.php',
         type: 'post',
-        data: { role: role, game: checkGame()},
+        data: { role: role, game: checkGame() },
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            // console.log(res)
-            // $('.bang_saoke').html(`<table > ${res} </table>`);
+            var th = "";
+            $.each(res, function (i, item) {
+                th += `<th><a href="javascript:getSaoKe(${res[i].name});">${res[i].name}</a></th>`;
+            });
+            var table = '<table><tr>' + th + '</tr></table>'
+            $('.saoke_daily').html(table);
+
         },
         complete: function () {
         }
@@ -114,14 +119,12 @@ function getSaoKe(daily) {
         beforeSend: function () {
         },
         success: function (res) {
-            // console.log(res)
-            // $('.bang_saoke').html(`<table > ${res} </table>`);
+            console.log(res)
         },
         complete: function () {
         }
     });
 }
-
 
 function getTTDaiLy() {
     $.ajax({
