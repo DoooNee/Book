@@ -658,6 +658,12 @@ table {
     h1#title_id {
         line-height: 100px;
     }
+
+    #title_id{
+        font-size:20px;
+    }
+
+
 }
 
 
