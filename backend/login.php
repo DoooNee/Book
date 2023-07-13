@@ -30,6 +30,7 @@
             // lấy dữ liệu từ kết quả truy vấn và gán vào biến
             while ($row = mysqli_fetch_assoc($result)) {
                 $role = $row["role"];
+                $tongnap = $row["tongnap"];
 
             }
             // đóng kết nối
@@ -48,6 +49,7 @@
         $data = array( 
                         "isLogin" => $isLogin,
                         "role" => $role,
+
                     );
         echo json_encode($data);
         exit;
@@ -66,6 +68,7 @@
         // lấy dữ liệu từ kết quả truy vấn và gán vào biến
         while ($row = mysqli_fetch_assoc($result)) {
                 $role = $row["role"];
+                $tongnap = $row["tongnap"];
         }
         $name = $loginname;
         // đóng kết nối
@@ -78,7 +81,8 @@
     $data = array(
                     "isLogin" => $isLogin,
                     "role" => $role,
-                    "name" => $name
+                    "name" => $name,
+                    "tongnap" => $tongnap
                     );
 
 
