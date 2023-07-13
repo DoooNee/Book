@@ -34,14 +34,15 @@ function loginCheck() {
         },
         success: function (res) {
             //show tên user đăng nhập
-            $('.user_name').html(res.name)
-            $('.GP').html(addCommas(res.tongnap))
-
+            
+            // console.log(res.isLogin)
             if (res.isLogin != 1) {
                 window.location = "/";
             }
             else {
                 role = res.role;
+                $('.user_name').html(res.name)
+            $('.GP').html(addCommas(res.tongnap))
             }
         },
         complete: function (res) {

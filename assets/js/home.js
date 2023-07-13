@@ -18,7 +18,7 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             if (res.isLogin != 1) {
                 $('.wrapper_popup').show();
             }
