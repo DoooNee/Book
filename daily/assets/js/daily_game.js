@@ -11,7 +11,6 @@ $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
     $('.nav_fade').toggleClass('open');
 });
 
-
 var role = '';
 var game = '';
 
@@ -25,9 +24,6 @@ function checkGame() {
     return game;
 }
 
-
-
-
 function loginCheck() {
     $.ajax({
         url: '/backend/login.php',
@@ -37,7 +33,6 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
             //show tên user đăng nhập
             $('.user_name').html(res.name)
             $('.GP').html(addCommas(res.tongnap))
@@ -106,7 +101,6 @@ function showCODE() {
 
 // show table dashboard
 function lichSuNap() {
-    console.log(role);
     $.ajax({
         url: '/backend/lognapdaily.php',
         type: 'post',
@@ -115,10 +109,15 @@ function lichSuNap() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
-            // $('#table').html(res);
-            // $(".lich_su_nap").addClass("active");
-            // $(".lich_su_chuyen").removeClass("active");
+            $(".lich_su_nap ").addClass("active");
+            $(".lich_su_chuyen").removeClass("active");
+            var html = '';
+            $.each(res, function (i, item) {
+                html += `<tr><td>${addCommas(res[i].sotien)}</td><td  >${res[i].description}</td><td  >${res[i].thoigiannap}</td></tr>`;
+            });
+            var html_rank = '<table><tr><th>Số Tiền</th><th>Mô Tả</th><th>Thời Gian Nạp</th></tr>' + html + '</table>';
+            $('.bang_lich_su').html(html_rank);
+
         },
         complete: function () {
         }
@@ -136,11 +135,14 @@ function lichSuChuyen() {
 
         },
         success: function (res) {
-            console.log(res)
-            // $('#table').html(res);
-            // $(".lich_su_chuyen").addClass("active");
-            // $(".lich_su_nap").removeClass("active");
-
+            $(".lich_su_chuyen ").addClass("active");
+            $(".lich_su_nap").removeClass("active");
+            var html = '';
+            $.each(res, function (i, item) {
+                html += `<tr><td>${res[i].username}</td><td  >${addCommas(res[i].sotien)}</td><td  >${res[i].status}</td></tr>`;
+            });
+            var html_rank = '<table><tr><th>Tên</th><th>Số Tiền</th><th>Status</th></tr>' + html + '</table>';
+            $('.bang_lich_su').html(html_rank);
         },
         complete: function () {
         }
@@ -158,7 +160,6 @@ function getTTDaiLy() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
             $('#ten').html(res[0].tendaily);
             $('#madaily').html(res[0].madaily);
             $('#facebook').html(res[0].facebook);
@@ -170,13 +171,6 @@ function getTTDaiLy() {
             $('.tongthangtruoc').html(addCommas(res[0].tong_thangtruoc));
             $('.hoahongthangtruoc').html(addCommas(res[0].hoahong_thangtruoc));
             $('.tongnap').html(addCommas(res[0].tongnap));
-
-            // var html = '';
-            // $.each(res, function (i, item) {
-            //     html += `<tr><td>${res[i].tendaily}</td><td >${addCommas(res[i].tongnap)}</td><td >${addCommas(String(hoaHong_HienTai(res[i].tongnap)))}</td><td >${addCommas(res[i].tong_thangtruoc)}</td><td  >${res[i].hoahong_thangtruoc}</td><td class ="stk_css" >${res[i].stk_dangky}</td><td class ="stk_css" >${res[i].stk_nhan}</td><td >${res[i].sdt}</td></tr>`;
-            // });
-            // var html_rank = '<table id="table_lich_su_nap"><tr><th>Tên Đại Lý</th><th>Tổng Tháng 7</th><th>Hoa Hồng Tháng 7</th><th>Tổng Tháng 6</th><th>Hoa Hồng Tháng 6</th><th >STK Đăng Ký Đại Lý</th><th >STK Nhận Hoa Hồng</th><th>SĐT</th></tr> ' + html + '</table>';
-            // $('#table_ttDaiLy').html(html_rank);
         },
         complete: function () {
         }
@@ -184,43 +178,11 @@ function getTTDaiLy() {
 }
 
 
-// function submitStatus(id, nguoichuyen) {
-//     console.log(role);
-//     // console.log(id);
-//     // console.log(nguoichuyen);
-
-//     $.ajax({
-//         url: '/backend/submitStatus.php',
-//         type: 'post',
-//         data: {
-//             role: role,
-//             game: checkGame(),
-//             id: id,
-//             nguoichuyen: nguoichuyen
-//         },
-//         dataType: 'json',
-//         beforeSend: function () {
-//         },
-//         success: function (res) {
-//             console.log(res);
-//             if (res.status == 'success') {
-//                 swal("Thông báo!", "Submit thành công");
-//                 lichSuChuyenAD(role);
-//             }
-//         },
-//         complete: function () {
-//             lichSuChuyenAD(role);
-//         }
-//     });
-
-// }
-
 // thông báo game
 function thongbao() {
     $.get("/backend/thongbao.php", function (data) {
         $('.thong_bao').html(data);
     });
-
 }
 
 // check input của nav mobbile
