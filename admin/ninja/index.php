@@ -24,7 +24,7 @@
             <!-- title -->
             <div class="title">
                 <h1 id="title_id">
-                    ADMIN
+                    ADMIN NINJA HUYỀN THOẠI
                 </h1>
                 <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
                     <span></span>
@@ -82,12 +82,12 @@
                     <!-- saoke -->
                     <div style="display:none;" class="saoke_daily">
                         <ul class="sidebar_content1 ">
-                            <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeWeacc();">Weacc</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
+                            <li class="lich_su_nap "><a href="javascript:getSaoKe('DailyGame');">DailyGame</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('QuyenQuyen');">QuyenQuyen</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('NguyenQuangTung');">NguyenQuangTung</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('Weacc');">Weacc</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('Minato');">Minato</a></li>
+                            <li class="lich_su_chuyen "><a href="javascript:getSaoKe('SonHeroGaming');">SonHeroGaming</a></li>
                         </ul>
                         <div class="bang_saoke">
                         </div>

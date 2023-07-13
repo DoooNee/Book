@@ -29,19 +29,8 @@
             
             // lấy dữ liệu từ kết quả truy vấn và gán vào biến
             while ($row = mysqli_fetch_assoc($result)) {
-                // $fullname = $row["tendaily"];
-                // $madaily = $row["madaily"];
-                // $facebook = $row["facebook"];
-                // $sdt = $row["sdt"];
-                // $stk_dangky = $row["stk_dangky"];
-                // $stk_nhan = $row["stk_nhan"];
-                // $email = $row["Email"];
-                // $cccd = $row["cccd"];
-                // $tongnap = $row["tongnap"];
-                // $sodu = $row["sodu"];
-                // $tong_thangtruoc = $row["tong_thangtruoc"];
                 $role = $row["role"];
-              	// $link_code = $row["link_code"];
+
             }
             // đóng kết nối
             mysqli_close($conn);
@@ -57,21 +46,8 @@
         }
 
         $data = array( 
-                        // "status" => $status, 
                         "isLogin" => $isLogin,
-                        // "fullname" => $fullname,
-                        // "madaily" => $madaily,
-                        // "facebook" => $facebook,
-                        // "sdt" => $sdt,
-                        // "stk_dangky" => $stk_dangky,
-                        // "stk_nhan" => $stk_nhan,
-                        // "email" => $email,
-                        // "cccd" => $cccd,
-                        // "tongnap" => $tongnap,
-                        // "sodu" => $sodu,
-                        // "tong_thangtruoc" => $tong_thangtruoc,
                         "role" => $role,
-                      	// "link_code" => $link_code
                     );
         echo json_encode($data);
         exit;
@@ -89,19 +65,7 @@
         
         // lấy dữ liệu từ kết quả truy vấn và gán vào biến
         while ($row = mysqli_fetch_assoc($result)) {
-                // $fullname = $row["tendaily"];
-                // $madaily = $row["madaily"];
-                // $facebook = $row["facebook"];
-                // $sdt = $row["sdt"];
-                // $stk_dangky = $row["stk_dangky"];
-                // $stk_nhan = $row["stk_nhan"];
-                // $email = $row["Email"];
-                // $cccd = $row["cccd"];
-                // $tongnap = $row["tongnap"];
-                // $sodu = $row["sodu"];
-                // $tong_thangtruoc = $row["tong_thangtruoc"];
                 $role = $row["role"];
-          		// $link_code = $row["link_code"];
         }
         $name = $loginname;
         // đóng kết nối
@@ -112,22 +76,9 @@
 	}
     // mảng thông tin người dùng
     $data = array(
-                    // "status" => $status, 
                     "isLogin" => $isLogin,
-                    // "fullname" => $fullname,
-                    // "madaily" => $madaily,
-                    // "facebook" => $facebook,
-                    // "sdt" => $sdt,
-                    // "stk_dangky" => $stk_dangky,
-                    // "stk_nhan" => $stk_nhan,
-                    // "email" => $email,
-                    // "cccd" => $cccd,
-                    // "tongnap" => $tongnap,
-                    // "sodu" => $sodu,
-                    // "tong_thangtruoc" => $tong_thangtruoc,
                     "role" => $role,
                     "name" => $name
-                  	// "link_code" => $link_code
                     );
 
 
