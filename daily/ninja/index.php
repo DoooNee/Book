@@ -1,18 +1,20 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/vodai/assets/css/main.css">
-    <script src="/vodai/assets/js/jquery.js"></script>
+    <title>Đại Lý Ninja</title>
+    <link rel="stylesheet" href="/daily/assets/css/daily_game.css">
+    <script src="/daily/assets/js/jquery.js"></script>
+    <script src="/daily/assets/js/sweetalert.js"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <!--======================= ADMIN ============================-->
-        <div class="admin_wrapper">
+        <div class="admin_wrapper" style="display:none">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -21,9 +23,8 @@
             </div>
             <!-- title -->
             <div class="title">
-
                 <h1 id="title_id">
-                    ADMIN
+                    ĐẠI LÝ NINJA HUYỀN THOẠI
                 </h1>
                 <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
                     <span></span>
@@ -31,14 +32,15 @@
                     <span></span>
                     <span></span>
                 </label>
-                <div class="nav_fade" class="open">
+
+                <div class="nav_fade">
                     <input type="checkbox" id="nav_mb">
                     <div class="nav_wrapper">
-                        <ul class="">
+                        <ul>
                             <label for="nav_mb">
-                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>ADMIN</a></li>
+                                <li class="dashboard"><a href="javascript:showADMIN();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
                             </label>
-                            <li class="inforDaiLy"><a href="javascript:showTongNap();"><i class="fa-solid fa-user"></i>Thông
+                            <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
                                     Tin Đại Lý</a></li>
                             <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao Kê Đại Lý</a></li>
                             <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
@@ -53,8 +55,8 @@
             <div class="container">
                 <div class="sidebar">
                     <ul>
-                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
-                        <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
+                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>Dashboard</a></li>
+                        <li class="admin" id=""><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
                         <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
                         <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
                     </ul>
@@ -64,38 +66,41 @@
                     <div class="content_admin">
                         <ul class="sidebar_content ">
                             <li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nạp</a></li>
-                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
+                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('<?php echo $_SESSION["username"] ?>');"> Lịch Sử Chuyển </a></li>
                         </ul>
                         <div class="bang_lich_su_admin">
-                            <table class="table">
+                            <table id="table_lich_su_nap" class="table">
                             </table>
                         </div>
                     </div>
                     <!-- tongnap -->
                     <div class="tongnap_daily">
-                        <table>
+                        <table id="table_ttDaiLy">
+                            <tr>
+
+                            </tr>
+
                         </table>
+
+
                     </div>
                     <!-- saoke -->
-                    <div class="saoke_daily">
-                        <ul class="sidebar_content1 ">
-                            <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeWeacc();">Weacc</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
-                        </ul>
-                        <div class="bang_saoke">
-                        </div>
+                    <div style="display:none;" class="saoke_daily">
+                    <div class="table-rank">
+
                     </div>
+                    <div class="bang_saoke">
+                    </div>
+                    </div>
+                  
+
                 </div>
             </div>
         </div>
         <!--==================== END ADMIN ==============================-->
 
         <!--===================== DAILY ========================-->
-        <div class="daily_wrapper">
+        <div class="daily_wrapper" >
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -106,7 +111,7 @@
             <div class="title">
 
                 <h1 id="title_id">
-                    ĐẠI LÝ
+                    ĐẠI LÝ NINJA HUYỀN THOẠI
                 </h1>
                 <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
                     <span></span>
@@ -114,7 +119,7 @@
                     <span></span>
                     <span></span>
                 </label>
-                <div class="nav_fade" class="open">
+                <div class="nav_fade">
                     <input type="checkbox" id="nav_mb">
                     <div class="nav_wrapper">
                         <ul class="">
@@ -225,6 +230,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <!--================= END DAILY =======================-->
 
@@ -428,7 +435,7 @@
         <!--===================== END DAILY ========================-->
 
         <!--===================== CTV ========================-->
-        <div class="ctv_wrapper">
+        <div class="ctv_wrapper" style="display:none">
             <!-- nav -->
             <div class="nav">
                 <div class="user">
@@ -568,12 +575,10 @@
             </div>
         </div>
         <!--===================== END CTV ========================-->
-
-
     </div>
 
 
-    <script src="/vodai/assets/js/main.js"></script>
+    <script src="/daily/assets/js/daily_game.js"></script>
 </body>
 
 </html>

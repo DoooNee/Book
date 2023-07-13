@@ -4,27 +4,34 @@ require_once '../config.php';
 $current_daily  = $_SESSION["username"];
 
 
-// Câu lệnh truy vấn SQL để lấy các trường sotien, description và thoigiannap
-$sql = "SELECT sotien, description, thoigiannap FROM webhook WHERE daily = '$current_daily' ORDER BY id DESC";
+// Lấy giá trị role và game từ Ajax
+$role = $_POST['role'];
+$game = $_POST['game'];
+
+
+
+echo $role;
+echo $game;
+
+exit;
+$sql = "SELECT sotien, username, status FROM webhook WHERE daily = '$current_daily' ORDER BY id DESC";
 
 // Thực thi câu lệnh truy vấn
 $result = mysqli_query($conn, $sql);
 
 // Tạo bảng HTML để hiển thị kết quả truy vấn
 
-echo "<tr><th>Số tiền</th><th>Mô tả</th><th>Thời gian</th></tr>";
+echo "<tr><th>GP</th><th>username</th><th>status</th></tr>";
 
 // Duyệt qua các bản ghi trả về từ câu lệnh truy vấn
 while ($row = mysqli_fetch_assoc($result)) {
-  $sotien = separateString($row['sotien']);
-    echo "<tr><td>" . $sotien . "</td><td>" . $row['description'] . "</td><td>" . $row['thoigiannap'] . "</td></tr>";
+  	$gp = separateString($row['sotien']);
+    echo "<tr><td>" . $gp . "</td><td>" . $row['username'] . "</td><td>" . $row['status'] . "</td></tr>";
 }
-
 
 // Đóng kết nối
 mysqli_close($conn);
-
-
+        
 function separateString($string) {
         $reversed = strrev($string);
         $chunks = str_split($reversed, 3);

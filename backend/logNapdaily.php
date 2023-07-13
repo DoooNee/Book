@@ -4,6 +4,16 @@ require_once '../config.php';
 $current_daily  = $_SESSION["username"];
 
 
+// Lấy giá trị role và game từ Ajax
+$role = $_POST['role'];
+$game = $_POST['game'];
+
+
+
+echo $role;
+echo $game;
+
+exit;
 // Câu lệnh truy vấn SQL để lấy các trường sotien, description và thoigiannap
 $sql = "SELECT sotien, description, thoigiannap FROM webhook WHERE daily = '$current_daily' ORDER BY id DESC";
 
