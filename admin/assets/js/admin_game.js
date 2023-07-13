@@ -9,6 +9,7 @@ $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
     $('.nav_fade').toggleClass('open');
 });
 
+
 var role = '';
 var game = '';
 
@@ -84,7 +85,8 @@ function showSaoKe() {
     $('.content_admin').hide();
     $('.tongnap_daily').hide();
     $('.saoke_daily').show();
-    getDanhSachDaiLy()
+    getDanhSachDaiLy();
+    getSaoKe('Dailygamevn')
 }
 
 function getDanhSachDaiLy() {
@@ -98,10 +100,10 @@ function getDanhSachDaiLy() {
         success: function (res) {
             var th = "";
             $.each(res, function (i, item) {
-                th += `<th><a href="javascript:getSaoKe(${res[i].name});">${res[i].name}</a></th>`;
+                th += `<th><a href="javascript:getSaoKe('${res[i].name}');">${res[i].name}</a></th>`;
             });
             var table = '<table><tr>' + th + '</tr></table>'
-            $('.saoke_daily').html(table);
+            $('.table-rank').html(table);
 
         },
         complete: function () {
@@ -119,7 +121,14 @@ function getSaoKe(daily) {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            var html = '';
+            $.each(res, function (i, item) {
+                html += `<tr><td>${res[i].id}</td><td  >${addCommas(res[i].sotiennap)}</td><td  >${res[i].mota}</td><td  >${res[i].ngay}</td></tr>`;
+            });
+            var html_rank = '<table><tr><th>ID</th><th>Số Tiền</th><th>Mô Tả</th><th>Ngày</th></tr>' + html + '</table>';
+            $('.bang_saoke').html(html_rank);
+
+
         },
         complete: function () {
         }
