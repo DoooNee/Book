@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đại Lý Ninja</title>
     <link rel="stylesheet" href="/daily/assets/css/daily_game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/daily/assets/js/jquery.js"></script>
     <script src="/daily/assets/js/sweetalert.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -21,7 +22,7 @@
                 <div class="user">
                     <i class="fa-solid fa-user"></i><span class="user_name"></span>
                 </div>
-                <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Tổng Nạp: <span class="GP">0</span></div>
+                <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Tổng Nạp: <span class="GP"></span></div>
                 <div class="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/backend/logout.php">Đăng xuất</a></div>
 
             </div>
@@ -64,7 +65,7 @@
                         <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
                                 Tin Đại Lý</a></li>
                         <li class="chinh_sach"><a href="javascript:showChinhSach();"><i class="fa-solid fa-book-open"></i></i>Chính Sách Đại Lý</a></li>
-                        <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li>
+                        <!-- <li class="code_thang"><a href="javascript:showCODE();"><i class="fa-solid fa-gift"></i>Kho CODE Tháng</a></li> -->
                     </ul>
                 </div>
                 <div class="content">
@@ -93,12 +94,12 @@
                         <div class="content_inforDaiLy_form"><span id="stk_dangky"></span></div>
                         <h4>STK Nhận Hoa Hồng</h4>
                         <div class="content_inforDaiLy_form"><span class="stk_nganhang"></span></div>
-                        <h4>Số Tiền Nạp Tháng 6 2023</h4>
+                        <h4>Hoa Hồng Tháng Trước</h4>
+                        <div class="content_inforDaiLy_form"><span class="hoahongthangtruoc"></span></div>
+                        <h4>Tổng Tháng Trước</h4>
                         <div class="content_inforDaiLy_form"><span class="tongthangtruoc"></span></div>
                         <h4>Tổng Nạp (GP)</h4>
                         <div class="content_inforDaiLy_form"><span class="tongnap"></span></div>
-                        <h4>Số Dư (GP)</h4>
-                        <div class="content_inforDaiLy_form"><span class="sodu"></span></div>
                     </div>
 
                     <div class="content_chich_sach">

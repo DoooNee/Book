@@ -40,6 +40,7 @@ function loginCheck() {
             console.log(res);
             //show tên user đăng nhập
             $('.user_name').html(res.name)
+            $('.GP').html(addCommas(res.tongnap))
 
             if (res.isLogin != 1) {
                 window.location = "/";
@@ -157,6 +158,19 @@ function getTTDaiLy() {
         beforeSend: function () {
         },
         success: function (res) {
+            console.log(res)
+            $('#ten').html(res[0].tendaily);
+            $('#madaily').html(res[0].madaily);
+            $('#facebook').html(res[0].facebook);
+            $('#sdt').html(res[0].sdt);
+            $('#stk_dangky').html(res[0].stk_dangky);
+            $('.stk_nganhang').html(res[0].stk_nhan);
+            $('#madaily').html(res[0].madaily);
+            $('.tongnap').html(res[0].tongnap);
+            $('.tongthangtruoc').html(addCommas(res[0].tong_thangtruoc));
+            $('.hoahongthangtruoc').html(addCommas(res[0].hoahong_thangtruoc));
+            $('.tongnap').html(addCommas(res[0].tongnap));
+
             // var html = '';
             // $.each(res, function (i, item) {
             //     html += `<tr><td>${res[i].tendaily}</td><td >${addCommas(res[i].tongnap)}</td><td >${addCommas(String(hoaHong_HienTai(res[i].tongnap)))}</td><td >${addCommas(res[i].tong_thangtruoc)}</td><td  >${res[i].hoahong_thangtruoc}</td><td class ="stk_css" >${res[i].stk_dangky}</td><td class ="stk_css" >${res[i].stk_nhan}</td><td >${res[i].sdt}</td></tr>`;
