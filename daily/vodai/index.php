@@ -12,7 +12,6 @@
     <script src="/daily/assets/js/sweetalert.js"></script>
 
 </head>
-
 <body>
     <div class="wrapper">
         <!--===================== DAILY ========================-->
@@ -75,7 +74,7 @@
                             <li class="lich_su_chuyen "><a href="javascript:lichSuChuyen();"> Lịch Sử Chuyển </a></li>
                         </ul>
                         <div class="bang_lich_su">
-                        
+
                         </div>
                     </div>
 
@@ -348,150 +347,7 @@
 
         </div>
         <!--===================== END DAILY ========================-->
-
-        <!--===================== CTV ========================-->
-        <div class="ctv_wrapper" style="display:none">
-            <!-- nav -->
-            <div class="nav">
-                <div class="user">
-                    <i class="fa-solid fa-user"></i><span class="user_name"></span>
-                </div>
-                <div class="nav_soDu"><i class="fa-solid fa-wallet"></i>Số dư ví (GP): <span class="GP">0</span></div>
-            </div>
-            <!-- title -->
-            <div class="title">
-
-                <h1 id="title_id">
-                    CỘNG TÁC VIÊN
-                </h1>
-                <label for="nav_mb" id="nav-icon3" style="z-index: 11;">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                <div class="nav_fade" class="open">
-                    <input type="checkbox" id="nav_mb">
-                    <div class="nav_wrapper">
-                        <ul class="">
-                            <label for="nav_mb">
-                                <li class="dashboard"><a href="javascript:showDashBoard();"><i class="fa-solid fa-user"></i>DashBoard</a></li>
-                            </label>
-                            <li class="inforDaiLy"><a href="javascript:showTTDaiLy();"><i class="fa-solid fa-user"></i>Thông
-                                    Tin Đại Lý</a></li>
-                            <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
-                            <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div style="overflow: hidden;width: auto;height: auto;">
-                <p class="thong_bao"></p>
-            </div>
-            <!-- container -->
-            <div class="container">
-                <div class="sidebar">
-                    <ul>
-                        <li class="admin" id=""><a href="javascript:showADMIN();"><i class="fa-solid fa-hammer"></i>ADMIN</a></li>
-                        <li class="admin" id=""><a href="javascript:showTongNap();"><i class="fa-solid fa-hammer"></i>Thông tin đại lý</a></li>
-                        <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
-                        <li class="exit"> <a href="/backend/logout.php"><i class="fa-solid fa-right-from-bracket"></i>Đăng Xuất</a></li>
-                    </ul>
-                </div>
-                <div class="content">
-                    <!-- <div class="content_dashboard">
-                        <ul class="sidebar_content ">
-                            <li class="lich_su_nap "><a href="javascript:lichSuNap();"> Lịch Sử Nạp</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:lichSuChuyen();"> Lịch Sử Chuyển </a></li>
-                        </ul>
-                        <div class="bang_lich_su">
-                            <table id="table">
-                            </table>
-                        </div>
-                    </div> -->
-
-                    <div class="content_inforDaiLy">
-                        <h2>Thông Tin Đại Lý</h2>
-                        <h4>Tên Đại Lý</h4>
-                        <div class="content_inforDaiLy_form "><span id="ten"></span></div>
-                        <h4>Mã Đại Lý</h4>
-                        <div class="content_inforDaiLy_form"><span id="madaily"></span></div>
-                        <h4>Facebook</h4>
-                        <div class="content_inforDaiLy_form"><a target="_blank" id="facebook" href=""></a></div>
-                        <h4>SĐT</h4>
-                        <div class="content_inforDaiLy_form"><span id="sdt"></span></div>
-                        <h4>STK Đăng Ký Đại Lý</h4>
-                        <div class="content_inforDaiLy_form"><span id="stk_dangky"></span></div>
-                        <h4>STK Nhận Hoa Hồng</h4>
-                        <div class="content_inforDaiLy_form"><span class="stk_nganhang"></span></div>
-                        <h4>Số Tiền Nạp Tháng 6 2023</h4>
-                        <div class="content_inforDaiLy_form"><span class="tongthangtruoc"></span></div>
-                        <h4>Tổng Nạp (GP)</h4>
-                        <div class="content_inforDaiLy_form"><span class="tongnap"></span></div>
-                        <h4>Số Dư (GP)</h4>
-                        <div class="content_inforDaiLy_form"><span class="sodu"></span></div>
-                    </div>
-                    <!--  admin -->
-                    <div class="content_admin">
-                        <ul class="sidebar_content ">
-                            <li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nạp</a></li>
-                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD();"> Lịch Sử Chuyển </a></li>
-                        </ul>
-                        <div class="bang_lich_su_admin">
-                            <table class="table">
-                                <!-- <tr>
-                                <th>GP</th>
-                                <th>Tên nhân vật</th>
-                                <th>Trạng thái</th>
-                                <th>Thời gian</th>
-                            </tr>
-                            <tr>
-                                <td>10000</td>
-                                <td>HGluxy</td>
-                                <td> Đang xử lý</td>
-                                <td>
-                                    <div class="search disabled">
-                                        Tìm
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>500</td>
-                                <td>Walnuts</td>
-                                <td> Hoàn thành</td>
-                                <td>
-                                    <div class="search">
-                                        Tìm
-                                    </div>
-                                </td>
-                            </tr> -->
-                            </table>
-                        </div>
-                    </div>
-                    <!-- tongnap -->
-                    <div class="tongnap_daily">
-                        <table>
-                        </table>
-                    </div>
-                    <!-- saoke -->
-                    <div class="saoke_daily">
-                        <ul class="sidebar_content1 ">
-                            <li class="lich_su_nap "><a href="javascript:getSaoKeDailyGame();">DailyGame</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeQuyenQuyen();">QuyenQuyen</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeNguyenQuangTung();">NguyenQuangTung</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeWeacc();">Weacc</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeMinato();">Minato</a></li>
-                            <li class="lich_su_chuyen "><a href="javascript:getSaoKeSonHeroGaming();">SonHeroGaming</a></li>
-                        </ul>
-                        <div class="bang_saoke">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--===================== END CTV ========================-->
     </div>
-
 
     <script src="/daily/assets/js/daily_game.js"></script>
 </body>
