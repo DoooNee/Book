@@ -68,7 +68,13 @@
         // lấy dữ liệu từ kết quả truy vấn và gán vào biến
         while ($row = mysqli_fetch_assoc($result)) {
                 $role = $row["role"];
-                $tongnap = $row["tongnap"];
+
+                if($role == 'daily'){
+                    $game[] = $row['game'];
+                }
+                else {
+                    $game[] = 'all';
+                }
         }
         $name = $loginname;
         // đóng kết nối
@@ -82,7 +88,8 @@
                     "isLogin" => $isLogin,
                     "role" => $role,
                     "name" => $name,
-                    "tongnap" => $tongnap
+                    // "tongnap" => $tongnap,
+                    "game" => $game
                     );
 
 

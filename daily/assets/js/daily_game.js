@@ -1,6 +1,6 @@
 $(document).ready(function () {
     loginCheck();
-    // showADMIN();
+    getTongNap()
     lichSuNap();
 
 });
@@ -24,6 +24,7 @@ function checkGame() {
     return game;
 }
 
+
 function loginCheck() {
     $.ajax({
         url: '/backend/login.php',
@@ -46,6 +47,23 @@ function loginCheck() {
             }
         },
         complete: function (res) {
+        }
+    });
+}
+
+function getTongNap(){
+    $.ajax({
+        url: '/backend/getTongNap.php',
+        type: 'post',
+        data: {game: checkGame() },
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        success: function (res) {
+
+
+        },
+        complete: function () {
         }
     });
 }
