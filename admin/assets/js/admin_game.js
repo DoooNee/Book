@@ -171,47 +171,6 @@ function hoaHong_HienTai(sotien) {
     }
 }
 
-// show table dashboard
-// function lichSuNap() {
-//     $.ajax({
-//         url: '/backend/lognap.php',
-//         type: 'get',
-//         data: '',
-//         dataType: '',
-//         beforeSend: function () {
-//         },
-//         success: function (res) {
-//             console.log(res)
-//             $('#table').html(res);
-//             $(".lich_su_nap").addClass("active");
-//             $(".lich_su_chuyen").removeClass("active");
-//         },
-//         complete: function () {
-//         }
-//     });
-// }
-
-// show table dashboard
-// function lichSuChuyen() {
-//     $.ajax({
-//         url: '/backend/logchuyen.php',
-//         type: 'get',
-//         data: '',
-//         dataType: '',
-//         beforeSend: function () {
-
-//         },
-//         success: function (res) {
-//             $('#table').html(res);
-//             $(".lich_su_chuyen").addClass("active");
-//             $(".lich_su_nap").removeClass("active");
-
-//         },
-//         complete: function () {
-
-//         }
-//     });
-// }
 // show table ADMIN
 function lichSuNapAD() {
     $.ajax({
@@ -297,6 +256,8 @@ function submitStatus(id, nguoichuyen) {
     });
 
 }
+
+
 
 // thông báo game
 function thongbao() {

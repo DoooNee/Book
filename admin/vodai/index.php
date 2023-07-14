@@ -63,7 +63,7 @@
                         <li class="admin" id=""><a href="javascript:showSaoKe();"><i class="fa-solid fa-hammer"></i>Sao kê đại lý</a></li>
                     </ul>
                 </div>
-                <div class="content">
+                <div class="content ">
                     <!--  admin -->
                     <div class="content_admin">
                         <ul class="sidebar_content ">

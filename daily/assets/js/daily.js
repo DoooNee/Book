@@ -17,7 +17,18 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res);
+            console.log(res.game)
+            // hiển thị game nào
+            if (res.game.includes('ninja') && res.game.includes('vodai')) {
+                $('.ninja').show();
+                $('.vodai').show();
+            } else if (res.game.includes('ninja')) {
+                $('.ninja').show();
+                $('.vodai').hide();
+            } else if (res.game.includes('vodai')) {
+                $('.ninja').hide();
+                $('.vodai').show();
+            }
             $('.user_name').html(res.name);
             if (res.isLogin != 1) {
                 window.location = "/";

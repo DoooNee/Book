@@ -158,6 +158,14 @@ a {
     position: relative;
 }
 
+.ninja{
+    display: none;
+}
+
+.vodai{
+    display: none;
+}
+
 .content img {
     border-radius: 10px;
     width: 36vw;

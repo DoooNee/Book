@@ -40,12 +40,12 @@ session_start();
         <!-- container -->
         <!-- <div class="container">
             <div class="content_group">
-                <div class="content">
+                <div class="content ninja">
                     <a href="/ninja">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">NINJA</div>
                 </div>
-                <div class="content">
+                <div class="content vodai ">
                     <a href="/vodai">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">VÕ ĐÀI TỐI THƯỢNG</div>

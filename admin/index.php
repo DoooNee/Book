@@ -34,12 +34,12 @@
         <!-- container -->
         <div class="container">
             <div class="content_group">
-                <div class="content">
+                <div class="content ninja">
                     <a href="/admin/ninja">
                         <img src="/assets/img/photo_2023-07-05_16-51-21.jpg" alt=""></a>
                     <div class="content_ninja_name">Ninja Huyền Thoại</div>
                 </div>
-                <div class="content">
+                <div class="content vodai">
                     <a href="/admin/vodai">
                         <img src="/assets/img/vdtt_1920x1080.jpg" alt=""></a>
                     <div class="content_ninja_name">VÕ ĐÀI TỐI THƯỢNG</div>

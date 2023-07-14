@@ -5,6 +5,23 @@ $(document).ready(function () {
 
 });
 
+
+
+function addCommas(str) {
+    var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
+    var len = arr.length; // Độ dài của chuỗi
+    var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
+
+    // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
+    while (commaIndex > 0) {
+        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
+        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
+    }
+
+    // Ghép mảng các kí tự thành chuỗi và trả về
+    return arr.join('');
+}
+
 // nav mobile
 $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
     $(this).toggleClass('open');
@@ -35,7 +52,7 @@ function loginCheck() {
         },
         success: function (res) {
             //show tên user đăng nhập
-            
+
             // console.log(res.isLogin)
             if (res.isLogin != 1) {
                 window.location = "/";
@@ -43,7 +60,7 @@ function loginCheck() {
             else {
                 role = res.role;
                 $('.user_name').html(res.name)
-            $('.GP').html(addCommas(res.tongnap))
+                $('.GP').html(addCommas(res.tongnap))
             }
         },
         complete: function (res) {
@@ -51,17 +68,17 @@ function loginCheck() {
     });
 }
 
-function getTongNap(){
+function getTongNap() {
     $.ajax({
         url: '/backend/getTongNap.php',
         type: 'post',
-        data: {game: checkGame() },
+        data: { game: checkGame() },
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-
-
+            console.log(res)
+            $('.GP').html(addCommas(res[0]))
         },
         complete: function () {
         }
@@ -70,21 +87,6 @@ function getTongNap(){
 
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
-}
-
-function addCommas(str) {
-    var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
-    var len = arr.length; // Độ dài của chuỗi
-    var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
-
-    // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
-    while (commaIndex > 0) {
-        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
-        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
-    }
-
-    // Ghép mảng các kí tự thành chuỗi và trả về
-    return arr.join('');
 }
 
 
@@ -142,6 +144,8 @@ function lichSuNap() {
         }
     });
 }
+
+
 
 // show table dashboard
 function lichSuChuyen() {
