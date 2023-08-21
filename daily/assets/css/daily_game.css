@@ -30,12 +30,21 @@ a {
 /* nav */
 .nav {
     display: flex;
-    height: 25px;
+    height: 85px;
     width: 100%;
     padding-right: 10vw;
-    justify-content: end;
+    justify-content: space-between;
     line-height: 25px;
 
+}
+
+.logo img {
+    width: 290px;
+}
+
+.nav_group_right{
+    display: flex;
+    line-height: 85px;
 }
 
 .user {
@@ -638,6 +647,14 @@ table {
 
     #title_id{
         font-size:19px;
+    }
+
+    .nav_group_right {
+        line-height: 0;
+        justify-content: end;
+    }
+    .nav{
+        display: initial;
     }
 }
 

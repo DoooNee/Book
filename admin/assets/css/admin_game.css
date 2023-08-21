@@ -30,12 +30,21 @@ a {
 /* nav */
 .nav {
     display: flex;
-    height: 25px;
+    height: 85px;
     width: 100%;
     padding-right: 10vw;
-    justify-content: end;
+    justify-content: space-between;
     line-height: 25px;
 
+}
+
+.logo img {
+    width: 290px;
+}
+
+.nav-group-right {
+    display: flex;
+    line-height: 85px;
 }
 
 .user {
@@ -114,7 +123,7 @@ a {
     padding-top: 1.5vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
-	overflow: auto;
+    overflow: auto;
 }
 
 .content_dashboard {}
@@ -189,9 +198,23 @@ a {
     padding-left: 10px;
 }
 
-.content_chinh_sach{
-	display: none;
+.content_chinh_sach {
+    display: none;
 }
+
+.content_checknap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 3fr));
+}
+
+#checknap, #ngaybatdau, #ngayketthuc{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+
+
 
 table,
 td,
@@ -640,6 +663,16 @@ table {
     #title_id {
         font-size: 19px;
     }
+
+
+
+    .logo img {
+        width: 180px;
+    }
+
+    .nav {
+        padding-right: 2vw;
+    }
 }
 
 
@@ -652,6 +685,7 @@ table {
         margin: 0 2vw;
     }
 
+
 }
 
 
@@ -660,5 +694,6 @@ table {
     .open {
         display: none;
     }
+
 
 }
