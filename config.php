@@ -1,4 +1,4 @@
 <?php
 
-//$conn = mysqli_connect("da001.vhost.vn", "dailyvng_dailydb","daily.vngates.com", "dailyvng_dailydb");
-$conn = mysqli_connect("localhost", "root", "", "ninja_db");
+$conn = mysqli_connect("da001.vhost.vn", "daily_metatapvn","daily.metatap.vn", "daily_metatapvn");
+//$conn = mysqli_connect("localhost", "root", "", "ninja_db");

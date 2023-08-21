@@ -9,12 +9,13 @@ if ($conn->connect_error) {
 
 // Lấy giá trị role và game từ Ajax
 $role = $_POST['role'];
-$game = $_POST['game'];
+// $game = $_POST['game'];
+$game = 'vodai';
 
 // Kiểm tra nếu role là admin
-if ($role == 'admin') {
+if ($role == 'admin' or $role == 'ctv') {
     // Truy vấn SQL để lấy dữ liệu từ bảng daily_acc
-    $sql = "SELECT login_name AS name FROM daily_acc WHERE role = 'daily' and game = '$game'";
+    $sql = "SELECT login_name AS name FROM daily_acc WHERE role = 'daily'";
   
     $result = $conn->query($sql);
   

@@ -23,7 +23,7 @@ function loginCheck() {
                 $('.wrapper_popup').show();
             }
             else {
-                if(res.role == 'admin'){
+                if(res.role == 'admin' || res.role == 'ctv'){
                     window.location = "/admin";
                 }
                 else if(res.role == 'daily'){

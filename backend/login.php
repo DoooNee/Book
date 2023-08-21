@@ -3,7 +3,7 @@
     
     $name = $fullname = $cccd = $email = $tongnap = $GP = $status = $stk = $loginname = $role = $madaily = $facebook = $sdt = $stk_dangky = $stk_nhan = $sodu = $tong_thangtruoc = $link_code =$game = null;
 
-    //unset($_SESSION["username"]);
+
     
     require_once '../config.php';
 	// Kiểm tra kết nối
@@ -22,7 +22,7 @@
 
         if ($result->num_rows > 0) {
             // Đăng nhập thành công, lưu thông tin vào session
-            $_SESSION["username"] = $username;
+            $_SESSION["vdtt-daily"] = $username;
             //
             // thực hiện truy vấn SQL
             $result = mysqli_query($conn, "SELECT * FROM daily_acc WHERE login_name = '$username'");
@@ -58,10 +58,10 @@
     }
     
     
-    if (isset($_SESSION["username"])) {
+    if (isset($_SESSION["vdtt-daily"])) {
 		$isLogin = 1;
         $status = 'success';
-        $loginname = $_SESSION["username"];
+        $loginname = $_SESSION["vdtt-daily"];
         // thực hiện truy vấn SQL
         $result = mysqli_query($conn, "SELECT * FROM daily_acc WHERE login_name = '$loginname'");
         
@@ -70,10 +70,10 @@
                 $role = $row["role"];
 
                 if($role == 'daily'){
-                    $game[] = $row['game'];
+                    $tongnap = $row['tongnap'];
                 }
                 else {
-                    $game[] = 'all';
+                    $tongnap = '0';
                 }
         }
         $name = $loginname;
@@ -88,8 +88,8 @@
                     "isLogin" => $isLogin,
                     "role" => $role,
                     "name" => $name,
-                    // "tongnap" => $tongnap,
-                    "game" => $game
+                    "tongnap" => $tongnap
+                    // "game" => $game
                     );
 
 

@@ -17,7 +17,7 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.game)
+            //console.log(res.game)
             // hiển thị game nào
             if (res.game.includes('ninja') && res.game.includes('vodai')) {
                 $('.ninja').show();
@@ -43,23 +43,7 @@ function loginCheck() {
     });
 }
 
-function getGameNumber($name) {
-    $.ajax({
-        url: '/backend/getGameNumber.php',
-        type: 'post',
-        data: {
-            name: $name,
-        },
-        dataType: 'json',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res);
-        },
-        complete: function () {
-        }
-    });
-}
+
 
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");

@@ -7,18 +7,17 @@ $(document).ready(function () {
 });
 
 
-
 function loginCheck() {
     $.ajax({
         url: '/backend/login.php',
-        // url : 'https://goirongat.tranthanhquan.com/backend/daily/logintest.php',
+        // url: 'https://ninjahuyenthoai.vn/daily/thongtindaily.php',
         type: 'get',
         data: '',
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res.tendaily);
+            //console.log(res.tendaily);
             if (res.isLogin != 1) {
                 $('.wrapper_popup').show();
             }
@@ -27,6 +26,7 @@ function loginCheck() {
                 let tongnap = addCommas(res.tongnap);
                 let sodu = addCommas(res.sodu);
                 let tongthangtruoc = addCommas(res.tong_thangtruoc);
+
 
                 $('.user_name').html(res.fullname);
                 $('.GP').html(GP);
@@ -40,13 +40,27 @@ function loginCheck() {
                 $('.tongnap').html(tongnap);
                 $('.sodu').html(sodu);
                 $("#facebook").attr("href", res.facebook);
-                $('.content_kho_code').html(`<a href="/assets/kho_code/${res.link_code}">link CODE tháng</a>`)
+				$('.content_kho_code').html(`<a href="/assets/kho_code/${res.link_code}">link CODE tháng</a>`)
             }
 
             if (res.role == 'daily') {
-                console.log(res.role);
+                $('.admin').html('<a href="javascript:checkAdmin();"><i class="fa-solid fa-hammer"></i>ADMIN</a>');
+                $('.admin').hide();
+              $('.saoke_daily').hide();
+              
+                lichSuNap();
             } else {
-                var role = res.role;
+              	var role = res.role;
+                $('.dashboard').hide();
+                $('.inforDaiLy').hide();
+                $('.chinh_sach').hide();
+                $('.code_thang').hide();
+                $('.chinh_sach').hide();
+                $('.nav_soDu').hide();
+                $('.sidebar_content').html(`<li class="lich_su_nap_admin "><a href="javascript:lichSuNapAD();"> Lịch Sử Nhận</a></li>
+                                            <li class="lich_su_chuyen_admin "><a href="javascript:lichSuChuyenAD('`+role+`');"> Lịch Sử Chuyển</a></li>`);
+                showADMIN();
+                lichSuNapAD();
             }
 
         },
@@ -59,6 +73,11 @@ function loginCheck() {
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
 }
+
+
+
+
+
 
 function addCommas(str) {
     var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
@@ -76,17 +95,110 @@ function addCommas(str) {
 }
 
 
-function getSaoKeDailyGame() {
+
+function showDashBoard() {
+    $('.content_dashboard').show();
+    $('.content_admin').hide();
+  	$('.tongnap_daily').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('#title_id').html('DashBoard');
+    $('.saoke_daily').hide();
+    checkInput();
+
+    // $('.nav_fade').toggleClass('open');
+    // $('#nav-icon3').toggleClass('open');
+
+
+}
+function showTTDaiLy() {
+    $('.content_admin').hide();
+  	$('.tongnap_daily').hide();
+    $('.content_dashboard').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_inforDaiLy').show();
+    $('#title_id').html('Thông Tin Đại Lý');
+    $('.saoke_daily').hide();
+    checkInput();
+
+}
+
+
+function showChinhSach() {
+    $('.content_admin').hide();
+    $('.tongnap_daily').hide();
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_kho_code').hide();
+    $('.content_chich_sach').show();
+    $('#title_id').html('Chích Sách Đại Lý');
+    $('.saoke_daily').hide();
+    checkInput();
+
+}
+
+
+function showCODE() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_admin').hide();
+    $('.tongnap_daily').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').show();
+    $('#title_id').html('Kho CODE Tháng');
+    checkInput();
+    $('.saoke_daily').hide();
+}
+
+
+function showADMIN() {
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_admin').show();
+    $('#title_id').html('ADMIN');
+  	$('.tongnap_daily').hide();
+      $('.saoke_daily').hide();
+}
+
+function showTongNap (){
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_admin').hide();
+    $('.tongnap_daily').show();
+    $('.saoke_daily').hide();
+    getTongNap ();
+}
+
+function showSaoKe(){
+    $('.content_dashboard').hide();
+    $('.content_inforDaiLy').hide();
+    $('.content_chich_sach').hide();
+    $('.content_kho_code').hide();
+    $('.content_admin').hide();
+    $('.tongnap_daily').hide();
+    $('.saoke_daily').show();
+
+
+    //getTongNap ();
+}
+
+function getSaoKeDailyGame(){
     $.ajax({
-        url: './backend/saoKeDailyGame.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeDailyGame.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            //console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
             $('.bang_saoke').html(`<table > ${res} </table>`);
         },
@@ -95,17 +207,17 @@ function getSaoKeDailyGame() {
     });
 }
 
-function getSaoKeNguyenQuangTung() {
+function getSaoKeNguyenQuangTung(){
     $.ajax({
-        url: './backend/saoKeNguyenQuangTung.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeNguyenQuangTung.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            //console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
             $('.bang_saoke').html(`<table > ${res} </table>`);
         },
@@ -114,17 +226,17 @@ function getSaoKeNguyenQuangTung() {
     });
 }
 
-function getSaoKeMinato() {
+function getSaoKeMinato(){
     $.ajax({
-        url: './backend/saoKeMinato.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeMinato.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            //console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
             $('.bang_saoke').html(`<table > ${res} </table>`);
         },
@@ -133,77 +245,77 @@ function getSaoKeMinato() {
     });
 }
 
-function getSaoKeQuyenQuyen() {
+function getSaoKeQuyenQuyen(){
     //$('.bang_saoke').html(`No info`);
-    $.ajax({
-        url: './backend/saoKeQuyenQuyen.php',
-        // url: './backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-
-        },
-        complete: function () {
-        }
-    });
+     $.ajax({
+         url: '/backend/saoKeQuyenQuyen.php',
+         // url: '/backend/lognap.php',
+         type: 'get',
+         data: '',
+         dataType: '',
+         beforeSend: function () {
+         },
+         success: function (res) {
+             //console.log(res)
+             $('.bang_saoke').html(`<table > ${res} </table>`);
+            
+         },
+         complete: function () {
+         }
+     });
 }
 
-function getSaoKeWeacc() {
+function getSaoKeWeacc(){
     //$('.bang_saoke').html(`No info`);
-    $.ajax({
-        url: './backend/saokeWeacc.php',
-        // url: './backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-
-        },
-        complete: function () {
-        }
-    });
+     $.ajax({
+         url: '/backend/saokeWeacc.php',
+         // url: '/backend/lognap.php',
+         type: 'get',
+         data: '',
+         dataType: '',
+         beforeSend: function () {
+         },
+         success: function (res) {
+             //console.log(res)
+             $('.bang_saoke').html(`<table > ${res} </table>`);
+            
+         },
+         complete: function () {
+         }
+     });
 }
 
-function getSaoKeSonHeroGaming() {
+function getSaoKeSonHeroGaming(){
     //$('.bang_saoke').html(`No info`);
-    $.ajax({
-        url: './backend/saokeSonheroGaming.php',
-        // url: './backend/lognap.php',
-        type: 'get',
-        data: '',
-        dataType: '',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.bang_saoke').html(`<table > ${res} </table>`);
-
-        },
-        complete: function () {
-        }
-    });
+     $.ajax({
+         url: '/backend/saokeSonheroGaming.php',
+         // url: '/backend/lognap.php',
+         type: 'get',
+         data: '',
+         dataType: '',
+         beforeSend: function () {
+         },
+         success: function (res) {
+             //console.log(res)
+             $('.bang_saoke').html(`<table > ${res} </table>`);
+            
+         },
+         complete: function () {
+         }
+     });
 }
 
-function getSaoKeKunBanThe() {
+function getSaoKeKunBanThe(){
     $.ajax({
-        url: './backend/saoKeKunBanThe.php',
-        // url: './backend/lognap.php',
+        url: '/backend/saoKeKunBanThe.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            //console.log(res)
             //$('.bang_saoke').html(`<table > ${res} </table>`);
             $('.bang_saoke').html(`<table > ${res} </table>`);
         },
@@ -222,19 +334,19 @@ function getSaoKeKunBanThe() {
 
 
 
-function getTongNap() {
+function getTongNap (){
     $.ajax({
-        url: './backend/log_tongnap_daily.php',
-        // url: './backend/lognap.php',
+        url: '/backend/log_tongnap_daily.php',
+        // url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
+            //console.log(res)
             $('.tongnap_daily').html(`<table > ${res} </table>`);
-
+            
         },
         complete: function () {
         }
@@ -246,13 +358,14 @@ function getTongNap() {
 function lichSuNap() {
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsunap.php',
-        url: './backend/lognap.php',
+        url: '/backend/lognap.php',
         type: 'get',
         data: '',
         dataType: '',
         beforeSend: function () {
         },
         success: function (res) {
+            //console.log(res)
             $('#table').html(res);
             $(".lich_su_nap").addClass("active");
             $(".lich_su_chuyen").removeClass("active");
@@ -268,7 +381,7 @@ function lichSuChuyen() {
 
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyen.php',
-        url: './backend/logchuyen.php',
+        url: '/backend/logchuyen.php',
 
         type: 'get',
         data: '',
@@ -291,6 +404,30 @@ function lichSuChuyen() {
 
 
 
+// show table ADMIN
+function lichSuNapAD() {
+    $.ajax({
+        url: '/backend/logNapAD.php',
+        type: 'get',
+        data: '',
+        dataType: '',
+        beforeSend: function () {
+          
+        },
+        success: function (res) {
+            //console.log(res)
+            $('.table').html(res);
+            $(".lich_su_nap_admin").addClass("active");
+            $(".lich_su_chuyen_admin").removeClass("active");
+            
+
+        },
+        complete: function () {
+        }
+    });
+}
+
+
 
 
 
@@ -298,10 +435,10 @@ function lichSuChuyen() {
 
 // show table ADMIN
 function lichSuChuyenAD(role) {
-
+  
     $.ajax({
         // url: 'https://ninjahuyenthoai.vn/daily/lichsuchuyenadmin.php',
-        url: './backend/logchuyenAD.php',
+        url: '/backend/logchuyenAD.php',
         type: 'get',
         data: '',
         dataType: '',
@@ -312,8 +449,8 @@ function lichSuChuyenAD(role) {
             $('.table').html(res);
             $(".lich_su_chuyen_admin").addClass("active");
             $(".lich_su_nap_admin").removeClass("active");
-            if (role == 'ctv') {
-                $(".search").hide();
+          	if(role == 'ctv'){
+            	$(".search").hide();
             }
         },
         complete: function () {
@@ -326,11 +463,11 @@ function lichSuChuyenAD(role) {
 
 function submitStatus($username, $nguoichuyen) {
     $.ajax({
-        url: './backend/submitStatus.php',
+        url: '/backend/submitStatus.php',
         type: 'post',
         data: {
             username: $username,
-            nguoichuyen: $nguoichuyen
+          	nguoichuyen: $nguoichuyen
         },
         dataType: 'json',
         beforeSend: function () {
@@ -340,7 +477,7 @@ function submitStatus($username, $nguoichuyen) {
             console.log(res);
             if (res.status == 'success') {
                 swal("Thông báo!", "Submit thành công");
-                lichSuChuyenAD();
+              lichSuChuyenAD();
             }
 
         },
@@ -366,8 +503,7 @@ function login() {
 
 
     $.ajax({
-        url: './backend/login.php',
-        // url: 'https://goirongat.tranthanhquan.com/backend/daily/logintest.php',
+        url: '/backend/login.php',
         type: 'post',
         data: {
             loginname: loginname,
@@ -388,12 +524,7 @@ function login() {
                     title: "Thông báo!",
                     text: "Đăng nhập thành công!"
                 }).then(function () {
-                    if(res.role == 'daily'){
-                        window.location = "/daily";
-                    }
-                    else {
-                        window.location = "/admin";
-                    }
+                    window.location = "/";
                 });
             }
 
@@ -407,11 +538,9 @@ function login() {
 
 
 
-
-
 // thông báo game
 function thongbao() {
-    $.get("./backend/thongbao.php", function (data) {
+    $.get("/backend/thongbao.php", function (data) {
         $('.thong_bao').html(data);
     });
 

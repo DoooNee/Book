@@ -1,26 +1,12 @@
 $(document).ready(function () {
     loginCheck();
-    getTongNap()
     lichSuNap();
-
+    showDashBoard();
 });
 
 
 
-function addCommas(str) {
-    var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
-    var len = arr.length; // Độ dài của chuỗi
-    var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
 
-    // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
-    while (commaIndex > 0) {
-        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
-        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
-    }
-
-    // Ghép mảng các kí tự thành chuỗi và trả về
-    return arr.join('');
-}
 
 // nav mobile
 $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
@@ -31,15 +17,15 @@ $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function () {
 var role = '';
 var game = '';
 
-function checkGame() {
-    str = window.location.href;
-    if (str.includes('ninja')) {
-        game = 'ninja';
-    } else if (str.includes('vodai')) {
-        game = 'vodai';
-    }
-    return game;
-}
+// function checkGame() {
+//     str = window.location.href;
+//     if (str.includes('ninja')) {
+//         game = 'ninja';
+//     } else if (str.includes('vodai')) {
+//         game = 'vodai';
+//     }
+//     return game;
+// }
 
 
 function loginCheck() {
@@ -51,16 +37,18 @@ function loginCheck() {
         beforeSend: function () {
         },
         success: function (res) {
+            //console.log(role)
             //show tên user đăng nhập
 
             // console.log(res.isLogin)
-            if (res.isLogin != 1) {
+            if (res.isLogin != 1 || res.role != 'daily') {
                 window.location = "/";
             }
             else {
                 role = res.role;
                 $('.user_name').html(res.name)
                 $('.GP').html(addCommas(res.tongnap))
+                //console.log(res);
             }
         },
         complete: function (res) {
@@ -68,22 +56,6 @@ function loginCheck() {
     });
 }
 
-function getTongNap() {
-    $.ajax({
-        url: '/backend/getTongNap.php',
-        type: 'post',
-        data: { game: checkGame() },
-        dataType: 'json',
-        beforeSend: function () {
-        },
-        success: function (res) {
-            console.log(res)
-            $('.GP').html(addCommas(res[0]))
-        },
-        complete: function () {
-        }
-    });
-}
 
 function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
@@ -111,6 +83,7 @@ function showChinhSach() {
     $('.content_inforDaiLy').hide();
     $('.content_chich_sach').show();
     $('.content_kho_code').hide();
+  	$('.saoke_daily').hide();
 }
 
 function showCODE() {
@@ -125,7 +98,7 @@ function lichSuNap() {
     $.ajax({
         url: '/backend/lognapdaily.php',
         type: 'post',
-        data: { role: role, game: checkGame() },
+        data: { role: role},
         dataType: 'json',
         beforeSend: function () {
         },
@@ -138,7 +111,6 @@ function lichSuNap() {
             });
             var html_rank = '<table><tr><th>Số Tiền</th><th>Mô Tả</th><th>Thời Gian Nạp</th></tr>' + html + '</table>';
             $('.bang_lich_su').html(html_rank);
-
         },
         complete: function () {
         }
@@ -152,7 +124,7 @@ function lichSuChuyen() {
     $.ajax({
         url: '/backend/logchuyendaily.php',
         type: 'post',
-        data: { role: role, game: checkGame() },
+        data: { role: role},
         dataType: 'json',
         beforeSend: function () {
 
@@ -178,12 +150,14 @@ function getTTDaiLy() {
     $.ajax({
         url: '/backend/thongtindaily.php',
         type: 'post',
-        data: { role: role, game: checkGame() },
+        data: { role: role},
         dataType: 'json',
         beforeSend: function () {
         },
         success: function (res) {
             $('#ten').html(res[0].tendaily);
+          	$('#cuphap').html(res[0].cuphap_nap);
+          	$('#game').html(res[0].game);
             $('#madaily').html(res[0].madaily);
             $('#facebook').html(res[0].facebook);
             $('#sdt').html(res[0].sdt);
@@ -214,4 +188,19 @@ function checkInput() {
     $('#nav-icon3').toggleClass('open');
     // checked false cho input
     $('#nav_mb').get(0).checked = false;
+}
+
+function addCommas(str) {
+    var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
+    var len = arr.length; // Độ dài của chuỗi
+    var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
+
+    // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
+    while (commaIndex > 0) {
+        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
+        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
+    }
+
+    // Ghép mảng các kí tự thành chuỗi và trả về
+    return arr.join('');
 }

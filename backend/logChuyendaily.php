@@ -1,12 +1,13 @@
 <?php
 session_start();
 require_once '../config.php';
-$current_daily  = $_SESSION["username"];
+$current_daily  = $_SESSION["vdtt-daily"];
 
 
 // Lấy giá trị role và game từ Ajax
 $role = $_POST['role'];
-$game = $_POST['game'];
+// $game = $_POST['game'];
+$game = 'vodai';
 
 
 $sql = "SELECT sotien, username, status FROM lognap_$game WHERE daily = '$current_daily' ORDER BY id DESC";

@@ -7,13 +7,13 @@
 
 
     $role = $_POST['role'];
-    $game = $_POST['game'];
+    // $game = $_POST['game'];
 
 
 // Kiểm tra role
-if ($role == 'admin') {
+if ($role == 'admin' or $role == 'ctv') {
   // Truy vấn SQL
-  $sql = "SELECT id, sotien, username, status, nguoi_chuyen FROM lognap_$game ORDER BY id DESC";
+  $sql = "SELECT id, sotien, username, status, nguoi_chuyen FROM lognap_vodai ORDER BY id DESC";
   $result = $conn->query($sql);
   // Kiểm tra kết quả truy vấn
   if ($result->num_rows > 0) {
@@ -39,23 +39,6 @@ else {
   }
 
 ///////////////////////////////////
-
-// 	$nguoichuyen = $_SESSION["username"];
-// $sql = "SELECT id, sotien, username, nguoi_chuyen , status FROM webhook ORDER BY id DESC";
-
-// // Thực thi câu lệnh truy vấn
-// $result = mysqli_query($conn, $sql);
-
-// // Tạo bảng HTML để hiển thị kết quả truy vấn
-
-// echo "<tr><th>GP</th><th>Tên nhân vật</th><th>Trạng thái</th><th>Người chuyển</th><th></th></tr>";
-
-// // Duyệt qua các bản ghi trả về từ câu lệnh truy vấn
-// while ($row = mysqli_fetch_assoc($result)) {
-// $gp = separateString($row['sotien']);
-// echo "<tr><td>" . $gp . "</td><td>" . $row['username'] . "</td><td>" . $row['status']  . "</td><td>" .  $row['nguoi_chuyen'] . "</td><td><div class='search disabled'><a href='javascript:submitStatus(`" . $row['id'] . "`,`". $nguoichuyen ."`);'>Submit</a></div></td></tr>";
-    
-// }
 
 // Đóng kết nối
 // mysqli_close($conn);

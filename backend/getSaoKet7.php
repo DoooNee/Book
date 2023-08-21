@@ -10,12 +10,13 @@ if ($conn->connect_error) {
 $role = $_POST['role'];
 // $game = $_POST['game']
 $game = 'vodai';
-$daily = strtolower($_POST['daily']);
-
+//$daily = strtolower($_POST['daily']);
+$daily = $_POST['daily'];
 // Kiểm tra nếu role là admin
 if ($role == 'admin' or $role == 'ctv') {
     // Thực hiện truy vấn để lấy dữ liệu từ bảng $daily với điều kiện
-    $sql = "SELECT id, sotiennap, mota, ngay FROM $daily$game";
+    $sql = "SELECT id, sotiennap, mota, ngay FROM $daily";
+  
     $result = $conn->query($sql);
 
     // Kiểm tra kết quả truy vấn

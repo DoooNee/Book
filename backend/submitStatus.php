@@ -7,14 +7,14 @@
 
 // Nhận dữ liệu từ Ajax
 $role = $_POST['role'];
-$game = $_POST['game'];
+// $game = $_POST['game'];
 $id = $_POST['id'];
 $nguoichuyen = $_POST['nguoichuyen'];
 
 
 if ($role == 'admin') {
     // Câu lệnh truy vấn SQL để cập nhật trường status
-    $sql = "UPDATE lognap_$game SET status = 'Success', nguoi_chuyen = '$nguoichuyen' WHERE id = '$id'";
+    $sql = "UPDATE lognap_vodai SET status = 'Success', nguoi_chuyen = '$nguoichuyen' WHERE id = '$id'";
 
     // Thực thi câu lệnh truy vấn
     if (mysqli_query($conn, $sql)) {

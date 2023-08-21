@@ -5,10 +5,14 @@
 if ($conn->connect_error) {
   die("Kết nối đến cơ sở dữ liệu thất bại: " . $conn->connect_error);
 }
-
 // Lấy giá trị role và game từ Ajax
-$game = $_POST['game'];
-$daily = $_SESSION['username'];
+// $game = $_POST['game'];
+$game = 'vodai';
+$role = $_POST['role'];
+$daily = $_SESSION['vdtt-daily'];
+
+if($role == 'daily'){
+
 
 
 // Xây dựng truy vấn SQL
@@ -34,4 +38,10 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
+
+}
+
+else {
+    echo 'Dữ liệu không hợp lệ';
+}
 ?>

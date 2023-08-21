@@ -117,7 +117,7 @@ a {
     padding-top: 1.5vw;
     padding-left: 1.5vw;
     padding-right: 1.5vw;
-
+overflow: auto;
 }
 
 .content_dashboard {}
@@ -184,7 +184,7 @@ a {
 
 
 .content_inforDaiLy_form {
-    display: inline-table;
+   
     width: 150%;
     border: 1px solid #ccc;
     height: 40px;
@@ -637,7 +637,7 @@ table {
     }
 
     #title_id{
-        font-size:20px;
+        font-size:19px;
     }
 }
 

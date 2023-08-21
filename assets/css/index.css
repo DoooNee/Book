@@ -657,6 +657,19 @@ table {
     h1#title_id {
         line-height: 100px;
     }
+  
+  
+  .popup {
+    max-width: 100vw;
+	}
+  
+  .form-group {
+    padding-left: 9vw;
+  }
+  
+  .submit {
+    margin-left: 30vw;
+  }
 }
 
 
