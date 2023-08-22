@@ -202,9 +202,9 @@ a {
     display: none;
 }
 
-.content_checknap {
+.content_checknap-top {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 3fr));
+    grid-template-columns: repeat(auto-fill, minmax(178px, 3fr));
 }
 
 #checknap, #ngaybatdau, #ngayketthuc{
@@ -212,7 +212,21 @@ a {
     padding: 10px;
     border: 1px solid #ccc;
 }
+.check-daily{
+    border: 1px solid #ccc;
+    height: 39px;
+    margin-top: 18px;
+    line-height: 2;
+    text-align: center;
+    background-color: #d3d3d3;
+    font-weight: 700;
+    font-size: 18px;
+}
 
+.check-daily:hover{
+    background-color: #c9c8c8;
+    cursor: pointer;
+}
 
 
 

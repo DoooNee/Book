@@ -26,10 +26,27 @@ var adminchuyen = '';
 
 
 
-function checknap() {
-    console.log($('select[name="checknap"]').val())
-    console.log($('#ngaybatdau').val())
-    console.log($('#ngayketthuc').val())
+function checkNapDaiLy() {
+    let daily_ = $('select[name="checknap"]').val();
+    let ngaybatdau_ = $('#ngaybatdau').val();
+    let ngayketthuc_ = $('#ngayketthuc').val();
+    $.ajax({
+        url: 'https://daily.metatap.vn/backend/checknap.php',
+        type: 'post',
+        data: {
+            daily: daily_,
+            ngaybatdau: ngaybatdau_,
+            ngayketthuc: ngayketthuc_,
+        },
+        dataType: 'json',
+        beforeSend: function () {
+        },
+        success: function (res) {
+          console.log(res);
+        },
+        complete: function () {
+        }
+    });
 }
 
 

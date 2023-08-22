@@ -192,21 +192,26 @@
 
                     <!-- check nap dai ly -->
                     <div class="content_checknap" style="">
-                        <div><label for="checknap"><b>Đại Lý:</b></label>
-                            <select name="checknap" id="checknap">
-                                <option value="Dailygamevn">Dailygamevn</option>
-                                <option value="QuyenQuyen">QuyenQuyen</option>
-                                <option value="Weacc">Weacc</option>
-                                <option value="SonLeu">SonLeu</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="ngaybatdau"><b>Ngày bắt đầu:</b></label>
-                            <input type="date" id="ngaybatdau" name="ngaybatdau">
-                        </div>
-                        <div>
-                            <label for="ngayketthuc"><b>Ngày kết thúc:</b></label>
-                            <input type="date" id="ngayketthuc" name="ngayketthuc">
+                        <div class="content_checknap-top">
+                            <div><label for="checknap"><b>Đại Lý:</b></label>
+                                <select name="checknap" id="checknap">
+                                    <option value="Dailygamevn">Dailygamevn</option>
+                                    <option value="QuyenQuyen">QuyenQuyen</option>
+                                    <option value="Weacc">Weacc</option>
+                                    <option value="SonLeu">SonLeu</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="ngaybatdau"><b>Ngày bắt đầu:</b></label>
+                                <input type="date" id="ngaybatdau" name="ngaybatdau">
+                            </div>
+                            <div>
+                                <label for="ngayketthuc"><b>Ngày kết thúc:</b></label>
+                                <input type="date" id="ngayketthuc" name="ngayketthuc">
+                            </div>
+                            <div class="check-daily" onclick="checkNapDaiLy()">
+                                check
+                            </div>
                         </div>
                     </div>
                 </div>
