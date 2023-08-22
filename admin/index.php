@@ -194,9 +194,12 @@
                         <div class="content_checknap-top">
                             <div><label for="checknap"><b>Đại Lý:</b></label>
                                 <select name="checknap" id="checknap">
-                                    <option value="Dailygamevn">Dailygamevn</option>
-                                    <option value="QuyenQuyen">QuyenQuyen</option>
-                                    <option value="Weacc">Weacc</option>
+                                    <option value="ZeniSieuRe">ZeniSieuRe</option>
+                                    <option value="SonLeu">SonLeu</option>
+                                    <option value="Minato">Minato</option>
+                                    <option value="NguyenQuangTung">NguyenQuangTung</option>
+                                    <option value="NgocKen">NgocKen</option>
+                                    <option value="SonHeroGaming">SonHeroGaming</option>
                                 </select>
                             </div>
                             <div>
