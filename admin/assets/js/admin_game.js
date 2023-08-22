@@ -26,7 +26,7 @@ var adminchuyen = '';
 
 
 
-function show() {
+function checknap() {
     console.log($('select[name="checknap"]').val())
     console.log($('#ngaybatdau').val())
     console.log($('#ngayketthuc').val())
