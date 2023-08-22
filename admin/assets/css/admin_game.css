@@ -203,17 +203,19 @@ a {
 }
 
 .content_checknap-top {
-    margin-bottom: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(178px, 3fr));
 }
 
-#checknap, #ngaybatdau, #ngayketthuc{
+#checknap,
+#ngaybatdau,
+#ngayketthuc {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
 }
-.check-daily{
+
+.check-daily {
     border: 1px solid #ccc;
     height: 39px;
     margin-top: 18px;
@@ -224,7 +226,7 @@ a {
     font-size: 18px;
 }
 
-.check-daily:hover{
+.check-daily:hover {
     background-color: #c9c8c8;
     cursor: pointer;
 }

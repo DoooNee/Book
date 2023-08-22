@@ -24,13 +24,24 @@ var adminchuyen = '';
 // }
 
 
-
+function addCommas(str) {
+    var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
+    var len = arr.length; // Độ dài của chuỗi
+    var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
+    // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
+    while (commaIndex > 0) {
+        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
+        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
+    }
+    // Ghép mảng các kí tự thành chuỗi và trả về
+    return arr.join('');
+}
 
 function checkNapDaiLy() {
     let daily_ = $('select[name="checknap"]').val();
     let ngaybatdau_ = $('#ngaybatdau').val();
     let ngayketthuc_ = $('#ngayketthuc').val();
-    let html='';
+    let html = '';
     $.ajax({
         url: 'https://daily.metatap.vn/backend/checknap.php',
         type: 'post',
@@ -43,14 +54,19 @@ function checkNapDaiLy() {
         beforeSend: function () {
         },
         success: function (res) {
+            console.log(res)
             if (res.status == 'error') {
                 show_result({ "title": "Thông báo !", "msg": `${res.msg}` });
             }
-            $.each(res, function (i, item) {
-                html += `<tr><td>${item.daily}</td><td  >${addCommas(item.sotien)}</td><td>${item.description}</td><td  >${item.thoigiannap}</td></tr>`;
+            $.each(res.data, function (i, item) {
+                // console.log(addCommas(item.sotien))
+                // let sotien = addCommas(item.sotien);
+                html += `<tr><td>${item.daily}</td><td>${addCommas(item.sotien)}</td><td  >${item.thoigiannap}</td></tr>`;
             });
-            var html_rank = '<table><tr><th>ĐẠI LÝ</th><th >SỐ TIỀN</th><th >MÔ TẢ</th><th>THỜI GIAN NẠP</th></tr>' + html + '</table>';
+            var html_rank = '<div class="total_sotien" style="margin:15px 0"></div><table><tr><th>ĐẠI LÝ</th><th >SỐ TIỀN</th><th>THỜI GIAN NẠP</th></tr>' + html + '</table>';
+            console.log(html_rank);
             $('.table-content-checknap').html(html_rank);
+            $('.total_sotien').html('<b>Tổng nạp:</b>' + addCommas(`${res.tongnap}`));
         },
         complete: function () {
         }
@@ -97,20 +113,7 @@ function checkAdmin() {
     swal("Bạn Không Phải ADMIN!");
 }
 
-function addCommas(str) {
-    var arr = str.split(''); // Chuyển chuỗi thành mảng các kí tự
-    var len = arr.length; // Độ dài của chuỗi
-    var commaIndex = len - 3; // Vị trí đầu tiên cần thêm dấu phẩy
 
-    // Vòng lặp để thêm dấu phẩy vào các vị trí cần thiết
-    while (commaIndex > 0) {
-        arr.splice(commaIndex, 0, ','); // Thêm dấu phẩy vào vị trí commaIndex
-        commaIndex -= 3; // Cập nhật lại vị trí cần thêm dấu phẩy
-    }
-
-    // Ghép mảng các kí tự thành chuỗi và trả về
-    return arr.join('');
-}
 
 function showADMIN() {
     $('.content_admin').show();
