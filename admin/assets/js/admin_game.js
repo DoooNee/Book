@@ -54,9 +54,8 @@ function checkNapDaiLy() {
         beforeSend: function () {
         },
         success: function (res) {
-            console.log(res)
             if (res.status == 'error') {
-                show_result({ "title": "Thông báo !", "msg": `${res.msg}` });
+                show_result({ "title": "Thông báo !", "msg": `${res.msg}` });return 0;
             }
             $.each(res.data, function (i, item) {
                 // console.log(addCommas(item.sotien))
@@ -64,8 +63,8 @@ function checkNapDaiLy() {
                 html += `<tr><td>${item.daily}</td><td>${addCommas(item.sotien)}</td><td  >${item.thoigiannap}</td></tr>`;
             });
             var html_rank = '<div class="total_sotien" style="margin:15px 0"></div><table><tr><th>ĐẠI LÝ</th><th >SỐ TIỀN</th><th>THỜI GIAN NẠP</th></tr>' + html + '</table>';
-            console.log(html_rank);
-            $('.table-content-checknap').html(html_rank);
+           
+                $('.table-content-checknap').html(html_rank);
             $('.total_sotien').html('<b>Tổng nạp:</b>' + addCommas(`${res.tongnap}`));
         },
         complete: function () {
