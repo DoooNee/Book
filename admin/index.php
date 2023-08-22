@@ -198,7 +198,6 @@
                                     <option value="Dailygamevn">Dailygamevn</option>
                                     <option value="QuyenQuyen">QuyenQuyen</option>
                                     <option value="Weacc">Weacc</option>
-                                    <option value="SonLeu">SonLeu</option>
                                 </select>
                             </div>
                             <div>
