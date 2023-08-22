@@ -30,6 +30,7 @@ function checkNapDaiLy() {
     let daily_ = $('select[name="checknap"]').val();
     let ngaybatdau_ = $('#ngaybatdau').val();
     let ngayketthuc_ = $('#ngayketthuc').val();
+    let html='';
     $.ajax({
         url: 'https://daily.metatap.vn/backend/checknap.php',
         type: 'post',
@@ -42,7 +43,14 @@ function checkNapDaiLy() {
         beforeSend: function () {
         },
         success: function (res) {
-          console.log(res);
+            if (res.status == 'error') {
+                show_result({ "title": "Thông báo !", "msg": `${res.msg}` });
+            }
+            $.each(res, function (i, item) {
+                html += `<tr><td>${item.daily}</td><td  >${addCommas(item.sotien)}</td><td>${item.description}</td><td  >${item.thoigiannap}</td></tr>`;
+            });
+            var html_rank = '<table><tr><th>ĐẠI LÝ</th><th >SỐ TIỀN</th><th >MÔ TẢ</th><th>THỜI GIAN NẠP</th></tr>' + html + '</table>';
+            $('.table-content-checknap').html(html_rank);
         },
         complete: function () {
         }
@@ -404,3 +412,72 @@ function checkInput() {
     // checked false cho input
     $('#nav_mb').get(0).checked = false;
 }
+
+
+
+
+
+
+
+
+
+
+
+function show_result(response, callback) {//Hien thi thong bao
+    var title_choose, title_arr;
+    title_arr = ['Lỗi !', 'Chúc mừng !', 'Thông báo', 'Thông báo !'];
+
+    title_choose = (typeof response.title == "undefined" ? title_arr[response.status] : response.title);
+    let className = '', text = 'Ok', btn_ok_visible = true;
+
+    if (response.status == 1) {
+        // className='vq_notice';
+        // title_choose='';
+    } else {
+        text = 'Ok';
+        btn_ok_visible = true;
+    }
+
+    setTimeout(function () {
+        var div = document.createElement("div");
+        div.innerHTML = response.msg + "<a href='javascript:;' onclick='close_swal()' class=' close_popup'></a>";
+        swal({
+            title: title_choose,
+            content: div,
+            className: className,
+            buttons: {
+                confirm: {
+                    text: text,//Đăng nhập
+                    value: "confirm",
+                    visible: btn_ok_visible,
+                    className: "btn_ok",
+                    closeModal: true
+                }
+            }
+        }).then((willDelete) => {
+            if (typeof response.reload != 'undefined') {
+                //Lam moi lại trang
+                console.log("ok reload");
+                location.reload();
+            }
+
+            if (typeof response.redirect !== 'undefined') {
+                //Chuyen huong trang
+                console.log("ok redirect");
+                window.location.href = response.redirect;
+            }
+            if (typeof callback !== 'undefined') {
+                //Callback function other
+                console.log("ok callback");
+
+                callback();
+                return;
+            }
+        });
+    }, 200);
+    // return "hello";
+}
+
+
+
+

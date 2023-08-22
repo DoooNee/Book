@@ -203,6 +203,7 @@ a {
 }
 
 .content_checknap-top {
+    margin-bottom: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(178px, 3fr));
 }

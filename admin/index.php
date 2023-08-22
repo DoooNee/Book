@@ -189,7 +189,6 @@
                         </ul>
 
                     </div>
-
                     <!-- check nap dai ly -->
                     <div class="content_checknap" style="">
                         <div class="content_checknap-top">
@@ -212,6 +211,7 @@
                                 check
                             </div>
                         </div>
+                        <div class="table-content-checknap"></div>
                     </div>
                 </div>
             </div>
